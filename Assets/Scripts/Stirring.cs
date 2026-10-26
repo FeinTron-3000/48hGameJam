@@ -21,11 +21,11 @@ public class Stirring : MonoBehaviour
     }
 
     IEnumerator spawn()
-    { 
-        for (int i = 0; i < newtargets.Length; i++)
-        {
-            newtargets[index] = GameObject.Instantiate(target);
-            yield return new WaitForSeconds(spawnspeed);
-        }
+    {
+        newtargets[index].SetActive(true);
+        yield return new WaitForSeconds(spawnspeed);
+
+        // add if statement for game continuing
+        StartCoroutine(spawn());
     }
 }
