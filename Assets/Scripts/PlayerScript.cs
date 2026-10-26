@@ -7,6 +7,8 @@ public class PlayerScript : MonoBehaviour
     [Header("Player Movement")]
     [SerializeField] public Rigidbody2D rb;
 
+    [SerializeField] private Animator animator;
+
     [SerializeField] public float movespeed;
     [SerializeField] public KeyCode moveright;
     [SerializeField] public KeyCode moveleft;
@@ -36,9 +38,13 @@ public class PlayerScript : MonoBehaviour
         {
             MoveRight();
         }
-        if (Input.GetKey(moveleft))
+        else if (Input.GetKey(moveleft))
         {
             MoveLeft();
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
         }
         if (Input.GetKeyDown(jump))
         {
@@ -53,17 +59,7 @@ public class PlayerScript : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Attack();
-        }
-    }
-
-    public void Attack()
-    {
-        Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, weaponRage, enemyLayer);
-        Debug.Log("Hit enemy");
-        if (enemies.Length > 0)
-        {
-            enemies[0].GetComponent<EnemyHealth>().TakeDamnge(damnage);
+            playerAttack.Attack();
         }
     }
 
@@ -71,10 +67,12 @@ public class PlayerScript : MonoBehaviour
     void MoveRight()
     {
         rb.AddForce(Vector2.right * movespeed, ForceMode2D.Force);
+        animator.SetBool("isWalking", true);
     } 
     void MoveLeft()
     {
         rb.AddForce(Vector2.left * movespeed, ForceMode2D.Force);
+        animator.SetBool("isWalking", true);
     }
     void Jump()
     {
