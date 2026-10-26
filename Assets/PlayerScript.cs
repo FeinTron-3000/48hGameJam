@@ -14,17 +14,12 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField] public float jumppower;
     [SerializeField] public KeyCode jump;
-    [SerializeField] private bool grounded;
+    [SerializeField] bool grounded;
+    [SerializeField] bool doublejump;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
+        // movement
         if (Input.GetKey(moveright))
         {
             MoveRight();
@@ -37,12 +32,15 @@ public class PlayerScript : MonoBehaviour
         {
             Jump();
         }
+
+        // limit speed
         if (rb.velocity.magnitude > maxspeed)
         {
             rb.velocity = rb.velocity.normalized * maxspeed;
         }
     }
 
+    // movement
     void MoveRight()
     {
         rb.AddForce(Vector2.right * movespeed, ForceMode2D.Force);
@@ -55,12 +53,30 @@ public class PlayerScript : MonoBehaviour
     {
         if (CheckForGround())
         {
+            doublejump = true;
             rb.AddForce(Vector2.up * jumppower, ForceMode2D.Force);
+        }
+        else if (doublejump)
+        {
+            doublejump = false;
+            // smaller jump
+            rb.AddForce(Vector2.up * jumppower * 0.5f, ForceMode2D.Force);
         }
     }
 
+    // ground detection
     private bool CheckForGround()
     {
-        return Physics2D.Raycast(transform.position, Vector2.down, LayerMask.GetMask("Ground"));
+        return Physics2D.Raycast(transform.position, Vector2.down, 1, LayerMask.GetMask("Ground"));
+    }
+
+    // death
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Add Juice");
+            Destroy(gameObject);
+        }
     }
 }
