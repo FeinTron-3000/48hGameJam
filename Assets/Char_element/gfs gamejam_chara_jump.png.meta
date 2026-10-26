@@ -1,7 +1,37 @@
 fileFormatVersion: 2
 guid: 855bd589df3a033468dcbe3f0629d583
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -7392227632536085584
+    second: gfs gamejam_chara_jump_0
+  - first:
+      213: 7245435458215915939
+    second: gfs gamejam_chara_jump_1
+  - first:
+      213: -4043544182445866502
+    second: gfs gamejam_chara_jump_2
+  - first:
+      213: 1263993825669172111
+    second: gfs gamejam_chara_jump_3
+  - first:
+      213: -6464880176696171010
+    second: gfs gamejam_chara_jump_4
+  - first:
+      213: -3720810245501884060
+    second: gfs gamejam_chara_jump_5
+  - first:
+      213: -664860045360972849
+    second: gfs gamejam_chara_jump_6
+  - first:
+      213: 2002680512129614387
+    second: gfs gamejam_chara_jump_7
+  - first:
+      213: -5566934251737668074
+    second: gfs gamejam_chara_jump_8
+  - first:
+      213: -4922442286307919012
+    second: gfs gamejam_chara_jump_9
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -90,7 +120,217 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: gfs gamejam_chara_jump_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 1
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bb1cd74228896990800000000000000
+      internalID: -7392227632536085584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gfs gamejam_chara_jump_1
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 1
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a1baf94925fc8460800000000000000
+      internalID: 7245435458215915939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gfs gamejam_chara_jump_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af187bb5df172e7c0800000000000000
+      internalID: -4043544182445866502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gfs gamejam_chara_jump_3
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 1
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8b4c4100bb9a8110800000000000000
+      internalID: 1263993825669172111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gfs gamejam_chara_jump_4
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 1
+        width: 20
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef56f805bb12846a0800000000000000
+      internalID: -6464880176696171010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gfs gamejam_chara_jump_5
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 1
+        width: 20
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 469e930abc60d5cc0800000000000000
+      internalID: -3720810245501884060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gfs gamejam_chara_jump_6
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcbb8e2bf41f5c6f0800000000000000
+      internalID: -664860045360972849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gfs gamejam_chara_jump_7
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 1
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 332451ca053facb10800000000000000
+      internalID: 2002680512129614387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gfs gamejam_chara_jump_8
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 1
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 616a83dfac64eb2b0800000000000000
+      internalID: -5566934251737668074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gfs gamejam_chara_jump_9
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 1
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5b314122d8ffabb0800000000000000
+      internalID: -4922442286307919012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

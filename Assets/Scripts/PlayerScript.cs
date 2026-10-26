@@ -67,6 +67,18 @@ public class PlayerScript : MonoBehaviour
             playerAttack.Attack();
         }
     }
+    private void LateUpdate()
+    {
+        if (CheckForGround())
+        {
+            animator.SetBool("Jump", false);
+            animator.SetBool("Land", true);
+        }
+        else
+        {
+            animator.SetBool("Land", false);
+        }
+    }
 
     // movement
     void MoveRight()
@@ -90,6 +102,8 @@ public class PlayerScript : MonoBehaviour
     {
         if (CheckForGround())
         {
+            animator.SetBool("Land", false);
+            animator.SetBool("Jump", true);
             doublejump = true;
             rb.AddForce(Vector2.up * jumppower, ForceMode2D.Force);
         }

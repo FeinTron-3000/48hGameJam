@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 243140103}
   - component: {fileID: 243140102}
   m_Layer: 3
-  m_Name: Ground Plane (1)
+  m_Name: Ground Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -352,7 +352,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &1101494604
 Rigidbody2D:
   serializedVersion: 4
@@ -391,14 +391,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 6.4, y: 6.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 6.33, y: 5.82}
   m_EdgeRadius: 0
 --- !u!212 &1101494606
 SpriteRenderer:
@@ -440,9 +440,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_FlipX: 0
+  m_Sprite: {fileID: 21300000, guid: 5e609999c65fd7f458d0c411aba24adf, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -459,7 +459,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1101494603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.47, y: -3.54, z: 0}
+  m_LocalPosition: {x: 5.29, y: -0.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -491,7 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e27e57c8730d42479714c4628928ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movespeed: 5
+  movespeed: 1
   player: {fileID: 1509233112}
   playeronright: 0
   rb: {fileID: 1101494604}
@@ -551,7 +551,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &1509233114
 BoxCollider2D:
