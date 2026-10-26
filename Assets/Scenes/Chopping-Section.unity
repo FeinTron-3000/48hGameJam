@@ -156,6 +156,8 @@ MonoBehaviour:
   scoreui: {fileID: 398628590}
   cookingScoring: {fileID: 11400000, guid: 4f084218082150246970c462afcb3b50, type: 2}
   nextlevel: Stiring-Section
+  choppingsection: 1
+  stirringsection: 0
 --- !u!4 &21705910
 Transform:
   m_ObjectHideFlags: 0
@@ -549,7 +551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 1140521129}
   timelimit: 30
-  gm: {fileID: 0}
+  gm: {fileID: 21705909}
 --- !u!1 &1346357552
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,7 +784,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 21705909}
-  stirringmode: 0
 --- !u!58 &1677880184
 CircleCollider2D:
   m_ObjectHideFlags: 0

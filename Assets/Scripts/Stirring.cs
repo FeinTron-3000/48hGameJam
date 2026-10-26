@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class Stirring : MonoBehaviour
 {
     [SerializeField] public GameObject target;
-    [SerializeField] public GameObject[] newtargets;
-    [SerializeField] public int index;
     [SerializeField] private int currentscore;
     [SerializeField] public float spawnspeed;
 
@@ -16,16 +15,14 @@ public class Stirring : MonoBehaviour
     {
         gm = gm.gameObject.GetComponent<GMCookingScene>();
 
-        index = 0;
         StartCoroutine(spawn());
     }
 
     IEnumerator spawn()
     {
-        newtargets[index].SetActive(true);
+        Debug.Log("Spawn");
+        target.SetActive(true);
         yield return new WaitForSeconds(spawnspeed);
-
-        // add if statement for game continuing
         StartCoroutine(spawn());
     }
 }

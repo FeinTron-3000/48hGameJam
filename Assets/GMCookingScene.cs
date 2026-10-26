@@ -11,6 +11,9 @@ public class GMCookingScene : MonoBehaviour
 
     [SerializeField] public CookingScoring cookingScoring;
     [SerializeField] public string nextlevel;
+
+    [SerializeField] public bool choppingsection;
+    [SerializeField] public bool stirringsection;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,8 +29,14 @@ public class GMCookingScene : MonoBehaviour
     public void GameOver()
     {
         // scriptable object equal level score
-        cookingScoring.choppingscore = score;
-
-        SceneManager.LoadScene(nextlevel);
+        if (choppingsection)
+        {
+            cookingScoring.choppingscore = score;
+        }
+        else if (stirringsection)
+        {
+            cookingScoring.stirringscore = score;
+        }
+            SceneManager.LoadScene(nextlevel);
     }
 }

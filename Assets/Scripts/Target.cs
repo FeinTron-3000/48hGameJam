@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 public class Target : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] public GMCookingScene gm;
+    [SerializeField] public Stirring stirringscript;
 
     [Header("Stirring Mode")]
     [SerializeField] public float minx;
@@ -21,6 +22,7 @@ public class Target : MonoBehaviour, IPointerClickHandler
     private void Start()
     {
         gm = gm.gameObject.GetComponent<GMCookingScene>();
+        stirringscript = stirringscript.gameObject.GetComponent<Stirring>();
     }
 
     private void Update()

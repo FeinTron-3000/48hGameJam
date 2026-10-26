@@ -6,5 +6,5 @@ using UnityEngine;
 public class CookingScoring : ScriptableObject
 {
     [SerializeField] public int choppingscore;
-    [SerializeField] public int level2;
+    [SerializeField] public int stirringscore;
 }
