@@ -9,6 +9,8 @@ public class EnemyMovement : MonoBehaviour
     public bool playeronright;
     [SerializeField] public Rigidbody2D rb;
 
+    public float maxspeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,20 +26,22 @@ public class EnemyMovement : MonoBehaviour
             {
                 Debug.Log("right");
                 playeronright = true;
-                rb.AddForce(Vector2.right * movespeed * Time.deltaTime, ForceMode2D.Impulse);
+                rb.AddForce(Vector2.right * movespeed * Time.deltaTime, ForceMode2D.Force);
 
             }
             else
             {
                 Debug.Log("left");
                 playeronright = false;
-                rb.AddForce(Vector2.left * movespeed * Time.deltaTime, ForceMode2D.Impulse);
+                rb.AddForce(Vector2.left * movespeed * Time.deltaTime, ForceMode2D.Force);
+            }
+
+            if (rb.velocity.magnitude > maxspeed)
+            {
+                rb.velocity = rb.velocity.normalized * maxspeed;
             }
         }
     }
-    private bool CheckForGround()
-    {
-        return Physics2D.Raycast(transform.position, Vector2.down, 1, LayerMask.GetMask("Ground"));
-    }
 
+    
 }

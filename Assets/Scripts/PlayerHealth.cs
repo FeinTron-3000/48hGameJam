@@ -7,28 +7,32 @@ public class PlayerHealth : MonoBehaviour
 
 {
     private Rigidbody2D rb;
-    [SerializeField] public float knockbackForce = 10f;
+    [SerializeField] public float knockbackForce;
     public int health;
     public int maxHealth = 3;
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
-       rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.position.x < transform.position.x)
         {
-            Debug.Log("right");
-            rb.AddForce(Vector2.right * knockbackForce * Time.deltaTime, ForceMode2D.Impulse);
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                rb.AddForce(Vector2.right * knockbackForce * Time.deltaTime, ForceMode2D.Impulse);
+            }
 
         }
         else
         {
-            Debug.Log("left");
-            rb.AddForce(Vector2.left * knockbackForce * Time.deltaTime, ForceMode2D.Impulse);
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                rb.AddForce(Vector2.left * knockbackForce * Time.deltaTime, ForceMode2D.Impulse);
+            }
         }
     }
 

@@ -18,8 +18,10 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] public KeyCode jump;
     [SerializeField] bool grounded;
     [SerializeField] bool doublejump;
+    [SerializeField] public float gravityscale;
+    [SerializeField] public float fallinggravityscale;
 
-    public Transform attackPoint;
+    public GameObject attackPoint;
     public float weaponRage;
     public LayerMask enemyLayer;
     public int damnage = 1;
@@ -36,56 +38,91 @@ public class PlayerScript : MonoBehaviour
         // movement
         if (Input.GetKey(moveright))
         {
+            transform.localScale = new Vector3(5, 5, 0);
             MoveRight();
         }
         else if (Input.GetKey(moveleft))
         {
+            transform.localScale = new Vector3(-5, 5, 0);
             MoveLeft();
         }
         else
         {
             animator.SetBool("isWalking", false);
         }
+
         if (Input.GetKeyDown(jump))
         {
             Jump();
         }
-
-        // limit speed
-        if (rb.velocity.magnitude > maxspeed)
+        if (rb.velocity.y >= 0)
         {
-            rb.velocity = rb.velocity.normalized * maxspeed;
+            rb.gravityScale = gravityscale;
+        }
+        else if (rb.velocity.y < 0)
+        {
+            rb.gravityScale = fallinggravityscale;
         }
 
         if (Input.GetMouseButtonDown(0))
         {
+            animator.SetBool("Attack", true);
             playerAttack.Attack();
+        }
+    }
+    
+    private void LateUpdate()
+    {
+        if (CheckForGround())
+        {
+            animator.SetBool("Jump", false);
+            animator.SetBool("Land", true);
+        }
+        else
+        {
+            animator.SetBool("Land", false);
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            animator.SetBool("Attack", false);
         }
     }
 
     // movement
     void MoveRight()
     {
-        rb.AddForce(Vector2.right * movespeed, ForceMode2D.Force);
+        if (rb.velocity.magnitude < maxspeed)
+        {
+            rb.AddForce(Vector2.right * movespeed, ForceMode2D.Force);
+        }
+
         animator.SetBool("isWalking", true);
     } 
     void MoveLeft()
     {
-        rb.AddForce(Vector2.left * movespeed, ForceMode2D.Force);
+        if (rb.velocity.magnitude < maxspeed)
+        {
+            rb.AddForce(Vector2.left * movespeed, ForceMode2D.Force);
+        }
         animator.SetBool("isWalking", true);
     }
     void Jump()
     {
         if (CheckForGround())
         {
+            animator.SetBool("Land", false);
+            animator.SetBool("Jump", true);
             doublejump = true;
             rb.AddForce(Vector2.up * jumppower, ForceMode2D.Force);
         }
-        else if (doublejump)
+        else
         {
-            doublejump = false;
-            // smaller jump
-            rb.AddForce(Vector2.up * jumppower * 0.5f, ForceMode2D.Force);
+            if (doublejump)
+            {
+                doublejump = false;
+                // smaller jump
+                rb.AddForce(Vector2.up * jumppower * 0.5f, ForceMode2D.Force);
+            }
         }
     }
 
@@ -94,6 +131,4 @@ public class PlayerScript : MonoBehaviour
     {
         return Physics2D.Raycast(transform.position, Vector2.down, 1, LayerMask.GetMask("Ground"));
     }
-
-    // death
 }
