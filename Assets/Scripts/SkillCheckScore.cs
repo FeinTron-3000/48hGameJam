@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class SkillCheckScore : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] public GMCookingScene gm;
+    [SerializeField] public SkillCheck skillcheck;
+    private void Start()
     {
-        
+        gm = gm.gameObject.GetComponent<GMCookingScene>();
+        skillcheck = skillcheck.gameObject.GetComponent<SkillCheck>();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void OnMouseDown()
     {
-        
+        // increase score
+        if (skillcheck.clickready)
+        {
+            gm.score++;
+        }
+        else
+        {
+            gm.score--;
+        }
     }
 }

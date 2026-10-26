@@ -7,4 +7,5 @@ public class CookingScoring : ScriptableObject
 {
     [SerializeField] public int choppingscore;
     [SerializeField] public int stirringscore;
+    [SerializeField] public int skillcheckscore;
 }

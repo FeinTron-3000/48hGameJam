@@ -8,19 +8,22 @@ public class SkillCheck : MonoBehaviour
     public float speed;
     public float difficulty;
 
+    public GameObject button;
+
     private void Update()
     {
-        transform.rotation = Quaternion.Euler(Vector3.right * speed);
+        transform.eulerAngles += Vector3.forward * speed;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("hit");
         clickready = true;
-        StartCoroutine(SetFalse());
+        button.SetActive(true);
     }
 
-    IEnumerator SetFalse()
+    public void OnTriggerExit2D(Collider2D collision)
     {
-        yield return new WaitForSeconds(difficulty);
         clickready = false;
+        button.SetActive(false);
     }
 }

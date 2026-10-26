@@ -14,6 +14,7 @@ public class GMCookingScene : MonoBehaviour
 
     [SerializeField] public bool choppingsection;
     [SerializeField] public bool stirringsection;
+    [SerializeField] public bool skillcheck;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +38,10 @@ public class GMCookingScene : MonoBehaviour
         {
             cookingScoring.stirringscore = score;
         }
-            SceneManager.LoadScene(nextlevel);
+        else if (skillcheck)
+        {
+            cookingScoring.skillcheckscore = score;
+        }
+        SceneManager.LoadScene(nextlevel);
     }
 }
