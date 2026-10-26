@@ -6,16 +6,20 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class Scoring : MonoBehaviour
 {
-    public static int score = 0;
+    [SerializeField] public GMCookingScene gm;
+    [SerializeField] public bool stirringmode;
 
-    [SerializeField] private TMP_Text scoreText;
-
-    private void OnMouseDown()
+    private void Start()
     {
-        score++;
-        if (scoreText  != null )
+        gm = gm.gameObject.GetComponent<GMCookingScene>();
+    }
+    public void OnMouseDown()
+    {
+        // increase score
+        gm.score++;
+        if (stirringmode)
         {
-            scoreText.text = "Score: " + score;
+            Destroy(gameObject);
         }
     }
 }

@@ -8,47 +8,46 @@ using UnityEditor.Experimental.GraphView;
 
 public class Countdown : MonoBehaviour
 {
-   [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] public int timelimit;
 
-    public float currentTime = 30f;
-    private bool active = true;
+    [SerializeField] public GMCookingScene gm;
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        if ( active)
+        gm = gm.gameObject.GetComponent<GMCookingScene>();
+
+        StartCoroutine(CountDown());
+    }
+
+    IEnumerator CountDown()
+    {
+        for (int i = timelimit; i > 0; i--)
         {
-
-            currentTime -= Time.deltaTime;
-
-            UpdateTimerUI();
-            {
-                if (currentTime <= 0)
-                {
-                    StopTimer();
-                }
-            }
+            timelimit--;
+            int minutes = Mathf.FloorToInt(timelimit / 60);
+            int seconds = Mathf.FloorToInt(timelimit % 60);
+            timerText.text = string.Format("{00:00}:{1:00}", minutes, seconds);
+            yield return new WaitForSeconds(1);
         }
-        int minutes = Mathf.FloorToInt(currentTime / 60);
-        int seconds = Mathf.FloorToInt(currentTime % 60);
-        timerText.text = string.Format("{00:00}:{1:00}", minutes, seconds);
-
+        StopTimer();
     }
 
     public void StopTimer()
     {
-        active = false;
-        currentTime = 0f;
-        UpdateTimerUI();
+        timelimit = 0;
+        TimesUp();
+        gm.GameOver();
     }
 
-    private void UpdateTimerUI()
+    // game over animation
+    private void TimesUp()
     {
-        if (currentTime > 0 && currentTime < 10)
+        if (timelimit > 0 && timelimit < 10)
         {
             timerText.color = Color.yellow;
         }
-        else if (currentTime < 1)
+        else if (timelimit < 1)
         {
             timerText.color = Color.red;
         }
