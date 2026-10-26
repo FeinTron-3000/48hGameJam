@@ -17,6 +17,17 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] bool grounded;
     [SerializeField] bool doublejump;
 
+    public Transform attackPoint;
+    public float weaponRage;
+    public LayerMask enemyLayer;
+    public int damnage = 1;
+
+    public PlayerAttack playerAttack;
+
+    private void Start()
+    {
+        playerAttack = playerAttack.GetComponent<PlayerAttack>();
+    }
 
     void Update()
     {
@@ -38,6 +49,21 @@ public class PlayerScript : MonoBehaviour
         if (rb.velocity.magnitude > maxspeed)
         {
             rb.velocity = rb.velocity.normalized * maxspeed;
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Attack();
+        }
+    }
+
+    public void Attack()
+    {
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, weaponRage, enemyLayer);
+        Debug.Log("Hit enemy");
+        if (enemies.Length > 0)
+        {
+            enemies[0].GetComponent<EnemyHealth>().TakeDamnge(damnage);
         }
     }
 
