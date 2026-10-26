@@ -38,10 +38,12 @@ public class PlayerScript : MonoBehaviour
         // movement
         if (Input.GetKey(moveright))
         {
+            transform.localScale = new Vector3(5, 5, 0);
             MoveRight();
         }
         else if (Input.GetKey(moveleft))
         {
+            transform.localScale = new Vector3(-5, 5, 0);
             MoveLeft();
         }
         else
@@ -64,9 +66,11 @@ public class PlayerScript : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            animator.SetBool("Attack", true);
             playerAttack.Attack();
         }
     }
+    
     private void LateUpdate()
     {
         if (CheckForGround())
@@ -77,6 +81,10 @@ public class PlayerScript : MonoBehaviour
         else
         {
             animator.SetBool("Land", false);
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            animator.SetBool("Attack", false);
         }
     }
 

@@ -5,17 +5,29 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public Transform attackPoint;
     public float weaponRage;
     public LayerMask enemyLayer;
     public int damnage = 1;
+    public float attacktime;
 
+    public GameObject player;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.GetComponent<EnemyHealth>().TakeDamnge(damnage);
+        }
+    }
     public void Attack()
     {
-            Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, weaponRage, enemyLayer);
-            if (enemies.Length > 0)
-            {
-                enemies[0].GetComponent<EnemyHealth>().TakeDamnge(damnage);
-            }
+        transform.position = player.transform.position + new Vector3(weaponRage * player.transform.localScale.x, 0, 0);
+        StartCoroutine(WeaponReturn());
+    }
+
+    IEnumerator WeaponReturn()
+    {
+        yield return new WaitForSeconds(attacktime);
+        transform.position = player.transform.position;
     }
 }

@@ -18,12 +18,10 @@ public class SkillCheck : MonoBehaviour
     {
         Debug.Log("hit");
         clickready = true;
-        button.SetActive(true);
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
         clickready = false;
-        button.SetActive(false);
     }
 }

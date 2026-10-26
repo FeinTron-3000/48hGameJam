@@ -365,7 +365,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -398,7 +398,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.33, y: 5.82}
+  m_Size: {x: 5.39, y: 5.82}
   m_EdgeRadius: 0
 --- !u!212 &1101494606
 SpriteRenderer:
@@ -491,10 +491,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e27e57c8730d42479714c4628928ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movespeed: 1
+  movespeed: 1200
   player: {fileID: 1509233112}
   playeronright: 0
   rb: {fileID: 1101494604}
+  maxspeed: 10
 --- !u!114 &1101494610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,6 +510,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 3
+  knockbackForce: 1000
+  rb: {fileID: 1101494604}
+  player: {fileID: 1509233112}
 --- !u!1 &1509233112
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,7 +526,6 @@ GameObject:
   - component: {fileID: 1509233114}
   - component: {fileID: 1509233113}
   - component: {fileID: 1509233118}
-  - component: {fileID: 1509233119}
   - component: {fileID: 1509233117}
   - component: {fileID: 1509233120}
   m_Layer: 6
@@ -675,7 +678,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   damnage: 1
-  playerAttack: {fileID: 1509233119}
+  playerAttack: {fileID: 1930879782}
 --- !u!114 &1509233118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -688,27 +691,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf13cb9dcfe23241a22682e6dd415f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackForce: 100
+  knockbackForce: 400
   health: 0
   maxHealth: 5
---- !u!114 &1509233119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1509233112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da0783cc71c3a334c934561dd9de422e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackPoint: {fileID: 1930879780}
-  weaponRage: 1
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  damnage: 1
 --- !u!95 &1509233120
 Animator:
   serializedVersion: 5
@@ -871,6 +856,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1930879780}
   - component: {fileID: 1930879781}
+  - component: {fileID: 1930879782}
   m_Layer: 0
   m_Name: AttackPoint
   m_TagString: Untagged
@@ -908,13 +894,32 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.38, y: 0.29}
+    newSize: {x: 0.38, y: 0.29}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1930879782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930879779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da0783cc71c3a334c934561dd9de422e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponRage: 0.2
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  damnage: 1
+  attacktime: 0.4
+  player: {fileID: 1509233112}
