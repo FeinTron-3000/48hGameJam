@@ -17,6 +17,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] bool grounded;
     [SerializeField] bool doublejump;
 
+
     void Update()
     {
         // movement
@@ -71,12 +72,4 @@ public class PlayerScript : MonoBehaviour
     }
 
     // death
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Debug.Log("Add Juice");
-            Destroy(gameObject);
-        }
-    }
 }
