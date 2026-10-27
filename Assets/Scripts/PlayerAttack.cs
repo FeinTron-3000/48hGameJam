@@ -14,6 +14,7 @@ public class PlayerAttack : MonoBehaviour
     public GameObject player;
 
     public EnemyHealth enemyhealth;
+    public PlayerHealth playerHealth;
     public bool isenemy;
     public bool enemyattack;
     public bool attacking;
@@ -24,17 +25,14 @@ public class PlayerAttack : MonoBehaviour
     public bool plant;
     public float growspeed;
     public bool plantattackstart;
-    public bool hornet;
-    public GameObject spike;
-    public float spikespeed;
 
-    public GameObject target;
+    public AudioSource mantisattack;
 
     [SerializeField] private Animator animator;
 
     private void Start()
     {
-        enemyhealth = enemyhealth.GetComponent<EnemyHealth>();
+        playerHealth = playerHealth.GetComponent<PlayerHealth>();
         if (plant)
         {
             StartCoroutine(CoolDown());
@@ -85,10 +83,6 @@ public class PlayerAttack : MonoBehaviour
                 }
             }
         }
-        if (hornet)
-        {
-
-        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -96,7 +90,8 @@ public class PlayerAttack : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
-                collision.GetComponent<EnemyHealth>().TakeDamnge(damnage);
+                enemyhealth = collision.GetComponent<EnemyHealth>();
+                enemyhealth.TakeDamnge(damnage);
             }
         }
         else
@@ -104,7 +99,7 @@ public class PlayerAttack : MonoBehaviour
             Debug.Log("hit");
             if (collision.gameObject.CompareTag("Player"))
             {
-                collision.GetComponent<PlayerHealth>().TakeDamage(damnage);
+                playerHealth.TakeDamage(damnage);
             }
         }
 

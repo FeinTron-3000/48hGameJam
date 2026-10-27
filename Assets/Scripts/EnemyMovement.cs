@@ -25,7 +25,8 @@ public class EnemyMovement : MonoBehaviour
 
     public bool endattack;
     public float range;
-    public AudioSource attacksound;
+    public AudioSource mantiswalk;
+    public AudioSource hornetbuzz;
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +46,7 @@ public class EnemyMovement : MonoBehaviour
                 // start mantis attack
                 if (!startattack)
                 {
-                    attacksound.Play();
+
                     attack.Agrivated();
                     startattack = true;
                 }
@@ -73,6 +74,7 @@ public class EnemyMovement : MonoBehaviour
             }
             else
             {
+                mantiswalk.Play();
                 rb.velocity = Vector3.zero;
             }
         }
@@ -128,6 +130,7 @@ public class EnemyMovement : MonoBehaviour
                 {
                     if (player.transform.position.x > transform.position.x)
                     {
+                        hornetbuzz.Play();
                         playeronright = true;
                         rb.AddForce(Vector2.right * movespeed * Time.deltaTime, ForceMode2D.Force);
 
@@ -135,6 +138,7 @@ public class EnemyMovement : MonoBehaviour
 
                     else
                     {
+                        hornetbuzz.Play();
                         playeronright = false;
                         rb.AddForce(Vector2.left * movespeed * Time.deltaTime, ForceMode2D.Force);
                     }
