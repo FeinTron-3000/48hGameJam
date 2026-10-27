@@ -19,10 +19,14 @@ public class EnemyMovement : MonoBehaviour
 
     public float maxspeed;
 
+    public PlayerAttack attack;
+    public bool startattack = false;
+
     // Start is called before the first frame update
     void Start()
     {
         script = script.GetComponent<EnemyHealth>();
+        attack = attack.GetComponent<PlayerAttack>();
     }
 
     // Update is called once per frame
@@ -33,6 +37,13 @@ public class EnemyMovement : MonoBehaviour
         {
             if (script.agrivated == true && script.attacking == false)
             {
+                // start mantis attack
+                if (!startattack)
+                {
+                    attack.Agrivated();
+                    startattack = true;
+                }
+
                 if (player != null)
                 {
                     animator.SetBool("Walk", true);
@@ -63,6 +74,7 @@ public class EnemyMovement : MonoBehaviour
         {
             if (player != null)
             {
+                animator.SetBool("Idle", true);
                 if (player.transform.position.x > transform.position.x)
                 {
                     playeronright = true;
