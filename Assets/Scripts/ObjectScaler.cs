@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ObjectScaler : MonoBehaviour
 {
+    [SerializeField] private Animator animator;
     // Scaling setting
     public float shrinkSpeed;
     public float growSpeed;
@@ -16,6 +17,40 @@ public class ObjectScaler : MonoBehaviour
 
     public bool isGrowing = false;
     private Vector3 initialScale;
+
+    public Rigidbody2D rb;
+    public GameObject knife;
+    public Vector3 startPos;
+    public Vector3 endPos;
+    public float chopSpeed;
+
+    private Vector3 targetPos;
+
+    public bool knifeanimation = false;
+    private bool playonce;
+
+    private void Awake()
+    {
+        targetPos = startPos;
+    }
+
+    private void KnifeDown()
+    {
+        if (playonce)
+        {
+            knife.transform.position = startPos;
+            playonce = false;
+        }
+        
+        if (knife.transform.position.y > endPos.y)
+        {
+            knife.transform.position += new Vector3(0, chopSpeed * Time.deltaTime, 0);
+        }
+        else
+        {
+            knifeanimation = false;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -39,9 +74,20 @@ public class ObjectScaler : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
             if (hit.collider != null && hit.collider.gameObject == triggerObject)
             {
-
+                animator.SetBool("isChopping", true);
+                knifeanimation = true;
+                playonce = true;
                 StartCoroutine(Grow());
             }
+        }
+        else
+        {
+            animator.SetBool("isChopping", false);
+        }
+
+        if (knifeanimation)
+        {
+            KnifeDown();
         }
     } 
 
