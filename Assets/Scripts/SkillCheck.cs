@@ -12,7 +12,7 @@ public class SkillCheck : MonoBehaviour
 
     private void Update()
     {
-        transform.eulerAngles += Vector3.forward * speed;
+        transform.eulerAngles += Vector3.forward * speed * Time.deltaTime;
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {

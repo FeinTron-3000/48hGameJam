@@ -747,9 +747,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 11400000, guid: 4f084218082150246970c462afcb3b50, type: 2}
-  a: 140
-  b: 120
-  c: 100
+  a: 160
+  b: 140
+  c: 110
   d: 80
   scores:
   - {fileID: 598193371}

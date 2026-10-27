@@ -28,7 +28,6 @@ public class ObjectScaler : MonoBehaviour
 
     public bool knifeanimation = false;
     private bool playonce;
-
     private void Awake()
     {
         targetPos = startPos;

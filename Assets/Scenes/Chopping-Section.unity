@@ -1243,6 +1243,7 @@ GameObject:
   - component: {fileID: 1677880184}
   - component: {fileID: 1677880187}
   - component: {fileID: 1677880183}
+  - component: {fileID: 1677880188}
   m_Layer: 0
   m_Name: Chop Button
   m_TagString: Untagged
@@ -1278,6 +1279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gm: {fileID: 21705909}
   animator: {fileID: 177465939}
+  button: {fileID: 1677880188}
 --- !u!58 &1677880184
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1401,6 +1403,27 @@ MonoBehaviour:
   endPos: {x: 1.8, y: -0.7, z: 0}
   chopSpeed: -20
   knifeanimation: 0
+--- !u!95 &1677880188
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677880181}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bce43e112341d0d43a23e856c82ee935, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2052993078
 GameObject:
   m_ObjectHideFlags: 0
