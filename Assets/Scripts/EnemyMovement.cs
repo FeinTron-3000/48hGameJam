@@ -103,13 +103,17 @@ public class EnemyMovement : MonoBehaviour
         }
         else if (hornet)
         {
+            hornetbuzz.Play();
             if (player != null)
             {
+                hornetbuzz.Play();
                 animator.SetBool("Idle", true);
                 if (player.transform.position.x > transform.position.x - range)
                 {
+                    hornetbuzz.Play();
                     if (player.transform.position.x > transform.position.x)
                     {
+                        hornetbuzz.Play();
                         playeronright = true;
                         rb.AddForce(Vector2.right * movespeed * Time.deltaTime, ForceMode2D.Force);
 
@@ -117,17 +121,20 @@ public class EnemyMovement : MonoBehaviour
 
                     else
                     {
+                        hornetbuzz.Play();
                         playeronright = false;
                         rb.AddForce(Vector2.left * movespeed * Time.deltaTime, ForceMode2D.Force);
                     }
 
                     if (rb.velocity.magnitude > maxspeed)
                     {
+                        hornetbuzz.Play();
                         rb.velocity = rb.velocity.normalized * maxspeed;
                     }
                 }
                 else if (player.transform.position.x > transform.position.x - range)
                 {
+                    hornetbuzz.Play();
                     if (player.transform.position.x > transform.position.x)
                     {
                         hornetbuzz.Play();
@@ -145,6 +152,7 @@ public class EnemyMovement : MonoBehaviour
 
                     if (rb.velocity.magnitude > maxspeed)
                     {
+                        hornetbuzz.Play();
                         rb.velocity = rb.velocity.normalized * maxspeed;
                     }
                 }
