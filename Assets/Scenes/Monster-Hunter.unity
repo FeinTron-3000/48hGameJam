@@ -682,6 +682,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   damnage: 1
+  dashingPower: 3
   playerAttack: {fileID: 1930879782}
 --- !u!114 &1509233118
 MonoBehaviour:
