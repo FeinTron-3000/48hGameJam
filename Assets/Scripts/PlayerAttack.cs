@@ -25,6 +25,10 @@ public class PlayerAttack : MonoBehaviour
     public float growspeed;
     public bool plantattackstart;
     public bool hornet;
+    public GameObject spike;
+    public float spikespeed;
+
+    public GameObject target;
 
     [SerializeField] private Animator animator;
 
@@ -55,7 +59,7 @@ public class PlayerAttack : MonoBehaviour
                 else
                 {
 
-                    transform.position = player.transform.position + new Vector3(weaponRage * player.transform.localScale.x * -1, 0, 0);
+                    transform.position = player.transform.position + new Vector3(weaponRage * player.transform.localScale.x * -1 * Time.deltaTime, 0, 0);
                 }
             }
         }
@@ -72,7 +76,7 @@ public class PlayerAttack : MonoBehaviour
                 else
                 {
                     animator.SetBool("Attack", true);
-                    transform.localScale += new Vector3(growspeed, growspeed, 1);
+                    transform.localScale += new Vector3(growspeed + Time.deltaTime, growspeed + Time.deltaTime, 1);
                 }
 
                 if (plantattackstart)
@@ -81,9 +85,28 @@ public class PlayerAttack : MonoBehaviour
                 }
             }
         }
+        if (hornet)
+        {
+
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!isenemy)
+        {
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                collision.GetComponent<EnemyHealth>().TakeDamnge(damnage);
+            }
+        }
+        else
+        {
+            Debug.Log("hit");
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                collision.GetComponent<PlayerHealth>().TakeDamage(damnage);
+            }
+        }
 
     }
 
