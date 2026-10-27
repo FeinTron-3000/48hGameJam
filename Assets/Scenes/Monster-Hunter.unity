@@ -503,7 +503,7 @@ Animator:
   m_GameObject: {fileID: 739481646}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e969aa00cb9eec247a52bbbb04c94da2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 607b9c2a922d3334b8391e252d466058, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3747,6 +3747,10 @@ MonoBehaviour:
   huntingscoring: {fileID: 11400000, guid: cc537a03a3a1663448d039bf0a2d13af, type: 2}
   mantis:
   - {fileID: 1101494603}
+  plant:
+  - {fileID: 1575455032}
+  hornet:
+  - {fileID: 739481646}
   timerText: {fileID: 304656518}
   timelimit: 60
 --- !u!4 &1888399807

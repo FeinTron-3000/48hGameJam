@@ -6,39 +6,51 @@ using UnityEngine.SceneManagement;
 
 public class GMResultsScreen : MonoBehaviour
 {
-    public TextMeshProUGUI mantisscoretext;
-
     [SerializeField] public HuntingScoring huntingscoring;
     [SerializeField] public ScoreTracker scoretracker;
 
     public string[] levelnames;
     public int index;
+
+    public int wait;
     void Start()
     {
-
-        mantisscoretext.text = "Mantis killed: " + huntingscoring.mantiscore;
-
-        if (huntingscoring.mantiscore > 0)
+        if (huntingscoring.hornetscore > 0)
         {
             scoretracker.choppingsection = true;
+            index = 2;
         }
         else
         {
-            scoretracker.choppingsection = false;
+            index = 3;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (scoretracker.choppingsection)
+        if (huntingscoring.plantscore > 0)
         {
+            scoretracker.choppingsection = true;
+            index = 1;
+        }
+        else
+        {
+            index = 3;
+        }
+        if (huntingscoring.mantiscore > 0)
+        {
+            scoretracker.choppingsection = true;
             index = 0;
         }
+        else
+        {
+            index = 3;
+        }
+        StartCoroutine(Juice());
     }
-
     public void StartGame()
     {
         SceneManager.LoadScene(levelnames[index]);
+    }
+    IEnumerator Juice()
+    {
+        yield return new WaitForSeconds(wait);
+        StartGame();
     }
 }

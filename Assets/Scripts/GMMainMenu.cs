@@ -6,9 +6,21 @@ using UnityEngine.SceneManagement;
 public class GMMainMenu : MonoBehaviour
 {
     public string startlevel;
-    public void GameStart()
+    [SerializeField] private Animator bganim;
+
+    // Scaling setting
+
+    public GameObject Bg;
+
+    public void OnMouseDown()
+    {
+        bganim.SetBool("Transition", true);
+        StartCoroutine(GameStart());
+    }
+    public IEnumerator GameStart()
     {
         Debug.Log("hit");
+        yield return new WaitForSeconds(4);
         SceneManager.LoadScene(startlevel);
     }
 }
