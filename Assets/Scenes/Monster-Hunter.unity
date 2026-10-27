@@ -6260,7 +6260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf13cb9dcfe23241a22682e6dd415f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackForce: 300
+  knockbackForce: 200
   animator: {fileID: 1509233120}
   health: 0
   maxHealth: 50266
