@@ -28,6 +28,7 @@ public class EnemyMovement : MonoBehaviour
     public AudioSource mantiswalk;
     public AudioSource hornetbuzz;
 
+
     // Start is called before the first frame update
     void Start()
     {

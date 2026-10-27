@@ -21,24 +21,7 @@ public class GMCookingScene : MonoBehaviour
 
     void Start()
     {
-        // set next level
-        if (scoretracker.stirringsection)
-        {
-            index = 1;
 
-            if (scoretracker.skillcheck)
-            {
-                index = 2;
-            }
-            else
-            {
-                index = 3;
-            }
-        }
-        else
-        {
-            index = 3;
-        }
     }
 
     void Update()

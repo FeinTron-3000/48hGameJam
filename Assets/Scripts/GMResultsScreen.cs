@@ -15,38 +15,11 @@ public class GMResultsScreen : MonoBehaviour
     public int wait;
     void Start()
     {
-        if (huntingscoring.hornetscore > 0)
-        {
-            scoretracker.choppingsection = true;
-            index = 2;
-        }
-        else
-        {
-            index = 3;
-        }
-        if (huntingscoring.plantscore > 0)
-        {
-            scoretracker.choppingsection = true;
-            index = 1;
-        }
-        else
-        {
-            index = 3;
-        }
-        if (huntingscoring.mantiscore > 0)
-        {
-            scoretracker.choppingsection = true;
-            index = 0;
-        }
-        else
-        {
-            index = 3;
-        }
         StartCoroutine(Juice());
     }
     public void StartGame()
     {
-        SceneManager.LoadScene(levelnames[index]);
+        SceneManager.LoadScene(levelnames[0]);
     }
     IEnumerator Juice()
     {

@@ -74,7 +74,7 @@ public class PlayerAttack : MonoBehaviour
                 else
                 {
                     animator.SetBool("Attack", true);
-                    transform.localScale += new Vector3(growspeed + Time.deltaTime, growspeed + Time.deltaTime, 1);
+                    transform.localScale += new Vector3(growspeed * Time.deltaTime, growspeed * Time.deltaTime, 1);
                 }
 
                 if (plantattackstart)

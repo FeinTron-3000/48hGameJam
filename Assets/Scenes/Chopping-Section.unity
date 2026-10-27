@@ -164,7 +164,7 @@ MonoBehaviour:
   - Stiring-Section
   - Skill-Check
   - Day-End
-  index: 0
+  index: 1
 --- !u!4 &21705910
 Transform:
   m_ObjectHideFlags: 0
@@ -605,7 +605,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &806806543
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1040,7 +1040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1140521129}
-  timelimit: 15
+  timelimit: 20
   gm: {fileID: 21705909}
 --- !u!1 &1346357552
 GameObject:
@@ -1388,8 +1388,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knifeAnim: {fileID: 177465939}
   meatAnim: {fileID: 0}
-  shrinkSpeed: 180
-  growSpeed: 20
+  shrinkSpeed: 0
+  growSpeed: 0
   minScale: 300
   maxScale: 400
   waitTime: 0.1

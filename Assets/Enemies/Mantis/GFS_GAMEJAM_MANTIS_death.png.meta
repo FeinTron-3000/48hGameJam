@@ -113,10 +113,10 @@ TextureImporter:
       name: GFS_GAMEJAM_MANTIS_death_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 1
-        width: 56
-        height: 41
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,10 +134,10 @@ TextureImporter:
       name: GFS_GAMEJAM_MANTIS_death_1
       rect:
         serializedVersion: 2
-        x: 70
-        y: 1
-        width: 55
-        height: 40
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,10 +155,10 @@ TextureImporter:
       name: GFS_GAMEJAM_MANTIS_death_2
       rect:
         serializedVersion: 2
-        x: 133
-        y: 1
-        width: 56
-        height: 29
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,10 +176,10 @@ TextureImporter:
       name: GFS_GAMEJAM_MANTIS_death_3
       rect:
         serializedVersion: 2
-        x: 198
+        x: 192
         y: 0
-        width: 53
-        height: 25
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,10 +197,10 @@ TextureImporter:
       name: GFS_GAMEJAM_MANTIS_death_4
       rect:
         serializedVersion: 2
-        x: 262
+        x: 256
         y: 0
-        width: 53
-        height: 25
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,10 +218,10 @@ TextureImporter:
       name: GFS_GAMEJAM_MANTIS_death_5
       rect:
         serializedVersion: 2
-        x: 326
+        x: 320
         y: 0
-        width: 53
-        height: 25
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
