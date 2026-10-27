@@ -18,6 +18,8 @@ public class Target : MonoBehaviour, IPointerClickHandler
 
     [SerializeField] public float minsize;
     [SerializeField] public float maxsize;
+    public Animator animator;
+
 
     private void Start()
     {
@@ -33,8 +35,11 @@ public class Target : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            // increase score
-            gm.score++;
+        // increase score
+        animator.SetBool("Chop", true);
+        StartCoroutine(Stop());
+    // increase score
+    gm.score++;
             gameObject.SetActive(false);
         }
     }
@@ -46,5 +51,10 @@ public class Target : MonoBehaviour, IPointerClickHandler
         transform.position = new Vector3(x, y, 0);
         float size = Random.Range(minsize, maxsize);
         transform.localScale = new Vector3(size, size, size);
+    }
+    public IEnumerator Stop()
+    {
+        yield return new WaitForSeconds(0.01f);
+        animator.SetBool("Chop", false);
     }
 }
