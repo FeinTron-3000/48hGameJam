@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf651d393ffa6a4e84a872e5fb45449, type: 3}
   m_Name: ScoreTracker
   m_EditorClassIdentifier: 
-  score: 0
+  choppingsection: 0
+  stirringsection: 0
+  skillcheck: 0
