@@ -7,7 +7,6 @@ using TMPro;
 public class GMHuntingScene : MonoBehaviour
 {
     [SerializeField] public float worldtime;
-    [SerializeField] public float levelcompletetime;
     [SerializeField] public GameObject player;
     [SerializeField] public string resultsscreen;
 
@@ -41,7 +40,7 @@ public class GMHuntingScene : MonoBehaviour
             LevelEnd();
         }
 
-        else if (worldtime >= levelcompletetime)
+        else if (worldtime >= timelimit)
         {
             LevelEnd();
         }

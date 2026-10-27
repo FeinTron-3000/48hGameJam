@@ -42,7 +42,7 @@ public class PlayerAttack : MonoBehaviour
             }
             else
             {
-                animator.SetBool("Attack", true);
+                
                 transform.position = player.transform.position + new Vector3(weaponRage * player.transform.localScale.x * -1, 0, 0);
             }
         }
@@ -76,6 +76,7 @@ public class PlayerAttack : MonoBehaviour
         }
         else
         {
+            animator.SetBool("Attack", true);
             StartCoroutine(AttackDelay());
         }
 
@@ -101,8 +102,9 @@ public class PlayerAttack : MonoBehaviour
     }
     IEnumerator AttackDelay()
     {
-        yield return new WaitForSeconds(attackdelay);
         Debug.Log("Delay");
+        yield return new WaitForSeconds(attackdelay);
+        Debug.Log("start");
         enemyhealth.attacking = true;
         enemyattack = true;
         StartCoroutine(WeaponReturn());

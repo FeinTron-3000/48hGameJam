@@ -595,14 +595,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   damnage: 1
-  attacktime: 0.6
+  attacktime: 0.5
   cooldowntime: 2
   player: {fileID: 1101494603}
   enemyhealth: {fileID: 1101494610}
   isenemy: 1
   enemyattack: 0
   attacking: 0
-  attackdelay: 1
+  attackdelay: 0.3
   animator: {fileID: 1101494611}
 --- !u!1 &950573716
 GameObject:
@@ -1417,7 +1417,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worldtime: 0
-  levelcompletetime: 10
   player: {fileID: 1509233112}
   resultsscreen: Results-Page
   scoretracker: {fileID: 11400000, guid: 988e67ceb904c76449e1d4c3b3840c1c, type: 2}
