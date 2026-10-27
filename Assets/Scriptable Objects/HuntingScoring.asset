@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 068abb5255ea00c42bbfb238525eff3f, type: 3}
   m_Name: HuntingScoring
   m_EditorClassIdentifier: 
-  mantiscore: 0
+  mantiscore: 1

@@ -35,6 +35,10 @@ public class GMCookingScene : MonoBehaviour
                 index = 3;
             }
         }
+        else
+        {
+            index = 3;
+        }
     }
 
     void Update()

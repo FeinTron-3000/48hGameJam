@@ -28,18 +28,10 @@ public class GMHuntingScene : MonoBehaviour
         // level end
         if (player == null)
         {
-            // scoretracker.score = worldtime;
 
-            // meat collection
-            for(int i = 0; i > mantis.Length; i++)
-            {
-                if (mantis[i] == null)
-                {
-                    huntingscoring.mantiscore += 1;
-                }
-            }
             LevelEnd();
         }
+
         else if (worldtime >= levelcompletetime)
         {
             LevelEnd();
@@ -48,6 +40,14 @@ public class GMHuntingScene : MonoBehaviour
 
     public void LevelEnd()
     {
+        // meat collection
+        for (int i = 0; i < mantis.Length; i++)
+        {
+            if (mantis[i] == null)
+            {
+                huntingscoring.mantiscore += 1;
+            }
+        }
         SceneManager.LoadScene(resultsscreen);
     }
 }
