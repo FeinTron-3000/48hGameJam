@@ -3841,7 +3841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0783cc71c3a334c934561dd9de422e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponRage: 0.2
+  weaponRage: 0.4
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
