@@ -10,10 +10,11 @@ public class ObjectScaler : MonoBehaviour
     public float growSpeed;
     public float minScale;
     public float maxScale;
+    public float waitTime;
 
     public GameObject triggerObject;
 
-    private bool isGrowing = false;
+    public bool isGrowing = false;
     private Vector3 initialScale;
 
     // Start is called before the first frame update
@@ -31,17 +32,6 @@ public class ObjectScaler : MonoBehaviour
             {
                 transform.localScale -= Vector3.one * shrinkSpeed *Time.deltaTime;
             }
-            else
-            {
-                if (transform.localScale.x < maxScale)
-                {
-                    transform.localScale += Vector3.one * growSpeed * Time.deltaTime;
-                }
-                else
-                {
-                    isGrowing = false;
-                }
-            }
         }
         if (Input.GetMouseButtonDown(0))
         {
@@ -49,8 +39,20 @@ public class ObjectScaler : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
             if (hit.collider != null && hit.collider.gameObject == triggerObject)
             {
-                isGrowing = true;
+
+                StartCoroutine(Grow());
             }
+        }
+    } 
+
+    IEnumerator Grow()
+    {
+        if (transform.localScale.x < maxScale)
+        {
+            isGrowing = true;
+            transform.localScale += Vector3.one * growSpeed;
+            yield return new WaitForSeconds(waitTime);
+            isGrowing = false;
         }
     }
 }

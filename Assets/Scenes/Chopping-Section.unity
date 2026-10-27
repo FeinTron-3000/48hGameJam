@@ -900,8 +900,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd159c5dcae17743a579537038d81b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shrinkSpeed: 100
-  growSpeed: 100
-  minScale: 100
+  shrinkSpeed: 80
+  growSpeed: 50
+  minScale: 50
   maxScale: 210
+  waitTime: 0.1
   triggerObject: {fileID: 1677880181}
+  isGrowing: 0
