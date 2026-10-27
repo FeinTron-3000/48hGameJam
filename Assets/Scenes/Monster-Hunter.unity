@@ -687,7 +687,7 @@ GameObject:
   - component: {fileID: 1101494608}
   - component: {fileID: 1101494611}
   m_Layer: 7
-  m_Name: Mantis 1
+  m_Name: Mantis
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -799,7 +799,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1101494603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.93, y: -2.22, z: 0}
+  m_LocalPosition: {x: 5.93, y: -1.04, z: 0}
   m_LocalScale: {x: 9, y: 9, z: 1}
   m_Children:
   - {fileID: 776003115}
