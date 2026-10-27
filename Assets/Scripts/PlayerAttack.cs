@@ -13,26 +13,36 @@ public class PlayerAttack : MonoBehaviour
 
     public GameObject player;
 
+    public EnemyHealth enemyhealth;
     public bool isenemy;
     public bool enemyattack;
+    public bool attacking;
+
+    public float attackdelay;
+
+    [SerializeField] private Animator animator;
 
     private void Start()
     {
-        if (isenemy)
-        {
-            StartCoroutine(CoolDown());
-        }
+        enemyhealth = enemyhealth.GetComponent<EnemyHealth>();
+    }
+    public void Agrivated()
+    {
+         StartCoroutine(CoolDown());
     }
     private void Update()
     {
-        if (isenemy)
+        if (isenemy && enemyhealth.agrivated == true)
         {
             if (!enemyattack)
             {
+
+                animator.SetBool("Attack", false);
                 transform.position = player.transform.position;
             }
             else
             {
+                
                 transform.position = player.transform.position + new Vector3(weaponRage * player.transform.localScale.x * -1, 0, 0);
             }
         }
@@ -62,13 +72,15 @@ public class PlayerAttack : MonoBehaviour
         if (!isenemy)
         {
             transform.position = player.transform.position + new Vector3(weaponRage * player.transform.localScale.x, 0, 0);
+            StartCoroutine(WeaponReturn());
         }
         else
         {
-            enemyattack = true;
+            animator.SetBool("Attack", true);
+            StartCoroutine(AttackDelay());
         }
 
-        StartCoroutine(WeaponReturn());
+        
     }
 
     IEnumerator WeaponReturn()
@@ -77,13 +89,24 @@ public class PlayerAttack : MonoBehaviour
         transform.position = player.transform.position;
         if (isenemy)
         {
+            animator.SetBool("Attack", false);
+            enemyattack = false;
+            enemyhealth.attacking = false;
             StartCoroutine(CoolDown());
         }
     }
     IEnumerator CoolDown()
     {
-        enemyattack = false;
         yield return new WaitForSeconds(cooldowntime);
         Attack();
+    }
+    IEnumerator AttackDelay()
+    {
+        Debug.Log("Delay");
+        yield return new WaitForSeconds(attackdelay);
+        Debug.Log("start");
+        enemyhealth.attacking = true;
+        enemyattack = true;
+        StartCoroutine(WeaponReturn());
     }
 }

@@ -6,7 +6,6 @@ public class CameraScript : MonoBehaviour
 {
     [Header("Camera Movement")]
     [SerializeField] public GameObject player;
-    [SerializeField] public float distanceup;
     [SerializeField] public float distance;
 
     public float maxx;
@@ -27,8 +26,13 @@ public class CameraScript : MonoBehaviour
             if (player.transform.position.y > maxy)
             {
                 y = player.transform.position.y;
-            }
                 transform.position = new Vector3(x, y, distance);
+            }
+            else
+            {
+                y = player.transform.position.y;
+                transform.position = new Vector3(x, 0, distance);
+            }
         }
     }
 }

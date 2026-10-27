@@ -27,6 +27,7 @@ public class PlayerScript : MonoBehaviour
     public int damnage = 1;
 
     //Dash 
+    [SerializeField] public KeyCode dash;
     private bool canDash = true;
     private bool isDashing;
     public float dashingPower;
@@ -80,7 +81,7 @@ public class PlayerScript : MonoBehaviour
             animator.SetBool("Attack", true);
             playerAttack.Attack();
         }
-        if (Input.GetKey(KeyCode.LeftShift) && canDash)
+        if (Input.GetKey(dash) && canDash)
         {
             StartCoroutine(Dash());
         }
@@ -148,18 +149,18 @@ public class PlayerScript : MonoBehaviour
     //Dash
     private IEnumerator Dash()
     {
-        canDash = false;
-        isDashing = true;
-        float originalGravity = rb.gravityScale;
-        rb.gravityScale = 0f;
-        rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
-        animator.SetBool("isDashing", true);
-        yield return new WaitForSeconds(dashingTime);
-        animator.SetBool("isDashing", false);
-        rb.gravityScale *= originalGravity;
-        isDashing = false;
-        yield return new WaitForSeconds(dashCooldown);
-        canDash = true;
+            canDash = false;
+            isDashing = true;
+            // float originalGravity = rb.gravityScale;
+            // rb.gravityScale = 0f;
+            rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
+            animator.SetBool("isDashing", true);
+            yield return new WaitForSeconds(dashingTime);
+            animator.SetBool("isDashing", false);
+            // rb.gravityScale *= originalGravity;
+            isDashing = false;
+            yield return new WaitForSeconds(dashCooldown);
+            canDash = true;
     }
 
     // ground detection

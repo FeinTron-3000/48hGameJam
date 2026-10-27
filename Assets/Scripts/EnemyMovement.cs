@@ -9,34 +9,88 @@ public class EnemyMovement : MonoBehaviour
     public bool playeronright;
     [SerializeField] public Rigidbody2D rb;
 
+    public bool mantis;
+    public bool plant;
+    public bool hornet;
+
+    [SerializeField] private Animator animator;
+
+    public EnemyHealth script;
+
     public float maxspeed;
+
+    public PlayerAttack attack;
+    public bool startattack = false;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        script = script.GetComponent<EnemyHealth>();
+        attack = attack.GetComponent<PlayerAttack>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (player != null)
+        // mantis idle
+        if (mantis)
         {
-            if (player.transform.position.x > transform.position.x)
+            if (script.agrivated == true && script.attacking == false)
             {
-                playeronright = true;
-                rb.AddForce(Vector2.right * movespeed * Time.deltaTime, ForceMode2D.Force);
+                // start mantis attack
+                if (!startattack)
+                {
+                    attack.Agrivated();
+                    startattack = true;
+                }
 
+                if (player != null)
+                {
+                    animator.SetBool("Walk", true);
+                    if (player.transform.position.x > transform.position.x)
+                    {
+                        playeronright = true;
+                        rb.AddForce(Vector2.right * movespeed * Time.deltaTime, ForceMode2D.Force);
+
+                    }
+                    else
+                    {
+                        playeronright = false;
+                        rb.AddForce(Vector2.left * movespeed * Time.deltaTime, ForceMode2D.Force);
+                    }
+
+                    if (rb.velocity.magnitude > maxspeed)
+                    {
+                        rb.velocity = rb.velocity.normalized * maxspeed;
+                    }
+                }
             }
             else
             {
-                playeronright = false;
-                rb.AddForce(Vector2.left * movespeed * Time.deltaTime, ForceMode2D.Force);
+                rb.velocity = Vector3.zero;
             }
-
-            if (rb.velocity.magnitude > maxspeed)
+        }
+        else
+        {
+            if (player != null)
             {
-                rb.velocity = rb.velocity.normalized * maxspeed;
+                animator.SetBool("Idle", true);
+                if (player.transform.position.x > transform.position.x)
+                {
+                    playeronright = true;
+                    rb.AddForce(Vector2.right * movespeed * Time.deltaTime, ForceMode2D.Force);
+
+                }
+                else
+                {
+                    playeronright = false;
+                    rb.AddForce(Vector2.left * movespeed * Time.deltaTime, ForceMode2D.Force);
+                }
+
+                if (rb.velocity.magnitude > maxspeed)
+                {
+                    rb.velocity = rb.velocity.normalized * maxspeed;
+                }
             }
         }
     }
