@@ -55,7 +55,7 @@ public class GMHuntingScene : MonoBehaviour
             timelimit--;
             int minutes = Mathf.FloorToInt(timelimit / 60);
             int seconds = Mathf.FloorToInt(timelimit % 60);
-            timerText.text = string.Format("{00:00}:{1:00}", minutes, seconds);
+            timerText.text = "Time remaining: " + string.Format("{00:00}:{1:00}", minutes, seconds);
             yield return new WaitForSeconds(1);
         }
         StopTimer();
