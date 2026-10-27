@@ -10,6 +10,9 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] public Rigidbody2D rb;
     public GameObject player;
 
+    public bool agrivated = false;
+    public bool attacking;
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -18,6 +21,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamnge(int amount)
     {
         currentHealth -= amount;
+        agrivated = true;
         Knockback();
         if (currentHealth > maxHealth)
         {

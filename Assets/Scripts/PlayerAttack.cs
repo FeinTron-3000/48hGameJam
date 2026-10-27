@@ -13,19 +13,22 @@ public class PlayerAttack : MonoBehaviour
 
     public GameObject player;
 
+    public EnemyHealth enemyhealth;
     public bool isenemy;
     public bool enemyattack;
 
     private void Start()
     {
-        if (isenemy)
+        enemyhealth = enemyhealth.GetComponent<EnemyHealth>();
+
+        if (isenemy && enemyhealth.agrivated == true)
         {
             StartCoroutine(CoolDown());
         }
     }
     private void Update()
     {
-        if (isenemy)
+        if (isenemy && enemyhealth.agrivated == true)
         {
             if (!enemyattack)
             {
@@ -61,6 +64,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (!isenemy)
         {
+            enemyhealth.attacking = true;
             transform.position = player.transform.position + new Vector3(weaponRage * player.transform.localScale.x, 0, 0);
         }
         else
@@ -83,6 +87,7 @@ public class PlayerAttack : MonoBehaviour
     IEnumerator CoolDown()
     {
         enemyattack = false;
+        enemyhealth.attacking = false;
         yield return new WaitForSeconds(cooldowntime);
         Attack();
     }
