@@ -39,10 +39,22 @@ public class PlayerAttack : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (!isenemy)
         {
-            collision.GetComponent<EnemyHealth>().TakeDamnge(damnage);
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                collision.GetComponent<EnemyHealth>().TakeDamnge(damnage);
+            }
         }
+        else
+        {
+            Debug.Log("hit");
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                collision.GetComponent<PlayerHealth>().TakeDamage(damnage);
+            }
+        }
+
     }
 
     public void Attack()
@@ -63,7 +75,10 @@ public class PlayerAttack : MonoBehaviour
     {
         yield return new WaitForSeconds(attacktime);
         transform.position = player.transform.position;
-        StartCoroutine(CoolDown());
+        if (isenemy)
+        {
+            StartCoroutine(CoolDown());
+        }
     }
     IEnumerator CoolDown()
     {
