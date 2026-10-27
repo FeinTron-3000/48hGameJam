@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
 {
     private Rigidbody2D rb;
     [SerializeField] public float knockbackForce;
+    public Animator animator;
     public int health;
     public int maxHealth = 3;
     // Start is called before the first frame update
@@ -18,6 +19,24 @@ public class PlayerHealth : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.position.x < transform.position.x)
+        {
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                rb.AddForce(Vector2.right * knockbackForce * Time.deltaTime, ForceMode2D.Impulse);
+            }
+
+        }
+        else
+        {
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                rb.AddForce(Vector2.left * knockbackForce * Time.deltaTime, ForceMode2D.Impulse);
+            }
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.position.x < transform.position.x)
         {
