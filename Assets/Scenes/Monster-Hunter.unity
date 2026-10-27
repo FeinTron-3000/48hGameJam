@@ -502,7 +502,7 @@ Animator:
   m_GameObject: {fileID: 739481646}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e969aa00cb9eec247a52bbbb04c94da2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 607b9c2a922d3334b8391e252d466058, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -568,7 +568,7 @@ MonoBehaviour:
   animator: {fileID: 739481647}
   script: {fileID: 739481649}
   maxspeed: 1
-  attack: {fileID: 0}
+  attack: {fileID: 2036979928}
   startattack: 0
   endattack: 0
   range: 3
@@ -920,10 +920,6 @@ MonoBehaviour:
   plant: 0
   growspeed: 0
   plantattackstart: 0
-  hornet: 0
-  spike: {fileID: 776003116}
-  spikespeed: 0
-  target: {fileID: 776003114}
   animator: {fileID: 1101494611}
 --- !u!1 &915619459
 GameObject:
@@ -973,10 +969,6 @@ MonoBehaviour:
   plant: 1
   growspeed: 0.05
   plantattackstart: 0
-  hornet: 0
-  spike: {fileID: 915619461}
-  spikespeed: 0
-  target: {fileID: 915619459}
   animator: {fileID: 1575455033}
 --- !u!212 &915619461
 SpriteRenderer:
@@ -2381,6 +2373,10 @@ MonoBehaviour:
   huntingscoring: {fileID: 11400000, guid: cc537a03a3a1663448d039bf0a2d13af, type: 2}
   mantis:
   - {fileID: 1101494603}
+  plant:
+  - {fileID: 1575455032}
+  hornet:
+  - {fileID: 739481646}
   timerText: {fileID: 304656518}
   timelimit: 60
 --- !u!4 &1888399807
@@ -2408,8 +2404,8 @@ GameObject:
   - component: {fileID: 1930879780}
   - component: {fileID: 1930879781}
   - component: {fileID: 1930879782}
-  - component: {fileID: 1930879783}
   - component: {fileID: 1930879785}
+  - component: {fileID: 1930879783}
   - component: {fileID: 1930879784}
   m_Layer: 6
   m_Name: AttackPoint
@@ -2487,10 +2483,6 @@ MonoBehaviour:
   plant: 0
   growspeed: 0
   plantattackstart: 0
-  hornet: 0
-  spike: {fileID: 0}
-  spikespeed: 0
-  target: {fileID: 0}
   animator: {fileID: 1930879784}
 --- !u!212 &1930879783
 SpriteRenderer:
@@ -2630,10 +2622,6 @@ MonoBehaviour:
   plant: 0
   growspeed: 0.05
   plantattackstart: 0
-  hornet: 1
-  spike: {fileID: 0}
-  spikespeed: -2
-  target: {fileID: 1509233112}
   animator: {fileID: 739481647}
 --- !u!61 &2036979930
 BoxCollider2D:

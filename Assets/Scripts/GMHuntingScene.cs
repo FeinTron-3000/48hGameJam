@@ -14,6 +14,8 @@ public class GMHuntingScene : MonoBehaviour
 
     [SerializeField] public HuntingScoring huntingscoring;
     [SerializeField] public GameObject[] mantis;
+    [SerializeField] public GameObject[] plant;
+    [SerializeField] public GameObject[] hornet;
 
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] public int timelimit;
@@ -87,6 +89,20 @@ public class GMHuntingScene : MonoBehaviour
             if (mantis[i] == null)
             {
                 huntingscoring.mantiscore += 1;
+            }
+        }
+        for (int i = 0; i < plant.Length; i++)
+        {
+            if (mantis[i] == null)
+            {
+                huntingscoring.plantscore += 1;
+            }
+        }
+        for (int i = 0; i < hornet.Length; i++)
+        {
+            if (mantis[i] == null)
+            {
+                huntingscoring.hornetscore += 1;
             }
         }
         SceneManager.LoadScene(resultsscreen);

@@ -23,12 +23,7 @@ public class PlayerAttack : MonoBehaviour
     public bool mantis;
     public bool plant;
     public float growspeed;
-    public bool plantattackstart;
-    public bool hornet;
-    public GameObject spike;
-    public float spikespeed;
-
-    public GameObject target;
+    public bool plantattackstart; 
 
     [SerializeField] private Animator animator;
 
@@ -84,10 +79,6 @@ public class PlayerAttack : MonoBehaviour
                     animator.SetBool("Attack", true);
                 }
             }
-        }
-        if (hornet)
-        {
-
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
