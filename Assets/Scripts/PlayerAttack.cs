@@ -9,19 +9,65 @@ public class PlayerAttack : MonoBehaviour
     public LayerMask enemyLayer;
     public int damnage = 1;
     public float attacktime;
+    public float cooldowntime;
 
     public GameObject player;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public bool isenemy;
+    public bool enemyattack;
+
+    private void Start()
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (isenemy)
         {
-            collision.GetComponent<EnemyHealth>().TakeDamnge(damnage);
+            StartCoroutine(CoolDown());
         }
     }
+    private void Update()
+    {
+        if (isenemy)
+        {
+            if (!enemyattack)
+            {
+                transform.position = player.transform.position;
+            }
+            else
+            {
+                transform.position = player.transform.position + new Vector3(weaponRage * player.transform.localScale.x * -1, 0, 0);
+            }
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!isenemy)
+        {
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                collision.GetComponent<EnemyHealth>().TakeDamnge(damnage);
+            }
+        }
+        else
+        {
+            Debug.Log("hit");
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                collision.GetComponent<PlayerHealth>().TakeDamage(damnage);
+            }
+        }
+
+    }
+
     public void Attack()
     {
-        transform.position = player.transform.position + new Vector3(weaponRage * player.transform.localScale.x, 0, 0);
+        if (!isenemy)
+        {
+            transform.position = player.transform.position + new Vector3(weaponRage * player.transform.localScale.x, 0, 0);
+        }
+        else
+        {
+            enemyattack = true;
+        }
+
         StartCoroutine(WeaponReturn());
     }
 
@@ -29,5 +75,15 @@ public class PlayerAttack : MonoBehaviour
     {
         yield return new WaitForSeconds(attacktime);
         transform.position = player.transform.position;
+        if (isenemy)
+        {
+            StartCoroutine(CoolDown());
+        }
+    }
+    IEnumerator CoolDown()
+    {
+        enemyattack = false;
+        yield return new WaitForSeconds(cooldowntime);
+        Attack();
     }
 }

@@ -24,14 +24,12 @@ public class EnemyMovement : MonoBehaviour
         {
             if (player.transform.position.x > transform.position.x)
             {
-                Debug.Log("right");
                 playeronright = true;
                 rb.AddForce(Vector2.right * movespeed * Time.deltaTime, ForceMode2D.Force);
 
             }
             else
             {
-                Debug.Log("left");
                 playeronright = false;
                 rb.AddForce(Vector2.left * movespeed * Time.deltaTime, ForceMode2D.Force);
             }
