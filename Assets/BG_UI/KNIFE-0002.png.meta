@@ -1,28 +1,25 @@
 fileFormatVersion: 2
-guid: 0041eadc1e6f2374d8f24ad955e471b1
+guid: abc6a31848f185f48b565b84e8f4e9a8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3408732360721525207
-    second: KNIFE-0001_0
+      213: -8383487180303997165
+    second: KNIFE-0002_0
   - first:
-      213: 7174383252790806250
-    second: KNIFE-0001_1
+      213: -5227074369255848212
+    second: KNIFE-0002_1
   - first:
-      213: -1206717388829842680
-    second: KNIFE-0001_2
+      213: -3312504115466954823
+    second: KNIFE-0002_2
   - first:
-      213: -2551853956743580980
-    second: KNIFE-0001_3
+      213: 138641355958744493
+    second: KNIFE-0002_3
   - first:
-      213: 7499430522412921455
-    second: KNIFE-0001_4
+      213: -1771772468096616860
+    second: KNIFE-0002_4
   - first:
-      213: 2640648033885873348
-    second: KNIFE-0001_5
-  - first:
-      213: -3529262149538344392
-    second: KNIFE-0001_6
+      213: -8978542798752135155
+    second: KNIFE-0002_5
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -113,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: KNIFE-0001_0
+      name: KNIFE-0002_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 17
-        width: 47
-        height: 35
+        x: 0
+        y: 0
+        width: 192
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92690d86affb1b0d0800000000000000
-      internalID: -3408732360721525207
+      spriteID: 31760feb3ded7ab80800000000000000
+      internalID: -8383487180303997165
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KNIFE-0001_1
+      name: KNIFE-0002_1
       rect:
         serializedVersion: 2
-        x: 198
-        y: 17
-        width: 48
-        height: 34
+        x: 192
+        y: 0
+        width: 192
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae68b119e87809360800000000000000
-      internalID: 7174383252790806250
+      spriteID: ce6c4fd2e83b577b0800000000000000
+      internalID: -5227074369255848212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KNIFE-0001_2
+      name: KNIFE-0002_2
       rect:
         serializedVersion: 2
-        x: 389
-        y: 17
-        width: 36
-        height: 48
+        x: 384
+        y: 0
+        width: 192
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 803a286ade0e04fe0800000000000000
-      internalID: -1206717388829842680
+      spriteID: 9b79290be0f9702d0800000000000000
+      internalID: -3312504115466954823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KNIFE-0001_3
+      name: KNIFE-0002_3
       rect:
         serializedVersion: 2
-        x: 580
-        y: 17
-        width: 33
-        height: 51
+        x: 576
+        y: 0
+        width: 192
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc2bf9db85ef59cd0800000000000000
-      internalID: -2551853956743580980
+      spriteID: da57915249d8ce100800000000000000
+      internalID: 138641355958744493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KNIFE-0001_4
+      name: KNIFE-0002_4
       rect:
         serializedVersion: 2
-        x: 773
-        y: 17
-        width: 56
-        height: 20
+        x: 768
+        y: 0
+        width: 192
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -211,50 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f62f4229354531860800000000000000
-      internalID: 7499430522412921455
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: KNIFE-0001_5
-      rect:
-        serializedVersion: 2
-        x: 965
-        y: 17
-        width: 57
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c4e994656775a420800000000000000
-      internalID: 2640648033885873348
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: KNIFE-0001_6
-      rect:
-        serializedVersion: 2
-        x: 1159
-        y: 17
-        width: 46
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 832198916ca850fc0800000000000000
-      internalID: -3529262149538344392
+      spriteID: 466b848d3566967e0800000000000000
+      internalID: -1771772468096616860
       vertices: []
       indices: 
       edges: []

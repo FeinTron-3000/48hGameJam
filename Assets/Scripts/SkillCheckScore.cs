@@ -6,6 +6,7 @@ public class SkillCheckScore : MonoBehaviour
 {
     [SerializeField] public GMCookingScene gm;
     [SerializeField] public SkillCheck skillcheck;
+    [SerializeField] public Animator animator;
     private void Start()
     {
         gm = gm.gameObject.GetComponent<GMCookingScene>();
@@ -17,10 +18,19 @@ public class SkillCheckScore : MonoBehaviour
         if (skillcheck.clickready)
         {
             gm.score++;
+            animator.SetBool("isMashing", true);
+
         }
         else
         {
             gm.score--;
+            animator.SetBool("isMashing", true);
         }
+        StartCoroutine(udgygdy());
+    }
+    IEnumerator udgygdy()
+    {
+        yield return new WaitForSeconds(0.2f);
+        animator.SetBool("isMashing", false);
     }
 }

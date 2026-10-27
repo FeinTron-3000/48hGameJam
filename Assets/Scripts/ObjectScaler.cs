@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class ObjectScaler : MonoBehaviour
 {
-    [SerializeField] private Animator animator;
+    [SerializeField] private Animator knifeAnim;
+    [SerializeField] private Animator meatAnim;
     // Scaling setting
     public float shrinkSpeed;
     public float growSpeed;
@@ -74,7 +75,9 @@ public class ObjectScaler : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
             if (hit.collider != null && hit.collider.gameObject == triggerObject)
             {
-                animator.SetBool("isChopping", true);
+                knifeAnim.SetBool("isChopping", true);
+                meatAnim.SetBool("meatChopped", true);
+
                 knifeanimation = true;
                 playonce = true;
                 StartCoroutine(Grow());
@@ -82,7 +85,8 @@ public class ObjectScaler : MonoBehaviour
         }
         else
         {
-            animator.SetBool("isChopping", false);
+            knifeAnim.SetBool("isChopping", false);
+            meatAnim.SetBool("meatChopped", false);
         }
 
         if (knifeanimation)
