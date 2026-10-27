@@ -539,7 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 3
+  maxHealth: 1
   knockbackForce: 200
   rb: {fileID: 739481651}
   player: {fileID: 1509233112}
@@ -566,9 +566,10 @@ MonoBehaviour:
   hornet: 1
   animator: {fileID: 739481647}
   script: {fileID: 739481649}
-  maxspeed: 0
-  attack: {fileID: 2036979928}
+  maxspeed: 1
+  attack: {fileID: 0}
   startattack: 0
+  range: 1
 --- !u!50 &739481651
 Rigidbody2D:
   serializedVersion: 4
@@ -614,7 +615,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.15}
+  m_Size: {x: 0.3, y: 0.3}
   m_EdgeRadius: 0
 --- !u!212 &739481653
 SpriteRenderer:
@@ -1210,6 +1211,7 @@ MonoBehaviour:
   maxspeed: 5
   attack: {fileID: 776003118}
   startattack: 0
+  range: 0
 --- !u!114 &1101494610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1770,6 +1772,7 @@ MonoBehaviour:
   maxspeed: 0
   attack: {fileID: 915619460}
   startattack: 0
+  range: 0
 --- !u!50 &1575455037
 Rigidbody2D:
   serializedVersion: 4
@@ -2272,7 +2275,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2036979928
 MonoBehaviour:
   m_ObjectHideFlags: 0
