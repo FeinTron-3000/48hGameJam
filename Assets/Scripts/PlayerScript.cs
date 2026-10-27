@@ -26,13 +26,6 @@ public class PlayerScript : MonoBehaviour
     public LayerMask enemyLayer;
     public int damnage = 1;
 
-    //Dash 
-    private bool canDash = true;
-    private bool isDashing;
-    public float dashingPower;
-    private float dashingTime = 0.2f;
-    public float dashCooldown = 0.2f;
-
     public PlayerAttack playerAttack;
 
     private void Start()
@@ -42,10 +35,6 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        if (isDashing)
-        {
-            return;
-        }
         // movement
         if (Input.GetKey(moveright))
         {
@@ -80,18 +69,10 @@ public class PlayerScript : MonoBehaviour
             animator.SetBool("Attack", true);
             playerAttack.Attack();
         }
-        if (Input.GetKey(KeyCode.LeftShift) && canDash)
-        {
-            StartCoroutine(Dash());
-        }
     }
     
     private void LateUpdate()
     {
-        if (isDashing)
-        {
-            return;
-        }
         if (CheckForGround())
         {
             animator.SetBool("Jump", false);
@@ -143,23 +124,6 @@ public class PlayerScript : MonoBehaviour
                 rb.AddForce(Vector2.up * jumppower * 0.5f, ForceMode2D.Force);
             }
         }
-    }
-
-    //Dash
-    private IEnumerator Dash()
-    {
-        canDash = false;
-        isDashing = true;
-        float originalGravity = rb.gravityScale;
-        rb.gravityScale = 0f;
-        rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
-        animator.SetBool("isDashing", true);
-        yield return new WaitForSeconds(dashingTime);
-        animator.SetBool("isDashing", false);
-        rb.gravityScale *= originalGravity;
-        isDashing = false;
-        yield return new WaitForSeconds(dashCooldown);
-        canDash = true;
     }
 
     // ground detection
