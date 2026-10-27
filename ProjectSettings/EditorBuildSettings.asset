@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Skill-Check.unity
     guid: 93ab9f08fca974446a5d6128822fe2f4
+  - enabled: 1
+    path: Assets/Scenes/Day-End.unity
+    guid: 1678add94c4c6f04aa4ba00398688829
   m_configObjects: {}

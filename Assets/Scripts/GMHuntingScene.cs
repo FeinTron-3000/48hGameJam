@@ -11,25 +11,43 @@ public class GMHuntingScene : MonoBehaviour
     [SerializeField] public string resultsscreen;
 
     [SerializeField] public ScoreTracker scoretracker;
-    // Start is called before the first frame update
+
+    [SerializeField] public HuntingScoring huntingscoring;
+    [SerializeField] public GameObject[] mantis;
+
     void Start()
     {
-        
+        // reset meat collection
+        huntingscoring.mantiscore = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
         worldtime += 1 * Time.deltaTime;
+
+        // level end
         if (player == null)
         {
-            scoretracker.score = worldtime;
+
+            LevelEnd();
+        }
+
+        else if (worldtime >= levelcompletetime)
+        {
             LevelEnd();
         }
     }
 
     public void LevelEnd()
     {
+        // meat collection
+        for (int i = 0; i < mantis.Length; i++)
+        {
+            if (mantis[i] == null)
+            {
+                huntingscoring.mantiscore += 1;
+            }
+        }
         SceneManager.LoadScene(resultsscreen);
     }
 }

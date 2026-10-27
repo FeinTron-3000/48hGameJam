@@ -1081,6 +1081,13 @@ MonoBehaviour:
   choppingsection: 1
   stirringsection: 0
   skillcheck: 0
+  scoretracker: {fileID: 0}
+  levelnames:
+  - Chopping-Section
+  - Stiring-Section
+  - Skill-Check
+  - Day-End
+  index: 0
 --- !u!4 &1519209803
 Transform:
   m_ObjectHideFlags: 0
