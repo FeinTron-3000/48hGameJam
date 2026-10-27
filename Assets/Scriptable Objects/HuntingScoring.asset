@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7b31bc9e9283834b81bf38d7635e2c3, type: 3}
-  m_Name: CookingScoring
+  m_Script: {fileID: 11500000, guid: 068abb5255ea00c42bbfb238525eff3f, type: 3}
+  m_Name: HuntingScoring
   m_EditorClassIdentifier: 
-  choppingscore: 0
-  stirringscore: 0
+  mantiscore: 0

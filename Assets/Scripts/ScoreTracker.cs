@@ -5,5 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ScoreTracker", menuName = "ScoreTracker")]
 public class ScoreTracker : ScriptableObject
 {
-    public float score;
+    public bool choppingsection;
+    public bool stirringsection;
+    public bool skillcheck;
 }

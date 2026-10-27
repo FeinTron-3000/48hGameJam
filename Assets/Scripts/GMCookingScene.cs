@@ -10,20 +10,36 @@ public class GMCookingScene : MonoBehaviour
     [SerializeField] public TextMeshProUGUI scoreui;
 
     [SerializeField] public CookingScoring cookingScoring;
-    [SerializeField] public string nextlevel;
 
     [SerializeField] public bool choppingsection;
     [SerializeField] public bool stirringsection;
     [SerializeField] public bool skillcheck;
-    // Start is called before the first frame update
+
+    [SerializeField] public ScoreTracker scoretracker;
+    public string[] levelnames;
+    public int index;
+
     void Start()
     {
-        
+        // set next level
+        if (scoretracker.stirringsection)
+        {
+            index = 1;
+
+            if (scoretracker.skillcheck)
+            {
+                index = 2;
+            }
+            else
+            {
+                index = 3;
+            }
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // set text
         scoreui.text = "Score: " + score;
     }
 
@@ -42,6 +58,6 @@ public class GMCookingScene : MonoBehaviour
         {
             cookingScoring.skillcheckscore = score;
         }
-        SceneManager.LoadScene(nextlevel);
+        SceneManager.LoadScene(levelnames[index]);
     }
 }

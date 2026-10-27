@@ -159,6 +159,13 @@ MonoBehaviour:
   choppingsection: 1
   stirringsection: 0
   skillcheck: 0
+  scoretracker: {fileID: 11400000, guid: 988e67ceb904c76449e1d4c3b3840c1c, type: 2}
+  levelnames:
+  - Chopping-Section
+  - Stiring-Section
+  - Skill-Check
+  - Day-End
+  index: 0
 --- !u!4 &21705910
 Transform:
   m_ObjectHideFlags: 0
