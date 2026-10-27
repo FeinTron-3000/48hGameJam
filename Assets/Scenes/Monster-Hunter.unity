@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 1101494610}
   - component: {fileID: 1101494608}
   m_Layer: 7
-  m_Name: Enemy
+  m_Name: Mantis 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -645,7 +645,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509233112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.48, y: -2.48, z: 0}
+  m_LocalPosition: {x: -5.48, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 0}
   m_Children:
   - {fileID: 1930879780}
@@ -832,10 +832,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worldtime: 0
-  levelcompletetime: 0
+  levelcompletetime: 10
   player: {fileID: 1509233112}
   resultsscreen: Results-Page
   scoretracker: {fileID: 11400000, guid: 988e67ceb904c76449e1d4c3b3840c1c, type: 2}
+  huntingscoring: {fileID: 11400000, guid: cc537a03a3a1663448d039bf0a2d13af, type: 2}
+  mantis:
+  - {fileID: 1101494603}
 --- !u!4 &1888399807
 Transform:
   m_ObjectHideFlags: 0
