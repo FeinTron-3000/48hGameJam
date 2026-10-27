@@ -1,7 +1,22 @@
 fileFormatVersion: 2
 guid: e38365c86de635a42a1191f453d4dd8d
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -9169439486331646744
+    second: gfs gamejam_chara_DASH_0
+  - first:
+      213: 6820837874216668081
+    second: gfs gamejam_chara_DASH_1
+  - first:
+      213: -5239126068882325574
+    second: gfs gamejam_chara_DASH_2
+  - first:
+      213: -6087957994375111273
+    second: gfs gamejam_chara_DASH_3
+  - first:
+      213: 5543542123284501326
+    second: gfs gamejam_chara_DASH_4
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -90,7 +105,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: gfs gamejam_chara_DASH_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 1
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ec03c37e5b9fb080800000000000000
+      internalID: -9169439486331646744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gfs gamejam_chara_DASH_1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 1
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bb073388eb78ae50800000000000000
+      internalID: 6820837874216668081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gfs gamejam_chara_DASH_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1
+        width: 32
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abfb7c23992ea47b0800000000000000
+      internalID: -5239126068882325574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gfs gamejam_chara_DASH_3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 1
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79d95c1a57a338ba0800000000000000
+      internalID: -6087957994375111273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gfs gamejam_chara_DASH_4
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 1
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4399cfa03e9eec40800000000000000
+      internalID: 5543542123284501326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
