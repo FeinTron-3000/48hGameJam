@@ -548,6 +548,7 @@ MonoBehaviour:
   player: {fileID: 1509233112}
   agrivated: 0
   attacking: 0
+  animator: {fileID: 739481647}
 --- !u!114 &739481650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1628,6 +1629,7 @@ MonoBehaviour:
   player: {fileID: 1509233112}
   agrivated: 0
   attacking: 0
+  animator: {fileID: 1101494611}
 --- !u!95 &1101494611
 Animator:
   serializedVersion: 5
@@ -3244,6 +3246,7 @@ MonoBehaviour:
   player: {fileID: 1509233112}
   agrivated: 0
   attacking: 0
+  animator: {fileID: 1575455033}
 --- !u!114 &1575455036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3952,6 +3955,7 @@ MonoBehaviour:
   player: {fileID: 0}
   agrivated: 0
   attacking: 0
+  animator: {fileID: 0}
 --- !u!82 &1930879786
 AudioSource:
   m_ObjectHideFlags: 0
