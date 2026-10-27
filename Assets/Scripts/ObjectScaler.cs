@@ -6,10 +6,10 @@ using UnityEngine;
 public class ObjectScaler : MonoBehaviour
 {
     // Scaling setting
-    public float shrinkSpeed = 0.5f;
-    public float growSpeed = 0.5f;
-    public float minScale = 0.1f;
-    public float maxScale = 1f;
+    public float shrinkSpeed;
+    public float growSpeed;
+    public float minScale;
+    public float maxScale;
 
     public GameObject triggerObject;
 
@@ -29,7 +29,7 @@ public class ObjectScaler : MonoBehaviour
         {
             if (transform.localScale.x > minScale)
             {
-                transform.localScale -= Vector3.one * shrinkSpeed * Time.deltaTime;
+                transform.localScale -= Vector3.one * shrinkSpeed *Time.deltaTime;
             }
             else
             {
