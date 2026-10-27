@@ -20,11 +20,25 @@ public class PlayerAttack : MonoBehaviour
 
     public float attackdelay;
 
+    public bool mantis;
+    public bool plant;
+    public float growspeed;
+    public bool plantattackstart;
+    public bool hornet;
+    public GameObject spike;
+    public float spikespeed;
+
+    public GameObject target;
+
     [SerializeField] private Animator animator;
 
     private void Start()
     {
         enemyhealth = enemyhealth.GetComponent<EnemyHealth>();
+        if (plant)
+        {
+            StartCoroutine(CoolDown());
+        }
     }
     public void Agrivated()
     {
@@ -32,19 +46,48 @@ public class PlayerAttack : MonoBehaviour
     }
     private void Update()
     {
-        if (isenemy && enemyhealth.agrivated == true)
+        if (mantis)
         {
-            if (!enemyattack)
+            if (isenemy && enemyhealth.agrivated == true)
             {
+                if (!enemyattack)
+                {
 
-                animator.SetBool("Attack", false);
-                transform.position = player.transform.position;
+                    animator.SetBool("Attack", false);
+                    transform.position = player.transform.position;
+                }
+                else
+                {
+
+                    transform.position = player.transform.position + new Vector3(weaponRage * player.transform.localScale.x * -1, 0, 0);
+                }
             }
-            else
+        }
+        if (plant)
+        {
+            if (isenemy)
             {
-                
-                transform.position = player.transform.position + new Vector3(weaponRage * player.transform.localScale.x * -1, 0, 0);
+                if (!enemyattack)
+                {
+
+                    animator.SetBool("Attack", false);
+                    transform.localScale = new Vector3(1, 1, 1);
+                }
+                else
+                {
+                    animator.SetBool("Attack", true);
+                    transform.localScale += new Vector3(growspeed + Time.deltaTime, growspeed + Time.deltaTime, 1);
+                }
+
+                if (plantattackstart)
+                {
+                    animator.SetBool("Attack", true);
+                }
             }
+        }
+        if (hornet)
+        {
+
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -92,6 +135,7 @@ public class PlayerAttack : MonoBehaviour
             animator.SetBool("Attack", false);
             enemyattack = false;
             enemyhealth.attacking = false;
+            plantattackstart = false;
             StartCoroutine(CoolDown());
         }
     }
@@ -102,6 +146,7 @@ public class PlayerAttack : MonoBehaviour
     }
     IEnumerator AttackDelay()
     {
+        plantattackstart = true;
         Debug.Log("Delay");
         yield return new WaitForSeconds(attackdelay);
         Debug.Log("start");

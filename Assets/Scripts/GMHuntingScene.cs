@@ -40,7 +40,7 @@ public class GMHuntingScene : MonoBehaviour
             LevelEnd();
         }
 
-        else if (worldtime >= timelimit)
+        else if (timelimit <= 0)
         {
             LevelEnd();
         }
