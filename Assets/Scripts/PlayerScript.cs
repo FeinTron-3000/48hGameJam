@@ -36,6 +36,8 @@ public class PlayerScript : MonoBehaviour
 
     public PlayerAttack playerAttack;
 
+    public AudioSource jumpsound;
+
     private void Start()
     {
         playerAttack = playerAttack.GetComponent<PlayerAttack>();
@@ -65,6 +67,7 @@ public class PlayerScript : MonoBehaviour
 
         if (Input.GetKeyDown(jump))
         {
+            jumpsound.Play();
             Jump();
         }
         if (rb.velocity.y >= 0)
