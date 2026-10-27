@@ -59,7 +59,7 @@ public class PlayerAttack : MonoBehaviour
                 else
                 {
 
-                    transform.position = player.transform.position + new Vector3(weaponRage * player.transform.localScale.x * -1 * Time.deltaTime, 0, 0);
+                    transform.position = player.transform.position + new Vector3(weaponRage * player.transform.localScale.x * -1, 0, 0);
                 }
             }
         }

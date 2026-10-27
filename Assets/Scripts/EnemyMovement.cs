@@ -23,7 +23,7 @@ public class EnemyMovement : MonoBehaviour
     public PlayerAttack attack;
     public bool startattack = false;
 
-
+    public bool endattack;
     public float range;
 
     // Start is called before the first frame update
