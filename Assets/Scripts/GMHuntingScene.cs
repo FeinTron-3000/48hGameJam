@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GMHuntingScene : MonoBehaviour
 {
@@ -15,10 +16,18 @@ public class GMHuntingScene : MonoBehaviour
     [SerializeField] public HuntingScoring huntingscoring;
     [SerializeField] public GameObject[] mantis;
 
+    [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] public int timelimit;
+
+
+
     void Start()
     {
         // reset meat collection
         huntingscoring.mantiscore = 0;
+
+        //start countdown
+        StartCoroutine(CountDown());
     }
 
     void Update()
@@ -38,6 +47,39 @@ public class GMHuntingScene : MonoBehaviour
         }
     }
 
+    // Timer/countdown
+    IEnumerator CountDown()
+    {
+        for (int i = timelimit; i > 0; i--)
+        {
+            timelimit--;
+            int minutes = Mathf.FloorToInt(timelimit / 60);
+            int seconds = Mathf.FloorToInt(timelimit % 60);
+            timerText.text = string.Format("{00:00}:{1:00}", minutes, seconds);
+            yield return new WaitForSeconds(1);
+        }
+        StopTimer();
+    }
+
+    public void StopTimer()
+    {
+        timelimit = 0;
+        TimesUp();
+        LevelEnd();
+    }
+
+    // game over animation
+    private void TimesUp()
+    {
+        if (timelimit > 0 && timelimit < 10)
+        {
+            timerText.color = Color.yellow;
+        }
+        else if (timelimit < 1)
+        {
+            timerText.color = Color.red;
+        }
+    }
     public void LevelEnd()
     {
         // meat collection
