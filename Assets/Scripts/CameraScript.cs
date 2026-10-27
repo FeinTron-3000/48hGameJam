@@ -9,13 +9,26 @@ public class CameraScript : MonoBehaviour
     [SerializeField] public float distanceup;
     [SerializeField] public float distance;
 
+    public float maxx;
+    public float maxy;
+
+    public float x;
+    public float y;
+
     void Update()
     {
         // check the player is alive
         if (player != null)
         {
-            // follow the player character's position
-            transform.position = new Vector3(player.transform.position.x, player.transform.position.y + distanceup, distance);
+            if (player.transform.position.x > maxx)
+            {
+                 x = player.transform.position.x;
+            }
+            if (player.transform.position.y > maxy)
+            {
+                y = player.transform.position.y;
+            }
+                transform.position = new Vector3(x, y, distance);
         }
     }
 }
