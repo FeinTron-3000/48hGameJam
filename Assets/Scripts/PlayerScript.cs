@@ -37,6 +37,9 @@ public class PlayerScript : MonoBehaviour
     public PlayerAttack playerAttack;
 
     public AudioSource jumpsound;
+    public AudioSource dashsound;
+    public AudioSource swordsound;
+    public AudioSource walksound;
 
     private void Start()
     {
@@ -62,6 +65,7 @@ public class PlayerScript : MonoBehaviour
         }
         else
         {
+            walksound.Play();
             animator.SetBool("isWalking", false);
         }
 
@@ -81,11 +85,13 @@ public class PlayerScript : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            swordsound.Play();
             animator.SetBool("Attack", true);
             playerAttack.Attack();
         }
         if (Input.GetKey(dash) && canDash)
         {
+            dashsound.Play();
             StartCoroutine(Dash());
         }
     }
