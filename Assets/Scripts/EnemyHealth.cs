@@ -13,6 +13,8 @@ public class EnemyHealth : MonoBehaviour
     public bool agrivated = false;
     public bool attacking;
 
+    public Animator animator;
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -29,7 +31,7 @@ public class EnemyHealth : MonoBehaviour
         }
         else if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            StartCoroutine(die());
         }
     }
 
@@ -50,5 +52,12 @@ public class EnemyHealth : MonoBehaviour
                 rb.AddForce(Vector2.left * knockbackForce * Time.deltaTime, ForceMode2D.Impulse);
             }
         }
+    }
+
+    IEnumerator die()
+    {
+        animator.SetBool("Die", true);
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
     }
 }
