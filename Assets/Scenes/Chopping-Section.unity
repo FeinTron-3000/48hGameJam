@@ -756,6 +756,7 @@ GameObject:
   - component: {fileID: 1677880186}
   - component: {fileID: 1677880185}
   - component: {fileID: 1677880184}
+  - component: {fileID: 1677880187}
   - component: {fileID: 1677880183}
   m_Layer: 0
   m_Name: Chop Button
@@ -772,7 +773,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677880181}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 280.21402, y: -7.587997, z: -4878}
+  m_LocalPosition: {x: 554, y: -7.587997, z: -4878}
   m_LocalScale: {x: 205.15489, y: 205.15489, z: 205.15489}
   m_Children: []
   m_Father: {fileID: 1346357556}
@@ -887,3 +888,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1677880187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677880181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd159c5dcae17743a579537038d81b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shrinkSpeed: 170
+  growSpeed: 10
+  minScale: 50
+  maxScale: 210
+  waitTime: 0.1
+  triggerObject: {fileID: 1677880181}
+  isGrowing: 0
