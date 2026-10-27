@@ -2381,6 +2381,10 @@ MonoBehaviour:
   huntingscoring: {fileID: 11400000, guid: cc537a03a3a1663448d039bf0a2d13af, type: 2}
   mantis:
   - {fileID: 1101494603}
+  plant:
+  - {fileID: 1575455032}
+  hornet:
+  - {fileID: 739481646}
   timerText: {fileID: 304656518}
   timelimit: 60
 --- !u!4 &1888399807
