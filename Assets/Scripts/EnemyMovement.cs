@@ -25,6 +25,7 @@ public class EnemyMovement : MonoBehaviour
 
     public bool endattack;
     public float range;
+    public AudioSource attacksound;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +45,7 @@ public class EnemyMovement : MonoBehaviour
                 // start mantis attack
                 if (!startattack)
                 {
+                    attacksound.Play();
                     attack.Agrivated();
                     startattack = true;
                 }
