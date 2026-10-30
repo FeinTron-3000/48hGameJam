@@ -6,24 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main-Menu.unity
+    path: Assets/Scenes/MainMenu.unity
     guid: caa111a346ddfcd4db1b4f280dfd89cc
   - enabled: 1
-    path: Assets/Scenes/Monster-Hunter.unity
+    path: Assets/Scenes/Hunting.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Results-Page.unity
+    path: Assets/Scenes/Transition.unity
     guid: 5bd6e3faaca3d1d42b7a9f7e12744977
   - enabled: 1
-    path: Assets/Scenes/Chopping-Section.unity
+    path: Assets/Scenes/Cooking/Cutting.unity
     guid: 6656934537cf06740821a102df4f803d
   - enabled: 1
-    path: Assets/Scenes/Stiring-Section.unity
+    path: Assets/Scenes/Cooking/Stiring.unity
     guid: ca176cc20e5d0524fa099a0d77b529c4
   - enabled: 1
-    path: Assets/Scenes/Skill-Check.unity
+    path: Assets/Scenes/Cooking/Frying.unity
     guid: 93ab9f08fca974446a5d6128822fe2f4
   - enabled: 1
-    path: Assets/Scenes/Day-End.unity
+    path: Assets/Scenes/ResultsPage.unity
     guid: 1678add94c4c6f04aa4ba00398688829
   m_configObjects: {}
