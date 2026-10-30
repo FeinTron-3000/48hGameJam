@@ -397,7 +397,7 @@ GameObject:
   - component: {fileID: 547362230}
   - component: {fileID: 547362229}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -837,7 +837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4d8bc0a4557c10479cf18706d020ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startlevel: Monster-Hunter
+  startlevel: Hunting
   bganim: {fileID: 1447809751}
   Bg: {fileID: 1447809750}
 --- !u!1 &1447809750
@@ -852,7 +852,7 @@ GameObject:
   - component: {fileID: 1447809752}
   - component: {fileID: 1447809751}
   m_Layer: 0
-  m_Name: BG
+  m_Name: Bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -955,7 +955,7 @@ GameObject:
   - component: {fileID: 1579900240}
   - component: {fileID: 1579900239}
   m_Layer: 0
-  m_Name: UI BG
+  m_Name: UI Bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
