@@ -93,8 +93,6 @@ public class PlayerScript : MonoBehaviour
         // jumping
         if (Input.GetKeyDown(jump))
         {
-            jumpsound.Play();
-
             Jump();
         }
         // adjust gravity for jumping 
@@ -154,6 +152,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (CheckForGround())
         {
+            jumpsound.Play();
             animator.SetBool("Jump", true);
 
             doublejump = true;
@@ -164,6 +163,8 @@ public class PlayerScript : MonoBehaviour
         {
             if (doublejump)
             {
+                jumpsound.Play();
+
                 doublejump = false;
 
                 // smaller jump

@@ -3,10 +3,7 @@ using System.Collections;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
-
 {
-    public Rigidbody2D rb;
-
     [Header("Health")]
     public int health;
     public int maxhealth;

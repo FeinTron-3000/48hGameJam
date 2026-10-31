@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class SpikeScript : MonoBehaviour
+public class HornetAttack : MonoBehaviour
 {
     public GameObject target;
     public GameObject player;

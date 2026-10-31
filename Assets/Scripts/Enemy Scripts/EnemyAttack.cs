@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttack : MonoBehaviour
+public class PlantAttack : MonoBehaviour
 {
     public float weaponRage;
     public LayerMask enemyLayer;
@@ -128,7 +128,6 @@ public class EnemyAttack : MonoBehaviour
         {
             animator.SetBool("Attack", false);
             enemyattack = false;
-            enemyhealth.attacking = false;
             plantattackstart = false;
             StartCoroutine(CoolDown());
         }
@@ -141,10 +140,7 @@ public class EnemyAttack : MonoBehaviour
     IEnumerator AttackDelay()
     {
         plantattackstart = true;
-        Debug.Log("Delay");
         yield return new WaitForSeconds(attackdelay);
-        Debug.Log("start");
-        enemyhealth.attacking = true;
         enemyattack = true;
         StartCoroutine(WeaponReturn());
     }

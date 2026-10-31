@@ -4,60 +4,45 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    [Header("Health")]
     public int currentHealth;
     public int maxHealth;
-    [SerializeField] public float knockbackForce;
-    [SerializeField] public Rigidbody2D rb;
-    public GameObject player;
 
-    public bool agrivated = false;
-    public bool attacking;
+    public bool isdead;
 
+    [Header("Attacking")]
+    public bool agrivated;
+
+    [Header("Audio")]
+    public AudioSource deathsound;
+
+    [Header("Animator")]
     public Animator animator;
+    public float deathanimationtime;
 
-    private void Start()
+    void Awake()
     {
+        // set health
         currentHealth = maxHealth;
     }
 
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
+
         agrivated = true;
-        Knockback();
-        if (currentHealth > maxHealth)
-        {
-            currentHealth = maxHealth;
-        }
-        else if (currentHealth <= 0)
+
+        if (currentHealth <= 0)
         {
             StartCoroutine(die());
-        }
-    }
-
-    private void Knockback()
-    {
-        if (player.transform.position.x < transform.position.x)
-        {
-            if (player.gameObject.CompareTag("Player"))
-            {
-                rb.AddForce(Vector2.right * knockbackForce * Time.deltaTime, ForceMode2D.Impulse);
-            }
-
-        }
-        else
-        {
-            if (player.gameObject.CompareTag("Player"))
-            {
-                rb.AddForce(Vector2.left * knockbackForce * Time.deltaTime, ForceMode2D.Impulse);
-            }
         }
     }
 
     IEnumerator die()
     {
         animator.SetBool("Die", true);
-        yield return new WaitForSeconds(1);
-        Destroy(gameObject);
+        isdead = true;
+
+        yield return new WaitForSeconds(deathanimationtime);
     }
 }

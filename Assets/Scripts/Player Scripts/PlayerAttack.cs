@@ -15,6 +15,7 @@ public class PlayerAttack : MonoBehaviour
     [Header("Scripts")]
     public PlayerHealth playerhealth;
     public PlayerScript playerscript;
+    public EnemyHealth enemyhealth;
 
     [Header("Audio")]
     public AudioSource swordsound;
@@ -32,11 +33,12 @@ public class PlayerAttack : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            // get enemy health script from enemy
-            EnemyHealth enemyhealth = collision.gameObject.GetComponent<EnemyHealth>();
-
-            // damage enemy
-            enemyhealth.TakeDamage(playerscript.damage);
+            if (attacking)
+            {
+                // damage enemy
+                enemyhealth = collision.GetComponent<EnemyHealth>();
+                enemyhealth.TakeDamage(playerscript.damage);
+            }
         }
     }
 
@@ -47,8 +49,8 @@ public class PlayerAttack : MonoBehaviour
         {
             return;
         }
-        swordsound.Play();
 
+        swordsound.Play();
         animator.SetBool("Attack", true);
         attackpoint.enabled = true;
         attacking = true;
