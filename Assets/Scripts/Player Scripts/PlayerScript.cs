@@ -62,6 +62,8 @@ public class PlayerScript : MonoBehaviour
             // if dead stop moving
             return;
         }
+
+
         // left/ right movement
         if (Input.GetKey(moveright))
         {
@@ -92,6 +94,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown(jump))
         {
             jumpsound.Play();
+
             Jump();
         }
         // adjust gravity for jumping 
@@ -119,9 +122,9 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    // stop animations from playing
     void LateUpdate()
     {
+        // landing animation
         if (CheckForGround())
         {
             animator.SetBool("Jump", false);
@@ -151,7 +154,6 @@ public class PlayerScript : MonoBehaviour
     {
         if (CheckForGround())
         {
-            animator.SetBool("Land", false);
             animator.SetBool("Jump", true);
 
             doublejump = true;
@@ -176,11 +178,11 @@ public class PlayerScript : MonoBehaviour
         isdashing = true;
         float originalspeed = movespeed;
 
-        // dash
+        // increase movement speed
         movespeed = dashpower;
         animator.SetBool("isDashing", true);
 
-        // stop dash
+        // reset movement speed
         yield return new WaitForSeconds(dashingtime);
         animator.SetBool("isDashing", false);
         isdashing = false;
