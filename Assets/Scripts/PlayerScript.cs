@@ -54,7 +54,7 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        // player movement
+        // left/ right movement
         if (Input.GetKey(moveright))
         {
             // flip direction facing
@@ -80,6 +80,7 @@ public class PlayerScript : MonoBehaviour
         }
 
 
+        // jumping
         if (Input.GetKeyDown(jump))
         {
             jumpsound.Play();
@@ -95,7 +96,7 @@ public class PlayerScript : MonoBehaviour
             rb.gravityScale = fallinggravityscale;
         }
 
-
+        // attack
         if (Input.GetMouseButtonDown(0))
         {
             swordsound.Play();
@@ -103,7 +104,8 @@ public class PlayerScript : MonoBehaviour
             playerAttack.Attack();
         }
 
-        if (Input.GetKey(dash) && candash)
+        //dash
+        if (Input.GetKey(dash) && candash && playerismoving)
         {
             dashsound.Play();
             StartCoroutine(Dash());
@@ -129,6 +131,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    #region Player movement
     void MoveRight()
     {
         transform.Translate(Vector2.right * movespeed * Time.deltaTime);
@@ -167,27 +170,25 @@ public class PlayerScript : MonoBehaviour
 
     private IEnumerator Dash()
     {
-        if (playerismoving)
-        {
-            candash = false;
-            isdashing = true;
-            float originalspeed = movespeed;
+        candash = false;
+        isdashing = true;
+        float originalspeed = movespeed;
 
-            // dash
-            movespeed = dashpower;
-            animator.SetBool("isDashing", true);
+        // dash
+        movespeed = dashpower;
+        animator.SetBool("isDashing", true);
 
-            // stop dash
-            yield return new WaitForSeconds(dashingtime);
-            animator.SetBool("isDashing", false);
-            isdashing = false;
-            movespeed = originalspeed;
+        // stop dash
+        yield return new WaitForSeconds(dashingtime);
+        animator.SetBool("isDashing", false);
+        isdashing = false;
+        movespeed = originalspeed;
 
-            // reset dash
-            yield return new WaitForSeconds(dashcooldown);
-            candash = true;
-        }
+        // reset dash
+        yield return new WaitForSeconds(dashcooldown);
+        candash = true;
     }
+    #endregion
 
     // ground detection
     private bool CheckForGround()
