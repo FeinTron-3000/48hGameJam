@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerScript : MonoBehaviour
     public KeyCode moveleft;
     public KeyCode jump;
     public KeyCode dash;
+    public int mousebutton;
 
     [Header("Movement Variabes")]
     public float movespeed;
@@ -31,30 +33,38 @@ public class PlayerScript : MonoBehaviour
     public float fallinggravityscale;
 
     [Header("Attacking")]
-    public GameObject attackpoint;
-    public LayerMask enemylayer;
-    public float weaponrage;
     public int damage;
+    public PlayerAttack playerattack;
 
-    public PlayerAttack playerAttack;
+    [Header("Health")]
+    public PlayerHealth playerhealth;
 
     [Header("Audio")]
     public AudioSource jumpsound;
     public AudioSource dashsound;
-    public AudioSource swordsound;
     public AudioSource walksound;
 
     [Header("Animator")]
     public Animator animator;
 
+
     private void Start()
     {
-        playerAttack = playerAttack.GetComponent<PlayerAttack>();
+        playerattack = playerattack.GetComponent<PlayerAttack>();
+        playerhealth = playerhealth.GetComponent<PlayerHealth>();
     }
 
+    // movement inputs
     void Update()
     {
-        // player movement
+        if (playerhealth.isdead)
+        {
+            // if dead stop moving
+            return;
+        }
+
+
+        // left/ right movement
         if (Input.GetKey(moveright))
         {
             // flip direction facing
@@ -80,9 +90,9 @@ public class PlayerScript : MonoBehaviour
         }
 
 
+        // jumping
         if (Input.GetKeyDown(jump))
         {
-            jumpsound.Play();
             Jump();
         }
         // adjust gravity for jumping 
@@ -95,24 +105,24 @@ public class PlayerScript : MonoBehaviour
             rb.gravityScale = fallinggravityscale;
         }
 
-
-        if (Input.GetMouseButtonDown(0))
+        // attack
+        if (Input.GetMouseButtonDown(mousebutton))
         {
-            swordsound.Play();
-            animator.SetBool("Attack", true);
-            playerAttack.Attack();
+            // run attack script
+            playerattack.Attack();
         }
 
-        if (Input.GetKey(dash) && candash)
+        // dash
+        if (Input.GetKey(dash) && candash && playerismoving)
         {
             dashsound.Play();
             StartCoroutine(Dash());
         }
     }
 
-    private void LateUpdate()
+    void LateUpdate()
     {
-        // stop animations from playing
+        // landing animation
         if (CheckForGround())
         {
             animator.SetBool("Jump", false);
@@ -122,13 +132,9 @@ public class PlayerScript : MonoBehaviour
         {
             animator.SetBool("Land", false);
         }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            animator.SetBool("Attack", false);
-        }
     }
 
+    #region Player movement
     void MoveRight()
     {
         transform.Translate(Vector2.right * movespeed * Time.deltaTime);
@@ -146,7 +152,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (CheckForGround())
         {
-            animator.SetBool("Land", false);
+            jumpsound.Play();
             animator.SetBool("Jump", true);
 
             doublejump = true;
@@ -157,6 +163,8 @@ public class PlayerScript : MonoBehaviour
         {
             if (doublejump)
             {
+                jumpsound.Play();
+
                 doublejump = false;
 
                 // smaller jump
@@ -167,27 +175,25 @@ public class PlayerScript : MonoBehaviour
 
     private IEnumerator Dash()
     {
-        if (playerismoving)
-        {
-            candash = false;
-            isdashing = true;
-            float originalspeed = movespeed;
+        candash = false;
+        isdashing = true;
+        float originalspeed = movespeed;
 
-            // dash
-            movespeed = dashpower;
-            animator.SetBool("isDashing", true);
+        // increase movement speed
+        movespeed = dashpower;
+        animator.SetBool("isDashing", true);
 
-            // stop dash
-            yield return new WaitForSeconds(dashingtime);
-            animator.SetBool("isDashing", false);
-            isdashing = false;
-            movespeed = originalspeed;
+        // reset movement speed
+        yield return new WaitForSeconds(dashingtime);
+        animator.SetBool("isDashing", false);
+        isdashing = false;
+        movespeed = originalspeed;
 
-            // reset dash
-            yield return new WaitForSeconds(dashcooldown);
-            candash = true;
-        }
+        // reset dash
+        yield return new WaitForSeconds(dashcooldown);
+        candash = true;
     }
+    #endregion
 
     // ground detection
     private bool CheckForGround()
