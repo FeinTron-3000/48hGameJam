@@ -571,7 +571,7 @@ MonoBehaviour:
   animator: {fileID: 739481647}
   script: {fileID: 739481649}
   maxspeed: 1
-  attack: {fileID: 2036979928}
+  attack: {fileID: 0}
   startattack: 0
   endattack: 0
   range: 3
@@ -892,7 +892,6 @@ GameObject:
   m_Component:
   - component: {fileID: 776003115}
   - component: {fileID: 776003117}
-  - component: {fileID: 776003118}
   - component: {fileID: 776003116}
   - component: {fileID: 776003119}
   m_Layer: 7
@@ -993,38 +992,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4, y: 0.4}
   m_EdgeRadius: 0
---- !u!114 &776003118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 776003114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da0783cc71c3a334c934561dd9de422e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponRage: 0.5
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  damnage: 1
-  attacktime: 0.5
-  cooldowntime: 2
-  player: {fileID: 1101494603}
-  enemyhealth: {fileID: 1101494610}
-  playerHealth: {fileID: 1509233118}
-  isenemy: 1
-  enemyattack: 0
-  attacking: 0
-  attackdelay: 0.3
-  mantis: 1
-  plant: 0
-  growspeed: 0
-  plantattackstart: 0
-  mantisattack: {fileID: 776003119}
-  animator: {fileID: 1101494611}
 --- !u!82 &776003119
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1131,7 +1098,6 @@ GameObject:
   m_Component:
   - component: {fileID: 915619463}
   - component: {fileID: 915619462}
-  - component: {fileID: 915619460}
   - component: {fileID: 915619461}
   - component: {fileID: 915619464}
   m_Layer: 7
@@ -1141,38 +1107,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &915619460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915619459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da0783cc71c3a334c934561dd9de422e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponRage: 0.5
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  damnage: 1
-  attacktime: 0.3
-  cooldowntime: 3
-  player: {fileID: 1575455032}
-  enemyhealth: {fileID: 1575455035}
-  playerHealth: {fileID: 1509233118}
-  isenemy: 1
-  enemyattack: 0
-  attacking: 0
-  attackdelay: 1.35
-  mantis: 0
-  plant: 1
-  growspeed: 8
-  plantattackstart: 0
-  mantisattack: {fileID: 915619464}
-  animator: {fileID: 1575455033}
 --- !u!212 &915619461
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1604,7 +1538,7 @@ MonoBehaviour:
   animator: {fileID: 1101494611}
   script: {fileID: 1101494610}
   maxspeed: 5
-  attack: {fileID: 776003118}
+  attack: {fileID: 0}
   startattack: 0
   endattack: 0
   range: 0
@@ -2456,10 +2390,10 @@ GameObject:
   - component: {fileID: 1509233115}
   - component: {fileID: 1509233114}
   - component: {fileID: 1509233113}
+  - component: {fileID: 1509233119}
   - component: {fileID: 1509233118}
   - component: {fileID: 1509233117}
   - component: {fileID: 1509233120}
-  - component: {fileID: 1509233119}
   - component: {fileID: 1509233121}
   - component: {fileID: 1509233122}
   - component: {fileID: 1509233123}
@@ -2500,13 +2434,13 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509233112}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00093092024, y: -0.007}
+  m_Offset: {x: 0.2, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2517,7 +2451,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.11, y: 0.2867409}
+  m_Size: {x: 0.11, y: 0.11}
   m_EdgeRadius: 0
 --- !u!212 &1509233115
 SpriteRenderer:
@@ -2602,6 +2536,7 @@ MonoBehaviour:
   moveleft: 97
   jump: 32
   dash: 304
+  mousebutton: 0
   movespeed: 10
   jumppower: 10
   dashpower: 20
@@ -2614,16 +2549,11 @@ MonoBehaviour:
   doublejump: 0
   gravityscale: 2
   fallinggravityscale: 3
-  attackpoint: {fileID: 1930879779}
-  enemylayer:
-    serializedVersion: 2
-    m_Bits: 128
-  weaponrage: 1
   damage: 1
-  playerAttack: {fileID: 1930879782}
+  playerattack: {fileID: 1509233119}
+  playerhealth: {fileID: 1509233118}
   jumpsound: {fileID: 1509233121}
   dashsound: {fileID: 1509233122}
-  swordsound: {fileID: 1509233123}
   walksound: {fileID: 1509233124}
   animator: {fileID: 1509233120}
 --- !u!114 &1509233118
@@ -2638,36 +2568,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf13cb9dcfe23241a22682e6dd415f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackForce: 5
-  animator: {fileID: 1509233120}
+  rb: {fileID: 1509233113}
   health: 0
-  maxHealth: 50266
---- !u!61 &1509233119
-BoxCollider2D:
+  maxhealth: 5
+  isdead: 0
+  gamemanager: {fileID: 1888399806}
+  animator: {fileID: 1509233120}
+  deathanimationtime: 1
+--- !u!114 &1509233119
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509233112}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.00093092024, y: -0.007}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.18, y: 0.32}
-    newSize: {x: 0.17, y: 0.315}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.11, y: 0.2867409}
-  m_EdgeRadius: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da0783cc71c3a334c934561dd9de422e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attacktime: 0.5
+  attackdelaytime: 0
+  attacking: 0
+  attackpoint: {fileID: 1509233114}
+  playerhealth: {fileID: 1509233118}
+  playerscript: {fileID: 1509233117}
+  swordsound: {fileID: 1509233123}
+  animator: {fileID: 1509233120}
 --- !u!95 &1509233120
 Animator:
   serializedVersion: 5
@@ -3272,7 +3199,7 @@ MonoBehaviour:
   animator: {fileID: 1575455033}
   script: {fileID: 1575455035}
   maxspeed: 0
-  attack: {fileID: 915619460}
+  attack: {fileID: 0}
   startattack: 0
   endattack: 0
   range: 0
@@ -3829,7 +3756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a876d7c182cdc54bab4d8d4036f61a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1509233112}
+  nextscenename: Transition
   scoretracker: {fileID: 11400000, guid: 988e67ceb904c76449e1d4c3b3840c1c, type: 2}
   huntingscoring: {fileID: 11400000, guid: cc537a03a3a1663448d039bf0a2d13af, type: 2}
   mantis:
@@ -3840,7 +3767,6 @@ MonoBehaviour:
   - {fileID: 739481646}
   timertext: {fileID: 304656518}
   timelimit: 60
-  nextscenename: Transition
 --- !u!4 &1888399807
 Transform:
   m_ObjectHideFlags: 0
@@ -3865,13 +3791,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1930879780}
   - component: {fileID: 1930879781}
-  - component: {fileID: 1930879782}
-  - component: {fileID: 1930879785}
   - component: {fileID: 1930879783}
-  - component: {fileID: 1930879784}
-  - component: {fileID: 1930879786}
   m_Layer: 6
-  m_Name: AttackPoint
+  m_Name: Collider
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3886,7 +3808,7 @@ Transform:
   m_GameObject: {fileID: 1930879779}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.1, y: 0.3, z: 0.1}
   m_Children: []
   m_Father: {fileID: 1509233116}
   m_RootOrder: 0
@@ -3901,7 +3823,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -3917,38 +3839,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1930879782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1930879779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da0783cc71c3a334c934561dd9de422e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponRage: 0.3
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  damnage: 1
-  attacktime: 0.4
-  cooldowntime: 0
-  player: {fileID: 1509233112}
-  enemyhealth: {fileID: 0}
-  playerHealth: {fileID: 1509233118}
-  isenemy: 0
-  enemyattack: 0
-  attacking: 0
-  attackdelay: 0
-  mantis: 0
-  plant: 0
-  growspeed: 0
-  plantattackstart: 0
-  mantisattack: {fileID: 1930879786}
-  animator: {fileID: 1930879784}
 --- !u!212 &1930879783
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3956,7 +3846,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1930879779}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -4000,143 +3890,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1930879784
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1930879779}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6af7257a75c9b3544925ee5435e1c38d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1930879785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1930879779}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5588d29fba6ab24696584ce7dfae397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHealth: 0
-  maxHealth: 0
-  knockbackForce: 0
-  rb: {fileID: 0}
-  player: {fileID: 0}
-  agrivated: 0
-  attacking: 0
-  animator: {fileID: 0}
---- !u!82 &1930879786
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1930879779}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 80a9e24601a3cb84ab7f3225a6a47cb5, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &2036979927
 GameObject:
   m_ObjectHideFlags: 0
@@ -4147,7 +3900,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2036979931}
   - component: {fileID: 2036979930}
-  - component: {fileID: 2036979928}
   - component: {fileID: 2036979929}
   m_Layer: 7
   m_Name: AttackPoint
@@ -4156,38 +3908,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &2036979928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2036979927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da0783cc71c3a334c934561dd9de422e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponRage: 0.5
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  damnage: 1
-  attacktime: 5
-  cooldowntime: 3
-  player: {fileID: 739481646}
-  enemyhealth: {fileID: 739481649}
-  playerHealth: {fileID: 0}
-  isenemy: 1
-  enemyattack: 0
-  attacking: 0
-  attackdelay: 0
-  mantis: 0
-  plant: 0
-  growspeed: 0.05
-  plantattackstart: 0
-  mantisattack: {fileID: 2036979929}
-  animator: {fileID: 739481647}
 --- !u!82 &2036979929
 AudioSource:
   m_ObjectHideFlags: 0

@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class EnemyAttack : MonoBehaviour
 {
     public float weaponRage;
     public LayerMask enemyLayer;
@@ -40,7 +39,7 @@ public class PlayerAttack : MonoBehaviour
     }
     public void Agrivated()
     {
-         StartCoroutine(CoolDown());
+        StartCoroutine(CoolDown());
     }
     private void Update()
     {
@@ -91,7 +90,7 @@ public class PlayerAttack : MonoBehaviour
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 enemyhealth = collision.GetComponent<EnemyHealth>();
-                enemyhealth.TakeDamnge(damnage);
+                enemyhealth.TakeDamage(damnage);
             }
         }
         else
@@ -118,7 +117,7 @@ public class PlayerAttack : MonoBehaviour
             StartCoroutine(AttackDelay());
         }
 
-        
+
     }
 
     IEnumerator WeaponReturn()

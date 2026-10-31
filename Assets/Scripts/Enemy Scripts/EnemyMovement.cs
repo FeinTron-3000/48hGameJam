@@ -48,7 +48,7 @@ public class EnemyMovement : MonoBehaviour
                 if (!startattack)
                 {
 
-                    attack.Agrivated();
+                    // attack.Agrivated();
                     startattack = true;
                 }
 

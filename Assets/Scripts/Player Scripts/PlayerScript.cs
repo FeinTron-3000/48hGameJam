@@ -33,29 +33,35 @@ public class PlayerScript : MonoBehaviour
     public float fallinggravityscale;
 
     [Header("Attacking")]
-    public GameObject attackpoint;
-    public LayerMask enemylayer;
-    public float weaponrage;
     public int damage;
+    public PlayerAttack playerattack;
 
-    public PlayerAttack playerAttack;
+    [Header("Health")]
+    public PlayerHealth playerhealth;
 
     [Header("Audio")]
     public AudioSource jumpsound;
     public AudioSource dashsound;
-    public AudioSource swordsound;
     public AudioSource walksound;
 
     [Header("Animator")]
     public Animator animator;
 
+
     private void Start()
     {
-        playerAttack = playerAttack.GetComponent<PlayerAttack>();
+        playerattack = playerattack.GetComponent<PlayerAttack>();
+        playerhealth = playerhealth.GetComponent<PlayerHealth>();
     }
 
+    // movement inputs
     void Update()
     {
+        if (playerhealth.isdead)
+        {
+            // if dead stop moving
+            return;
+        }
         // left/ right movement
         if (Input.GetKey(moveright))
         {
@@ -101,12 +107,11 @@ public class PlayerScript : MonoBehaviour
         // attack
         if (Input.GetMouseButtonDown(mousebutton))
         {
-            swordsound.Play();
-            animator.SetBool("Attack", true);
-            playerAttack.Attack();
+            // run attack script
+            playerattack.Attack();
         }
 
-        //dash
+        // dash
         if (Input.GetKey(dash) && candash && playerismoving)
         {
             dashsound.Play();
@@ -114,9 +119,9 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    private void LateUpdate()
+    // stop animations from playing
+    void LateUpdate()
     {
-        // stop animations from playing
         if (CheckForGround())
         {
             animator.SetBool("Jump", false);
@@ -125,11 +130,6 @@ public class PlayerScript : MonoBehaviour
         else
         {
             animator.SetBool("Land", false);
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            animator.SetBool("Attack", false);
         }
     }
 

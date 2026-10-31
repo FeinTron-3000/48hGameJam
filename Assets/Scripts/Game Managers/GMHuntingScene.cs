@@ -6,7 +6,7 @@ using TMPro;
 
 public class GMHuntingScene : MonoBehaviour
 {
-    public GameObject player;
+    public string nextscenename;
 
     [Header("Trackers")]
     public ScoreTracker scoretracker;
@@ -20,9 +20,6 @@ public class GMHuntingScene : MonoBehaviour
     public TextMeshProUGUI timertext;
     public int timelimit;
 
-    public string nextscenename;
-
-
 
     void Start()
     {
@@ -33,17 +30,6 @@ public class GMHuntingScene : MonoBehaviour
 
         // start countdown
         StartCoroutine(CountDown());
-    }
-
-    void Update()
-    {
-        // if the player is dead end the level
-        if (player == null)
-        {
-            GameOverAnimation();
-
-            LevelEnd();
-        }
     }
 
     IEnumerator CountDown()
@@ -60,8 +46,6 @@ public class GMHuntingScene : MonoBehaviour
 
             yield return new WaitForSeconds(1);
         }
-
-        GameOverAnimation();
 
         LevelEnd();
     }

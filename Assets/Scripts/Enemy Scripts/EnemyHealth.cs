@@ -20,7 +20,7 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    public void TakeDamnge(int amount)
+    public void TakeDamage(int amount)
     {
         currentHealth -= amount;
         agrivated = true;
