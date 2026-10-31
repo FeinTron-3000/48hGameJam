@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerScript : MonoBehaviour
     public KeyCode moveleft;
     public KeyCode jump;
     public KeyCode dash;
+    public int mousebutton;
 
     [Header("Movement Variabes")]
     public float movespeed;
@@ -97,7 +99,7 @@ public class PlayerScript : MonoBehaviour
         }
 
         // attack
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(mousebutton))
         {
             swordsound.Play();
             animator.SetBool("Attack", true);
