@@ -480,9 +480,7 @@ GameObject:
   - component: {fileID: 739481653}
   - component: {fileID: 739481651}
   - component: {fileID: 739481652}
-  - component: {fileID: 739481650}
   - component: {fileID: 739481649}
-  - component: {fileID: 739481648}
   - component: {fileID: 739481647}
   - component: {fileID: 739481655}
   - component: {fileID: 739481656}
@@ -514,21 +512,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &739481648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 739481646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 020e8b0f15d3b964f8bd1dff4b79fa80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerHealth: {fileID: 0}
-  damage: 1
-  damagesound: {fileID: 0}
 --- !u!114 &739481649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,34 +531,6 @@ MonoBehaviour:
   deathsound: {fileID: 0}
   animator: {fileID: 739481647}
   deathanimationtime: 0
---- !u!114 &739481650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 739481646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e27e57c8730d42479714c4628928ca1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movespeed: 800
-  player: {fileID: 1509233112}
-  playeronright: 0
-  rb: {fileID: 739481651}
-  mantis: 0
-  plant: 0
-  hornet: 1
-  animator: {fileID: 739481647}
-  health: {fileID: 0}
-  maxspeed: 1
-  attack: {fileID: 0}
-  startattack: 0
-  endattack: 0
-  range: 3
-  mantiswalk: {fileID: 739481655}
-  hornetbuzz: {fileID: 739481656}
 --- !u!50 &739481651
 Rigidbody2D:
   serializedVersion: 4
@@ -1065,7 +1020,6 @@ GameObject:
   m_Component:
   - component: {fileID: 915619463}
   - component: {fileID: 915619462}
-  - component: {fileID: 915619461}
   - component: {fileID: 915619464}
   m_Layer: 7
   m_Name: AttackPoint
@@ -1074,57 +1028,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!212 &915619461
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915619459}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -4317961145809674074, guid: c3ecb4383b917cb40bc59624aa82455b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 6.4, y: 6.5}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!61 &915619462
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2115,7 +2018,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1447915482
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2840,7 +2743,6 @@ GameObject:
   - component: {fileID: 1575455039}
   - component: {fileID: 1575455038}
   - component: {fileID: 1575455037}
-  - component: {fileID: 1575455036}
   - component: {fileID: 1575455035}
   - component: {fileID: 1575455034}
   - component: {fileID: 1575455033}
@@ -2908,34 +2810,6 @@ MonoBehaviour:
   deathsound: {fileID: 0}
   animator: {fileID: 1575455033}
   deathanimationtime: 0
---- !u!114 &1575455036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1575455032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e27e57c8730d42479714c4628928ca1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movespeed: 0
-  player: {fileID: 1509233112}
-  playeronright: 0
-  rb: {fileID: 1575455037}
-  mantis: 0
-  plant: 1
-  hornet: 0
-  animator: {fileID: 1575455033}
-  health: {fileID: 0}
-  maxspeed: 0
-  attack: {fileID: 0}
-  startattack: 0
-  endattack: 0
-  range: 0
-  mantiswalk: {fileID: 1575455041}
-  hornetbuzz: {fileID: 1575455042}
 --- !u!50 &1575455037
 Rigidbody2D:
   serializedVersion: 4
