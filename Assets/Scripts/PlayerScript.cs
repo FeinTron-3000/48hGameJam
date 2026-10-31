@@ -4,42 +4,48 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    public Rigidbody2D rb;
+
     [Header("Player Movement")]
-    [SerializeField] public Rigidbody2D rb;
+    public KeyCode moveright;
+    public KeyCode moveleft;
+    public KeyCode jump;
+    public KeyCode dash;
 
-    [SerializeField] private Animator animator;
+    [Header("Movement Variabes")]
+    public float movespeed;
+    public float jumppower;
+    public float dashpower;
 
-    [SerializeField] public float movespeed;
-    [SerializeField] public KeyCode moveright;
-    [SerializeField] public KeyCode moveleft;
-    [SerializeField] public float maxspeed;
+    [Header("Dashing")]
+    [SerializeField] private bool playerismoving;
+    [SerializeField] private bool candash;
+    [SerializeField] private bool isdashing;
+    public float dashingtime;
+    public float dashcooldown;
 
-    [SerializeField] public float jumppower;
-    [SerializeField] public KeyCode jump;
-    [SerializeField] bool grounded;
-    [SerializeField] bool doublejump;
-    [SerializeField] public float gravityscale;
-    [SerializeField] public float fallinggravityscale;
+    [Header("Jumping")]
+    [SerializeField] private bool grounded;
+    [SerializeField] private bool doublejump;
+    public float gravityscale;
+    public float fallinggravityscale;
 
-    public GameObject attackPoint;
-    public float weaponRage;
-    public LayerMask enemyLayer;
-    public int damnage = 1;
-
-    //Dash 
-    [SerializeField] public KeyCode dash;
-    private bool canDash = true;
-    private bool isDashing;
-    public float dashingPower;
-    private float dashingTime = 0.2f;
-    public float dashCooldown = 0.2f;
+    [Header("Attacking")]
+    public GameObject attackpoint;
+    public LayerMask enemylayer;
+    public float weaponrage;
+    public int damage;
 
     public PlayerAttack playerAttack;
 
+    [Header("Audio")]
     public AudioSource jumpsound;
     public AudioSource dashsound;
     public AudioSource swordsound;
     public AudioSource walksound;
+
+    [Header("Animator")]
+    public Animator animator;
 
     private void Start()
     {
@@ -48,32 +54,38 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        if (isDashing)
-        {
-            return;
-        }
-        // movement
+        // player movement
         if (Input.GetKey(moveright))
         {
+            // flip direction facing
             transform.localScale = new Vector3(5, 5, 0);
+
             MoveRight();
+            playerismoving = true;
         }
         else if (Input.GetKey(moveleft))
         {
+            // flip direction facing
             transform.localScale = new Vector3(-5, 5, 0);
+
             MoveLeft();
+            playerismoving = true;
         }
         else
         {
             walksound.Play();
             animator.SetBool("isWalking", false);
+
+            playerismoving = false;
         }
+
 
         if (Input.GetKeyDown(jump))
         {
             jumpsound.Play();
             Jump();
         }
+        // adjust gravity for jumping 
         if (rb.velocity.y >= 0)
         {
             rb.gravityScale = gravityscale;
@@ -83,13 +95,15 @@ public class PlayerScript : MonoBehaviour
             rb.gravityScale = fallinggravityscale;
         }
 
+
         if (Input.GetMouseButtonDown(0))
         {
             swordsound.Play();
             animator.SetBool("Attack", true);
             playerAttack.Attack();
         }
-        if (Input.GetKey(dash) && canDash)
+
+        if (Input.GetKey(dash) && candash)
         {
             dashsound.Play();
             StartCoroutine(Dash());
@@ -98,10 +112,7 @@ public class PlayerScript : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (isDashing)
-        {
-            return;
-        }
+        // stop animations from playing
         if (CheckForGround())
         {
             animator.SetBool("Jump", false);
@@ -111,65 +122,71 @@ public class PlayerScript : MonoBehaviour
         {
             animator.SetBool("Land", false);
         }
+
         if (Input.GetMouseButtonDown(0))
         {
             animator.SetBool("Attack", false);
         }
     }
 
-    // movement
     void MoveRight()
     {
-        if (rb.velocity.magnitude < maxspeed)
-        {
-            rb.AddForce(Vector2.right * movespeed, ForceMode2D.Force);
-        }
+        transform.Translate(Vector2.right * movespeed * Time.deltaTime);
 
         animator.SetBool("isWalking", true);
     }
     void MoveLeft()
     {
-        if (rb.velocity.magnitude < maxspeed)
-        {
-            rb.AddForce(Vector2.left * movespeed, ForceMode2D.Force);
-        }
+        transform.Translate(Vector2.left * movespeed * Time.deltaTime);
+
         animator.SetBool("isWalking", true);
     }
+
     void Jump()
     {
         if (CheckForGround())
         {
             animator.SetBool("Land", false);
             animator.SetBool("Jump", true);
+
             doublejump = true;
-            rb.AddForce(Vector2.up * jumppower, ForceMode2D.Force);
+
+            rb.AddForce(Vector2.up * jumppower, ForceMode2D.Impulse);
         }
         else
         {
             if (doublejump)
             {
                 doublejump = false;
+
                 // smaller jump
-                rb.AddForce(Vector2.up * jumppower * 0.5f, ForceMode2D.Force);
+                rb.AddForce(Vector2.up * jumppower * 0.5f, ForceMode2D.Impulse);
             }
         }
     }
 
-    //Dash
     private IEnumerator Dash()
     {
-            canDash = false;
-            isDashing = true;
-            // float originalGravity = rb.gravityScale;
-            // rb.gravityScale = 0f;
-            rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
+        if (playerismoving)
+        {
+            candash = false;
+            isdashing = true;
+            float originalspeed = movespeed;
+
+            // dash
+            movespeed = dashpower;
             animator.SetBool("isDashing", true);
-            yield return new WaitForSeconds(dashingTime);
+
+            // stop dash
+            yield return new WaitForSeconds(dashingtime);
             animator.SetBool("isDashing", false);
-            // rb.gravityScale *= originalGravity;
-            isDashing = false;
-            yield return new WaitForSeconds(dashCooldown);
-            canDash = true;
+            isdashing = false;
+            movespeed = originalspeed;
+
+            // reset dash
+            yield return new WaitForSeconds(dashcooldown);
+            candash = true;
+        }
     }
 
     // ground detection

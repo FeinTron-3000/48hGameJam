@@ -6,84 +6,74 @@ using TMPro;
 
 public class GMHuntingScene : MonoBehaviour
 {
-    [SerializeField] public float worldtime;
-    [SerializeField] public GameObject player;
-    [SerializeField] public string resultsscreen;
+    public GameObject player;
 
-    [SerializeField] public ScoreTracker scoretracker;
+    [Header("Trackers")]
+    public ScoreTracker scoretracker;
 
-    [SerializeField] public HuntingScoring huntingscoring;
-    [SerializeField] public GameObject[] mantis;
-    [SerializeField] public GameObject[] plant;
-    [SerializeField] public GameObject[] hornet;
+    public HuntingScoring huntingscoring;
+    public GameObject[] mantis;
+    public GameObject[] plant;
+    public GameObject[] hornet;
 
-    [SerializeField] private TextMeshProUGUI timerText;
-    [SerializeField] public int timelimit;
+    [Header("Countdown")]
+    public TextMeshProUGUI timertext;
+    public int timelimit;
+
+    public string nextscenename;
 
 
 
     void Start()
     {
-        // reset meat collection
+        // reset level score
         huntingscoring.mantiscore = 0;
+        huntingscoring.plantscore = 0;
+        huntingscoring.hornetscore = 0;
 
-        //start countdown
+        // start countdown
         StartCoroutine(CountDown());
     }
 
     void Update()
     {
-        worldtime += 1 * Time.deltaTime;
-
-        // level end
+        // if the player is dead end the level
         if (player == null)
         {
+            GameOverAnimation();
 
-            LevelEnd();
-        }
-
-        else if (timelimit <= 0)
-        {
             LevelEnd();
         }
     }
 
-    // Timer/countdown
     IEnumerator CountDown()
     {
         for (int i = timelimit; i > 0; i--)
         {
+            // reduce time remainig
             timelimit--;
+
+            // set timer text to format
             int minutes = Mathf.FloorToInt(timelimit / 60);
             int seconds = Mathf.FloorToInt(timelimit % 60);
-            timerText.text = "Time remaining: " + string.Format("{00:00}:{1:00}", minutes, seconds);
+            timertext.text = "Time remaining: " + string.Format("{00:00}:{1:00}", minutes, seconds);
+
             yield return new WaitForSeconds(1);
         }
-        StopTimer();
-    }
 
-    public void StopTimer()
-    {
-        timelimit = 0;
-        TimesUp();
+        GameOverAnimation();
+
         LevelEnd();
     }
 
-    // game over animation
-    private void TimesUp()
+    public void GameOverAnimation()
     {
-        if (timelimit > 0 && timelimit < 10)
-        {
-            timerText.color = Color.yellow;
-        }
-        else if (timelimit < 1)
-        {
-            timerText.color = Color.red;
-        }
+
     }
+
     public void LevelEnd()
     {
-        // meat collection
+        // tally the level score
         for (int i = 0; i < mantis.Length; i++)
         {
             if (mantis[i] == null)
@@ -93,18 +83,20 @@ public class GMHuntingScene : MonoBehaviour
         }
         for (int i = 0; i < plant.Length; i++)
         {
-            if (mantis[i] == null)
+            if (plant[i] == null)
             {
                 huntingscoring.plantscore += 1;
             }
         }
         for (int i = 0; i < hornet.Length; i++)
         {
-            if (mantis[i] == null)
+            if (hornet[i] == null)
             {
                 huntingscoring.hornetscore += 1;
             }
         }
-        SceneManager.LoadScene(resultsscreen);
+
+        // load the next scene
+        SceneManager.LoadScene(nextscenename);
     }
 }
