@@ -11,11 +11,18 @@ public class GMMainMenu : MonoBehaviour
     public Animator animator;
     public float animationplaytime;
 
+    [Header("StartButton")]
+    public GameObject startbutton;
+    public AudioSource buttonclick;
 
     // code refrenced by start button in UI
     public void OnMouseDown()
     {
         animator.SetBool("Transition", true);
+
+        startbutton.SetActive(false);
+        buttonclick.Play();
+
         StartCoroutine(AnimationPlayFirst());
     }
 
