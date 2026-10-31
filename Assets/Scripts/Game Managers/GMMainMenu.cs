@@ -5,22 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class GMMainMenu : MonoBehaviour
 {
-    public string startlevel;
-    [SerializeField] private Animator bganim;
+    public string nextlevename;
 
-    // Scaling setting
+    [Header("Background Animation")]
+    public Animator animator;
+    public float animationplaytime;
 
-    public GameObject Bg;
 
+    // code refrenced by start button in UI
     public void OnMouseDown()
     {
-        bganim.SetBool("Transition", true);
-        StartCoroutine(GameStart());
+        animator.SetBool("Transition", true);
+        StartCoroutine(AnimationPlayFirst());
     }
-    public IEnumerator GameStart()
+
+    // lets the transition animation play 
+    public IEnumerator AnimationPlayFirst()
     {
-        Debug.Log("hit");
-        yield return new WaitForSeconds(4);
-        SceneManager.LoadScene(startlevel);
+        yield return new WaitForSeconds(animationplaytime);
+
+        // load the next scene
+        SceneManager.LoadScene(nextlevename);
     }
 }
