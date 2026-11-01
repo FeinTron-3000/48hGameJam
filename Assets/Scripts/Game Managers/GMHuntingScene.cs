@@ -10,20 +10,33 @@ public class GMHuntingScene : MonoBehaviour
 
     [Header("Trackers")]
     public ScoreTracker scoretracker;
-
     public HuntingScoring huntingscoring;
-    public GameObject[] mantis;
-    public GameObject[] plant;
-    public GameObject[] hornet;
+
+    [Header("Score Tracking")]
+    public int mantisdead;
+    public TextMeshProUGUI mantistext;
+
+    public int plantdead;
+    public TextMeshProUGUI planttext;
+
+    public int hornetdead;
+    public TextMeshProUGUI hornettext;
 
     [Header("Countdown")]
     public TextMeshProUGUI timertext;
     public int timelimit;
 
+    void Update()
+    {
+        // score tracking
+        mantistext.text = "Mantis dead: " + mantisdead;
+        planttext.text = "Plant dead: " + plantdead;
+        hornettext.text = "Hornet dead: " + hornetdead;
+    }
 
     void Start()
     {
-        // reset level score
+        // reset level score tracker
         huntingscoring.mantiscore = 0;
         huntingscoring.plantscore = 0;
         huntingscoring.hornetscore = 0;
@@ -57,28 +70,11 @@ public class GMHuntingScene : MonoBehaviour
 
     public void LevelEnd()
     {
-        // tally the level score
-        for (int i = 0; i < mantis.Length; i++)
-        {
-            if (mantis[i] == null)
-            {
-                huntingscoring.mantiscore += 1;
-            }
-        }
-        for (int i = 0; i < plant.Length; i++)
-        {
-            if (plant[i] == null)
-            {
-                huntingscoring.plantscore += 1;
-            }
-        }
-        for (int i = 0; i < hornet.Length; i++)
-        {
-            if (hornet[i] == null)
-            {
-                huntingscoring.hornetscore += 1;
-            }
-        }
+        // tally score
+        huntingscoring.mantiscore = mantisdead;
+        huntingscoring.plantscore = plantdead;
+        huntingscoring.hornetscore = hornetdead;
+
 
         // load the next scene
         SceneManager.LoadScene(nextscenename);

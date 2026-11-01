@@ -17,8 +17,10 @@ public class MantisAttack : MonoBehaviour
 
     [Header("Scripts")]
     public EnemyHealth health;
-
     public PlayerHealth playerhealth;
+
+    [Header("Player")]
+    public GameObject player;
 
     [Header("Audio")]
     public AudioSource attacksound;
@@ -47,19 +49,25 @@ public class MantisAttack : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            // damage player
-            if (attacking)
-            {
-                playerhealth.TakeDamage(damage);
-            }
+            playerhealth.TakeDamage(damage);
+
+            // don't let the player get hit twice
+            attackpoint.enabled = false;
+
         }
     }
 
     public void Attack()
     {
-        // dont move if attack
+        // dont attack if dead
         if (health.isdead)
         {
+            return;
+        }
+        // dont attack if player is dead
+        if (player == null)
+        {
+            animator.SetBool("Walk", false);
             return;
         }
 
