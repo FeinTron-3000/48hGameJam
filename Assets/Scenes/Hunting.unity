@@ -1072,7 +1072,7 @@ GameObject:
   - component: {fileID: 776003116}
   - component: {fileID: 776003118}
   m_Layer: 3
-  m_Name: Collider
+  m_Name: Health
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1105,7 +1105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 20
+  maxHealth: 10
   isdead: 0
   deathcollider: {fileID: 1480344766}
   mantis: 1
@@ -1615,7 +1615,7 @@ GameObject:
   - component: {fileID: 1101494616}
   m_Layer: 7
   m_Name: Mantis
-  m_TagString: Untagged
+  m_TagString: Knockback
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1749,7 +1749,7 @@ MonoBehaviour:
   rb: {fileID: 1101494604}
   movespeed: 120000
   maxspeed: 5
-  player: {fileID: 1509233112}
+  player: {fileID: 1769084754}
   health: {fileID: 776003116}
   attack: {fileID: 1101494610}
   mantiswalk: {fileID: 1101494615}
@@ -1774,6 +1774,7 @@ MonoBehaviour:
   attackpoint: {fileID: 1101494605}
   health: {fileID: 776003116}
   playerhealth: {fileID: 1930879783}
+  player: {fileID: 1769084754}
   attacksound: {fileID: 1101494613}
   animator: {fileID: 1101494611}
 --- !u!95 &1101494611
@@ -2611,7 +2612,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.2, y: 0}
+  m_Offset: {x: 0.15, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2622,7 +2623,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.11, y: 0.11}
+  m_Size: {x: 0.34, y: 0.11}
   m_EdgeRadius: 0
 --- !u!212 &1509233115
 SpriteRenderer:
@@ -2687,6 +2688,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 0}
   m_Children:
   - {fileID: 1930879780}
+  - {fileID: 1769084755}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3780,6 +3782,36 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1769084754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1769084755}
+  m_Layer: 6
+  m_Name: Tracking Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1769084755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769084754}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1509233116}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1856999345
 GameObject:
   m_ObjectHideFlags: 0
@@ -3963,7 +3995,7 @@ GameObject:
   - component: {fileID: 1930879783}
   - component: {fileID: 1930879782}
   m_Layer: 6
-  m_Name: Collider
+  m_Name: Health
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4117,14 +4149,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf13cb9dcfe23241a22682e6dd415f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 1509233113}
+  knockbackForce: 5
   health: 0
   maxhealth: 5
   isdead: 0
+  enemytrackingpoint: {fileID: 1769084754}
   deathsound: {fileID: 1930879782}
   hurtsound: {fileID: 1930879782}
   gamemanager: {fileID: 1888399806}
   animator: {fileID: 1509233120}
-  deathanimationtime: 2
+  deathanimationtime: 4
   sprite: {fileID: 1509233115}
 --- !u!1 &2036979927
 GameObject:

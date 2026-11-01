@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class MantisMovement : MonoBehaviour
 {
-    [Header("Variables")]
     public Rigidbody2D rb;
 
+    [Header("Variables")]
     public float movespeed;
     public float maxspeed;
+
+    [Header("Player")]
     public GameObject player;
 
     [Header("Scripts")]
@@ -31,42 +33,41 @@ public class MantisMovement : MonoBehaviour
 
     void Update()
     {
-        // dont move if dead
-        if (health.isdead)
+        // dont move if player is dead
+        if (player == null)
         {
+            animator.SetBool("Walk", false);
+            mantiswalk.Stop();
+
             return;
         }
 
         if (health.agrivated && !attack.attacking)
         {
-            if (player != null)
+            animator.SetBool("Walk", true);
+            if (player.transform.position.x > transform.position.x)
             {
-                animator.SetBool("Walk", true);
-                if (player.transform.position.x > transform.position.x)
-                {
-                    // flip direction facing
-                    transform.localScale = new Vector3(-8, 8, 1);
+                // flip direction facing
+                transform.localScale = new Vector3(-8, 8, 1);
 
-                    rb.AddForce(Vector2.right * movespeed * Time.deltaTime, ForceMode2D.Force);
+                rb.AddForce(Vector2.right * movespeed * Time.deltaTime, ForceMode2D.Force);
 
-                }
-                else
-                {
-                    // flip direction facing
-                    transform.localScale = new Vector3(8, 8, 1);
+            }
+            else
+            {
+                // flip direction facing
+                transform.localScale = new Vector3(8, 8, 1);
 
-                    rb.AddForce(Vector2.left * movespeed * Time.deltaTime, ForceMode2D.Force);
-                }
+                rb.AddForce(Vector2.left * movespeed * Time.deltaTime, ForceMode2D.Force);
+            }
 
-                if (rb.velocity.magnitude > maxspeed)
-                {
-                    rb.velocity = rb.velocity.normalized * maxspeed;
-                }
+            if (rb.velocity.magnitude > maxspeed)
+            {
+                rb.velocity = rb.velocity.normalized * maxspeed;
             }
         }
         else
         {
-
             mantiswalk.Play();
             rb.velocity = Vector3.zero;
         }

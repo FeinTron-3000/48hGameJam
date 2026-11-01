@@ -60,6 +60,7 @@ public class PlayerScript : MonoBehaviour
         if (playerhealth.isdead)
         {
             // if dead stop moving
+            walksound.Stop();
             return;
         }
 

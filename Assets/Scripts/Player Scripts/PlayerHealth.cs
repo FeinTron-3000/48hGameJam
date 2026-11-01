@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [Header("Knockback")]
+    public Rigidbody2D rb;
+    public float knockbackForce;
+
     [Header("Health")]
     public int health;
     public int maxhealth;
 
     public bool isdead;
+
+    public GameObject enemytrackingpoint;
 
     [Header("Audio")]
     public AudioSource deathsound;
@@ -63,8 +69,56 @@ public class PlayerHealth : MonoBehaviour
 
         deathsound.Play();
 
+        // stop enemy from following player
+        Destroy(enemytrackingpoint);
+
         yield return new WaitForSeconds(deathanimationtime);
 
         gamemanager.LevelEnd();
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.position.x < transform.position.x)
+        {
+            if (collision.gameObject.CompareTag("Knockback"))
+            {
+                // stop player from resisting knockback
+                isdead = true;
+
+                Debug.Log("Hit");
+                rb.AddForce(Vector2.right * knockbackForce, ForceMode2D.Impulse);
+
+                TakeDamage(1);
+
+                StartCoroutine(AllowMovement());
+            }
+
+        }
+        else
+        {
+            if (collision.gameObject.CompareTag("Knockback"))
+            {
+                // stop player from resisting knockback
+                isdead = true;
+
+                Debug.Log("Hit");
+                rb.AddForce(Vector2.left * knockbackForce, ForceMode2D.Impulse);
+
+                TakeDamage(1);
+
+                StartCoroutine(AllowMovement());
+            }
+        }
+    }
+
+    IEnumerator AllowMovement()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        if (health > 0)
+        {
+            isdead = false;
+        }
     }
 }
