@@ -15,11 +15,10 @@ public class MantisMovement : MonoBehaviour
 
     [Header("Scripts")]
     public EnemyHealth health;
-    public MantisAttack attack;
+    public EnemyAttack attack;
 
     [Header("Audio")]
     public AudioSource mantiswalk;
-    private bool firstplay;
 
     [Header("Animator")]
     public Animator animator;
@@ -28,7 +27,7 @@ public class MantisMovement : MonoBehaviour
     void Start()
     {
         health = health.GetComponent<EnemyHealth>();
-        attack = attack.GetComponent<MantisAttack>();
+        attack = attack.GetComponent<EnemyAttack>();
     }
 
     void Update()
@@ -38,6 +37,17 @@ public class MantisMovement : MonoBehaviour
         {
             animator.SetBool("Walk", false);
             mantiswalk.Stop();
+            rb.velocity = Vector3.zero;
+
+            return;
+        }
+
+        // dont move if enemy is dead
+        if (health.isdead)
+        {
+            animator.SetBool("Walk", false);
+            mantiswalk.Stop();
+            rb.velocity = Vector3.zero;
 
             return;
         }

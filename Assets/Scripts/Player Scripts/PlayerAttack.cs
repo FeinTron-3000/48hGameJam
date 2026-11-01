@@ -7,7 +7,6 @@ public class PlayerAttack : MonoBehaviour
 {
     [Header("Variables")]
     public float attacktime;
-    public float attackdelaytime;
     public bool attacking;
 
     public BoxCollider2D attackpoint;
@@ -33,11 +32,11 @@ public class PlayerAttack : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-                Debug.Log("Ignore Error");
+            enemyhealth = collision.GetComponent<EnemyHealth>();
+            enemyhealth.TakeDamage(playerscript.damage);
 
-                // damage enemy
-                enemyhealth = collision.GetComponent<EnemyHealth>();
-                enemyhealth.TakeDamage(playerscript.damage);
+            // dont do damage twice
+            attackpoint.enabled = false;
         }
     }
 
@@ -49,11 +48,14 @@ public class PlayerAttack : MonoBehaviour
             return;
         }
 
+        // stupid plant code
+        transform.position = transform.position + new Vector3(0.01f, 0, 0);
+
         swordsound.Play();
         animator.SetBool("Attack", true);
         attackpoint.enabled = true;
         attacking = true;
-        StartCoroutine(AttackDelay());
+        StartCoroutine(WeaponReturn());
     }
 
     IEnumerator WeaponReturn()
@@ -63,11 +65,5 @@ public class PlayerAttack : MonoBehaviour
         animator.SetBool("Attack", false);
         attacking = false;
         attackpoint.enabled = false;
-    }
-    IEnumerator AttackDelay()
-    {
-        yield return new WaitForSeconds(attackdelaytime);
-
-        StartCoroutine(WeaponReturn());
     }
 }

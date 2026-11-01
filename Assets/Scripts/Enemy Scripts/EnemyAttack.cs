@@ -2,146 +2,112 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlantAttack : MonoBehaviour
+public class EnemyAttack : MonoBehaviour
 {
-    public float weaponRage;
-    public LayerMask enemyLayer;
-    public int damnage = 1;
+    [Header("Variables")]
     public float attacktime;
+    public float attackdelaytime;
     public float cooldowntime;
 
+    public bool attacking;
+    public int damage;
+
+    private bool attackingstarted;
+
+    public BoxCollider2D attackpoint;
+
+    [Header("Scripts")]
+    public EnemyHealth health;
+    public PlayerHealth playerhealth;
+
+    [Header("Player")]
     public GameObject player;
 
-    public EnemyHealth enemyhealth;
-    public PlayerHealth playerHealth;
-    public bool isenemy;
-    public bool enemyattack;
-    public bool attacking;
+    [Header("Audio")]
+    public AudioSource attacksound;
 
-    public float attackdelay;
-
-    public bool mantis;
-    public bool plant;
-    public float growspeed;
-    public bool plantattackstart;
-
-    public AudioSource mantisattack;
-
-    [SerializeField] private Animator animator;
+    [Header("Animator")]
+    public Animator animator;
 
     private void Start()
     {
-        playerHealth = playerHealth.GetComponent<PlayerHealth>();
-        if (plant)
+        health = health.GetComponent<EnemyHealth>();
+
+        playerhealth = playerhealth.GetComponent<PlayerHealth>();
+    }
+
+    void Update()
+    {
+        // start attacking
+        if (health.agrivated && !attackingstarted)
         {
+            attackingstarted = true;
             StartCoroutine(CoolDown());
         }
     }
-    public void Agrivated()
+
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        StartCoroutine(CoolDown());
-    }
-    private void Update()
-    {
-        if (mantis)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            if (isenemy && enemyhealth.agrivated == true)
-            {
-                if (!enemyattack)
-                {
+            playerhealth.TakeDamage(damage);
 
-                    animator.SetBool("Attack", false);
-                    transform.position = player.transform.position;
-                }
-                else
-                {
-
-                    transform.position = player.transform.position + new Vector3(weaponRage * player.transform.localScale.x * -1, 0, 0);
-                }
-            }
+            // don't let the player get hit twice
+            attackpoint.enabled = false;
         }
-        if (plant)
-        {
-            if (isenemy)
-            {
-                if (!enemyattack)
-                {
-
-                    animator.SetBool("Attack", false);
-                    transform.localScale = new Vector3(1, 1, 1);
-                }
-                else
-                {
-                    animator.SetBool("Attack", true);
-                    transform.localScale += new Vector3(growspeed * Time.deltaTime, growspeed * Time.deltaTime, 1);
-                }
-
-                if (plantattackstart)
-                {
-                    animator.SetBool("Attack", true);
-                }
-            }
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!isenemy)
-        {
-            if (collision.gameObject.CompareTag("Enemy"))
-            {
-                enemyhealth = collision.GetComponent<EnemyHealth>();
-                enemyhealth.TakeDamage(damnage);
-            }
-        }
-        else
-        {
-            Debug.Log("hit");
-            if (collision.gameObject.CompareTag("Player"))
-            {
-                playerHealth.TakeDamage(damnage);
-            }
-        }
-
     }
 
     public void Attack()
     {
-        if (!isenemy)
+        // dont attack if dead
+        if (health.isdead)
         {
-            transform.position = player.transform.position + new Vector3(weaponRage * player.transform.localScale.x, 0, 0);
-            StartCoroutine(WeaponReturn());
+            return;
         }
-        else
+        // dont attack if player is dead
+        if (player == null)
         {
-            animator.SetBool("Attack", true);
-            StartCoroutine(AttackDelay());
+            animator.SetBool("Walk", false);
+            return;
         }
 
+        animator.SetBool("Attack", true);
+        attacking = true;
+        attacksound.Play();
 
+        StartCoroutine(AttackDelay());
     }
 
     IEnumerator WeaponReturn()
     {
         yield return new WaitForSeconds(attacktime);
-        transform.position = player.transform.position;
-        if (isenemy)
-        {
-            animator.SetBool("Attack", false);
-            enemyattack = false;
-            plantattackstart = false;
-            StartCoroutine(CoolDown());
-        }
+
+        // stop attack
+        animator.SetBool("Attack", false);
+        attackpoint.enabled = false;
+        attacking = false;
+
+        StartCoroutine(CoolDown());
     }
     IEnumerator CoolDown()
     {
         yield return new WaitForSeconds(cooldowntime);
+
         Attack();
     }
     IEnumerator AttackDelay()
     {
-        plantattackstart = true;
-        yield return new WaitForSeconds(attackdelay);
-        enemyattack = true;
+        yield return new WaitForSeconds(attackdelaytime);
+
+        // stupid plant code
+        if (health.plant)
+        {
+            transform.position = transform.position + new Vector3(0.01f, 0, 0);
+        }
+
+        // attack
+        attackpoint.enabled = true;
+
         StartCoroutine(WeaponReturn());
     }
 }
