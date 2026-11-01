@@ -77,6 +77,7 @@ public class PlayerHealth : MonoBehaviour
         gamemanager.LevelEnd();
     }
 
+    // knockback
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.position.x < transform.position.x)
@@ -86,7 +87,6 @@ public class PlayerHealth : MonoBehaviour
                 // stop player from resisting knockback
                 isdead = true;
 
-                Debug.Log("Hit");
                 rb.AddForce(Vector2.right * knockbackForce, ForceMode2D.Impulse);
 
                 TakeDamage(1);
@@ -102,7 +102,6 @@ public class PlayerHealth : MonoBehaviour
                 // stop player from resisting knockback
                 isdead = true;
 
-                Debug.Log("Hit");
                 rb.AddForce(Vector2.left * knockbackForce, ForceMode2D.Impulse);
 
                 TakeDamage(1);
@@ -112,6 +111,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    // allow movement after knockback
     IEnumerator AllowMovement()
     {
         yield return new WaitForSeconds(0.2f);

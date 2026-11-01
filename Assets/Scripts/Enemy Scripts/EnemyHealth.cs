@@ -8,15 +8,17 @@ public class EnemyHealth : MonoBehaviour
     public int currentHealth;
     public int maxHealth;
 
-    [Header("Health")]
+    [Header("Death")]
     public bool isdead;
     public GameObject deathcollider;
+    public GameObject knockback;
 
     [Header("Enemy Type")]
-    [SerializeField] private bool mantis;
-    [SerializeField] private bool plant;
-    [SerializeField] private bool hornet;
+    public bool mantis;
+    public bool plant;
+    public bool hornet;
 
+    [Header("Game Manager")]
     public GMHuntingScene gamemanager;
 
     [Header("Attacking")]
@@ -28,7 +30,6 @@ public class EnemyHealth : MonoBehaviour
 
     [Header("Animator")]
     public Animator animator;
-    public float deathanimationtime;
 
     public SpriteRenderer sprite;
 
@@ -39,12 +40,16 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = maxHealth;
 
         gamemanager = gamemanager.GetComponent<GMHuntingScene>();
+
+        if (plant)
+        {
+            agrivated = true;
+        }
     }
 
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
-
         agrivated = true;
 
         if (currentHealth <= 0)
@@ -55,7 +60,6 @@ public class EnemyHealth : MonoBehaviour
         {
             StartCoroutine(TakeDamageAnimation());
         }
-
     }
 
     IEnumerator TakeDamageAnimation()
@@ -90,9 +94,11 @@ public class EnemyHealth : MonoBehaviour
             gamemanager.hornetdead += 1;
         }
 
+        // disable knockback damage
+        knockback.gameObject.tag = "Untagged";
+
         // change collider shape to match death sprite
         deathcollider.SetActive(true);
-        // destroy current collider
         Destroy(gameObject);
     }
 }
