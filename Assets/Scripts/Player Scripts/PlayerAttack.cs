@@ -33,12 +33,11 @@ public class PlayerAttack : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            if (attacking)
-            {
+                Debug.Log("Ignore Error");
+
                 // damage enemy
                 enemyhealth = collision.GetComponent<EnemyHealth>();
                 enemyhealth.TakeDamage(playerscript.damage);
-            }
         }
     }
 

@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("Audio")]
     public AudioSource deathsound;
+    public AudioSource hurtsound;
 
     [Header("Game Manager")]
     public GMHuntingScene gamemanager;
@@ -19,6 +20,8 @@ public class PlayerHealth : MonoBehaviour
     [Header("Animator")]
     public Animator animator;
     public float deathanimationtime;
+
+    public SpriteRenderer sprite;
 
 
     void Awake()
@@ -37,6 +40,19 @@ public class PlayerHealth : MonoBehaviour
         {
             StartCoroutine(GameOver());
         }
+        else
+        {
+            StartCoroutine(TakeDamageAnimation());
+        }
+    }
+    IEnumerator TakeDamageAnimation()
+    {
+        sprite.color = Color.red;
+        hurtsound.Play();
+
+        yield return new WaitForSeconds(0.1f);
+
+        sprite.color = Color.white;
     }
 
     public IEnumerator GameOver()
