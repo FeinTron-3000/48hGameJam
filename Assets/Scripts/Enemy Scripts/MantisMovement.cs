@@ -61,7 +61,6 @@ public class MantisMovement : MonoBehaviour
                 transform.localScale = new Vector3(-8, 8, 1);
 
                 rb.AddForce(Vector2.right * movespeed * Time.deltaTime, ForceMode2D.Force);
-
             }
             else
             {
