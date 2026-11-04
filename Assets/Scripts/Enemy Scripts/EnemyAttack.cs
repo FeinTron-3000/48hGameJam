@@ -12,6 +12,7 @@ public class EnemyAttack : MonoBehaviour
     public bool attacking;
     public int damage;
 
+    // only start attack script once
     private bool attackingstarted;
 
     public BoxCollider2D attackpoint;
@@ -46,11 +47,25 @@ public class EnemyAttack : MonoBehaviour
         }
     }
 
+    // do damage on hit
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             playerhealth.TakeDamage(damage);
+
+            // give player knockback
+            if (collision.transform.position.x < transform.position.x)
+            {
+                // direction right
+                playerhealth.AttackKnockback(-1);
+            }
+            else
+            {
+                // direction left
+                playerhealth.AttackKnockback(1);
+            }
+
 
             // don't let the player get hit twice
             attackpoint.enabled = false;

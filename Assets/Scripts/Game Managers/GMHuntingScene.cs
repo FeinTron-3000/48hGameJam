@@ -22,20 +22,18 @@ public class GMHuntingScene : MonoBehaviour
     public int hornetdead;
     public TextMeshProUGUI hornettext;
 
+    [Header("Player")]
+    public PlayerHealth playerhealth;
+    public Animator healthbar;
+
     [Header("Countdown")]
     public TextMeshProUGUI timertext;
     public int timelimit;
 
-    void Update()
-    {
-        // score tracking
-        mantistext.text = "Mantis dead: " + mantisdead;
-        planttext.text = "Plant dead: " + plantdead;
-        hornettext.text = "Hornet dead: " + hornetdead;
-    }
-
     void Start()
     {
+        playerhealth = playerhealth.GetComponent<PlayerHealth>();
+
         // reset level score tracker
         huntingscoring.mantiscore = 0;
         huntingscoring.plantscore = 0;
@@ -43,6 +41,32 @@ public class GMHuntingScene : MonoBehaviour
 
         // start countdown
         StartCoroutine(CountDown());
+    }
+
+    void Update()
+    {
+        // score tracking
+        mantistext.text = "Mantis dead: " + mantisdead;
+        planttext.text = "Plant dead: " + plantdead;
+        hornettext.text = "Hornet dead: " + hornetdead;
+
+        // health tracking
+        if (playerhealth.health <= playerhealth.maxhealth - 1)
+        {
+            healthbar.SetBool("2/3 Health", true);
+        }
+        else if (playerhealth.health <= 1)
+        {
+            healthbar.SetBool("1/3 Health", true);
+        }
+        else if (playerhealth.health <= 0)
+        {
+            healthbar.SetBool("0/3 Health", true);
+        }
+        else
+        {
+            healthbar.SetBool("3/3 Health", true);
+        }
     }
 
     IEnumerator CountDown()

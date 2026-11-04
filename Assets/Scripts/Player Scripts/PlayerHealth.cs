@@ -111,11 +111,19 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    // receive knockback from enemy attack
+    public void AttackKnockback(int direction)
+    {
+        rb.AddForce(new Vector2(direction , 0) * knockbackForce, ForceMode2D.Impulse);
+    }
+
     // allow movement after knockback
     IEnumerator AllowMovement()
     {
         yield return new WaitForSeconds(0.2f);
 
+
+        // don't allow bool to be reverted if player is dead
         if (health > 0)
         {
             isdead = false;
