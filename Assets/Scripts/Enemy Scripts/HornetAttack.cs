@@ -52,33 +52,17 @@ public class HornetAttack : MonoBehaviour
             y = player.transform.position.y - transform.position.y;
         }
 
-
         // if player is on hornet right
         if (player.transform.position.x >= transform.position.x)
         {
-            // if x value is negitive
-            if (player.transform.position.x <= 0)
-            {
-                x = player.transform.position.x - transform.position.x;
-            }
-            else
-            {
-                x = player.transform.position.x + transform.position.x;
-            }
+            x = player.transform.position.x - transform.position.x;
         }
         // if player is on hornet left
         else if (player.transform.position.x <= transform.position.x)
         {
-            // if x value is negitive
-            if (player.transform.position.x <= 0)
-            {
-                x = player.transform.position.x - transform.position.x;
-            }
-            else
-            {
-                x = player.transform.position.x + transform.position.x;
-            }
+            x = player.transform.position.x - transform.position.x;
         }
+
 
         // don't change speed based on distance
         if (x <= 0)
@@ -89,7 +73,7 @@ public class HornetAttack : MonoBehaviour
         {
             relativeattackspeedx = attackspeed - x * 0.01f;
         }
-        
+
         if (y <= 0)
         {
             relativeattackspeedy = attackspeed + y * 0.01f;

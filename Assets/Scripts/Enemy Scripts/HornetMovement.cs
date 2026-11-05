@@ -56,7 +56,6 @@ public class HornetMovement : MonoBehaviour
         // dont move if player is dead
         if (player == null)
         {
-            hornetbuzz.Play();
             rb.velocity = Vector3.zero;
 
             return;
@@ -65,7 +64,6 @@ public class HornetMovement : MonoBehaviour
         // dont move if enemy is dead
         if (health.isdead)
         {
-            hornetbuzz.Play();
             rb.velocity = Vector3.zero;
 
             return;
