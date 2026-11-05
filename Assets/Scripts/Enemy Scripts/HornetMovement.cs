@@ -4,28 +4,36 @@ using UnityEngine;
 
 public class HornetMovement : MonoBehaviour
 {
-    public float movespeed = 5f;
+    [Header("Movement")]
+    public Rigidbody2D rb;
+
+    public float movespeed;
+    public float agrivationrange;
+
+    [Header("Attacking")]
+    public float attacktime;
+    public float attackdelaytime;
+    public float cooldowntime;
+
+    public bool attacking;
+    // only start attack script once
+    private bool attackingstarted;
+
+    public GameObject attackpoint;
+
+    [Header("Player")]
     public GameObject player;
-    public bool playeronright;
-    [SerializeField] public Rigidbody2D rb;
 
-    public bool mantis;
-    public bool plant;
-    public bool hornet;
-
-    [SerializeField] private Animator animator;
-
+    [Header("Scripts")]
     public EnemyHealth health;
-
-    public float maxspeed;
-
     public HornetAttack attack;
-    public bool startattack = false;
 
-    public bool endattack;
-    public float range;
-    public AudioSource mantiswalk;
+    [Header("Audio")]
     public AudioSource hornetbuzz;
+    public AudioSource attacksound;
+
+    [Header("Animator")]
+    public Animator animator;
 
 
     void Start()
@@ -36,88 +44,105 @@ public class HornetMovement : MonoBehaviour
 
     void Update()
     {
-        
-        if (plant)
+        // if player is within range left
+        if (player.transform.position.x > transform.position.x - agrivationrange && !attackingstarted)
         {
-            if (player != null)
-            {
-                animator.SetBool("Idle", true);
-                if (player.transform.position.x > transform.position.x)
-                {
-                    playeronright = true;
-                    rb.AddForce(Vector2.right * movespeed * Time.deltaTime, ForceMode2D.Force);
+            attack.agrivated = true;
 
-                }
-                else
-                {
-                    playeronright = false;
-                    rb.AddForce(Vector2.left * movespeed * Time.deltaTime, ForceMode2D.Force);
-                }
-
-                if (rb.velocity.magnitude > maxspeed)
-                {
-                    rb.velocity = rb.velocity.normalized * maxspeed;
-                }
-            }
+            attackingstarted = true;
+            StartCoroutine(CoolDown());
         }
-        else if (hornet)
+
+        // dont move if player is dead
+        if (player == null)
         {
-            hornetbuzz.Play();
-            if (player != null)
+            hornetbuzz.Stop();
+            rb.velocity = Vector3.zero;
+
+            return;
+        }
+
+        // dont move if enemy is dead
+        if (health.isdead)
+        {
+            hornetbuzz.Stop();
+            rb.velocity = Vector3.zero;
+
+            return;
+        }
+
+        if (attack.agrivated == true)
+        {
+            // move right
+            if (player.transform.position.x > transform.position.x)
             {
                 hornetbuzz.Play();
-                animator.SetBool("Idle", true);
-                if (player.transform.position.x > transform.position.x - range)
-                {
-                    hornetbuzz.Play();
-                    if (player.transform.position.x > transform.position.x)
-                    {
-                        hornetbuzz.Play();
-                        playeronright = true;
-                        rb.AddForce(Vector2.right * movespeed * Time.deltaTime, ForceMode2D.Force);
 
-                    }
+                // flip direction facing
+                transform.localScale = new Vector3(-4, 4, 1);
 
-                    else
-                    {
-                        hornetbuzz.Play();
-                        playeronright = false;
-                        rb.AddForce(Vector2.left * movespeed * Time.deltaTime, ForceMode2D.Force);
-                    }
+                transform.Translate(Vector2.right * movespeed * Time.deltaTime);
+            }
+            // move left
+            else
+            {
+                hornetbuzz.Play();
 
-                    if (rb.velocity.magnitude > maxspeed)
-                    {
-                        hornetbuzz.Play();
-                        rb.velocity = rb.velocity.normalized * maxspeed;
-                    }
-                }
-                else if (player.transform.position.x > transform.position.x - range)
-                {
-                    hornetbuzz.Play();
-                    if (player.transform.position.x > transform.position.x)
-                    {
-                        hornetbuzz.Play();
-                        playeronright = true;
-                        rb.AddForce(Vector2.right * movespeed * Time.deltaTime, ForceMode2D.Force);
+                // flip direction facing
+                transform.localScale = new Vector3(4, 4, 1);
 
-                    }
-
-                    else
-                    {
-                        hornetbuzz.Play();
-                        playeronright = false;
-                        rb.AddForce(Vector2.left * movespeed * Time.deltaTime, ForceMode2D.Force);
-                    }
-
-                    if (rb.velocity.magnitude > maxspeed)
-                    {
-                        hornetbuzz.Play();
-                        rb.velocity = rb.velocity.normalized * maxspeed;
-                    }
-                }
+                transform.Translate(Vector2.left * movespeed * Time.deltaTime);
             }
         }
     }
 
+    public void Attack()
+    {
+        // dont attack if dead
+        if (health.isdead)
+        {
+            return;
+        }
+        // dont attack if player is dead
+        if (player == null)
+        {
+            animator.SetBool("Walk", false);
+            return;
+        }
 
+        animator.SetBool("Attack", true);
+        attacking = true;
+        attacksound.Play();
+
+        StartCoroutine(AttackDelay());
+    }
+
+    IEnumerator WeaponReturn()
+    {
+        yield return new WaitForSeconds(attacktime);
+
+        // stop attack
+        attackpoint.SetActive(false);
+        attacking = false;
+
+        StartCoroutine(CoolDown());
+    }
+    IEnumerator CoolDown()
+    {
+        yield return new WaitForSeconds(cooldowntime);
+
+        Attack();
+    }
+    IEnumerator AttackDelay()
+    {
+        yield return new WaitForSeconds(attackdelaytime);
+
+        // attack
+        attackpoint.SetActive(true);
+        attack.BecomeVisible();
+
+        animator.SetBool("Attack", false);
+
+        StartCoroutine(WeaponReturn());
+    }
 }

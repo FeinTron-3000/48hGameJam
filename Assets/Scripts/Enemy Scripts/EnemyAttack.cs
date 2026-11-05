@@ -66,7 +66,6 @@ public class EnemyAttack : MonoBehaviour
                 playerhealth.AttackKnockback(1);
             }
 
-
             // don't let the player get hit twice
             attackpoint.enabled = false;
         }

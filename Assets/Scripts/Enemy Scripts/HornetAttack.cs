@@ -5,29 +5,92 @@ using static UnityEngine.GraphicsBuffer;
 
 public class HornetAttack : MonoBehaviour
 {
-    public GameObject target;
+    [Header("Variabes")]
+    public GameObject enemy;
     public GameObject player;
-    public float spikespeed;
-    public int damnage;
+    public PlayerHealth playerhealth;
 
+    public float y;
+    public float x;
 
-    private void Update()
+    [Header("Sprite")]
+    public GameObject sprite;
+
+    [Header("Attack")]
+    public float attackspeed;
+    public int damage;
+
+    public bool agrivated;
+
+    void Start()
     {
-        transform.position = transform.position + Vector3.MoveTowards(transform.position, target.transform.position, spikespeed * Time.deltaTime);
+        playerhealth = playerhealth.GetComponent<PlayerHealth>();
     }
-    private void OnBecameVisible()
-    {
-        transform.position = player.transform.position;
-   
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
 
-            Debug.Log("hit");
-            if (collision.gameObject.CompareTag("Player"))
+    void Update()
+    {
+        // move towards the players last position
+        transform.Translate(x * attackspeed * Time.deltaTime, y * attackspeed * Time.deltaTime, 0);
+    }
+
+    public void BecomeVisible()
+    {
+        transform.position = enemy.transform.position;
+
+        // make the target aim for the players current position
+
+        // if player is below hornet equals negitive
+        if (player.transform.position.y <= transform.position.y)
+        {
+            y = -transform.position.y + player.transform.position.y;
+        }
+        // if player is above hornet equals positive
+        else if (player.transform.position.y >= transform.position.y)
+        {
+            y = player.transform.position.y - transform.position.y;
+        }
+
+
+        // if player is on hornet right
+        if (player.transform.position.x >= transform.position.x)
+        {
+            // if x value is negitive
+            if (player.transform.position.x <= 0)
             {
-                collision.GetComponent<PlayerHealth>().TakeDamage(damnage);
+                x = player.transform.position.x - transform.position.x;
             }
+            else
+            {
+                x = player.transform.position.x + transform.position.x;
+            }
+        }
+        // if player is on hornet left
+        else if (player.transform.position.x <= transform.position.x)
+        {
+            // if x value is negitive
+            if (player.transform.position.x <= 0)
+            {
+                x = player.transform.position.x - transform.position.x;
+            }
+            else
+            {
+                x = player.transform.position.x + transform.position.x;
+            }
+        }
+
+        float angle = Mathf.Atan2(player.transform.position.y - transform.position.y, player.transform.position.x - transform.position.x) * Mathf.Rad2Deg;
+        sprite.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+    }
+
+    // do damage on hit
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerhealth.TakeDamage(damage);
+
+            // don't let the player get hit twice
             gameObject.SetActive(false);
+        }
     }
 }
