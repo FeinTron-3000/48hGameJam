@@ -76,6 +76,7 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         animator.SetBool("Die", true);
+        deathsound.Play();
 
         // stop attacking and moving
         isdead = true;
