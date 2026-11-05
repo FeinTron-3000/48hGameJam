@@ -1660,7 +1660,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0867af973c2d5184dabe5509f9223140, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -4140,7 +4140,7 @@ MonoBehaviour:
   playerhealth: {fileID: 1930879783}
   healthbar: {fileID: 1701033602}
   timertext: {fileID: 304656518}
-  timelimit: 60
+  timelimit: 90
 --- !u!4 &1888399807
 Transform:
   m_ObjectHideFlags: 0

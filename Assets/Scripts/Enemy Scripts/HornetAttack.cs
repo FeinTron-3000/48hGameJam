@@ -63,7 +63,7 @@ public class HornetAttack : MonoBehaviour
             x = player.transform.position.x - transform.position.x;
         }
 
-
+        Debug.Log("Fix relative speed in gornet attack script");
         // don't change speed based on distance
         if (x <= 0)
         {
