@@ -56,7 +56,7 @@ public class HornetMovement : MonoBehaviour
         // dont move if player is dead
         if (player == null)
         {
-            hornetbuzz.Stop();
+            hornetbuzz.Play();
             rb.velocity = Vector3.zero;
 
             return;
@@ -65,7 +65,7 @@ public class HornetMovement : MonoBehaviour
         // dont move if enemy is dead
         if (health.isdead)
         {
-            hornetbuzz.Stop();
+            hornetbuzz.Play();
             rb.velocity = Vector3.zero;
 
             return;
@@ -76,8 +76,6 @@ public class HornetMovement : MonoBehaviour
             // move right
             if (player.transform.position.x > transform.position.x)
             {
-                hornetbuzz.Play();
-
                 // flip direction facing
                 transform.localScale = new Vector3(-4, 4, 1);
 
@@ -86,8 +84,6 @@ public class HornetMovement : MonoBehaviour
             // move left
             else
             {
-                hornetbuzz.Play();
-
                 // flip direction facing
                 transform.localScale = new Vector3(4, 4, 1);
 
