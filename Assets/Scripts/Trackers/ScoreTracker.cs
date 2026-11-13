@@ -10,11 +10,6 @@ public class ScoreTracker : ScriptableObject
     public int plantscore;
     public int hornetscore;
 
-    // level tracker
-    public bool choppingsection;
-    public bool stirringsection;
-    public bool skillcheck;
-
     // cooking scoring
     public int choppingscore;
     public int stirringscore;

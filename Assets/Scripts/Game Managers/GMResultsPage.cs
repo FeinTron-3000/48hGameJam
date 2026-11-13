@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndingGM : MonoBehaviour
+public class GMResultsPage : MonoBehaviour
 {
     public string nextscenename;
 
@@ -23,6 +23,7 @@ public class EndingGM : MonoBehaviour
 
     void Start()
     {
+        // randomly select food
         foodindex = Random.Range(0, food.Length);
         finalscore = score.choppingscore + score.skillcheckscore + score.stirringscore;
 

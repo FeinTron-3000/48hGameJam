@@ -802,8 +802,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1509233112}
   distance: -5
-  minx: 0
-  maxx: 0
+  minx: -51
+  maxx: 10
   miny: 0
   x: 0
   y: 0
@@ -3639,7 +3639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a876d7c182cdc54bab4d8d4036f61a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextscenename: Transition
+  nextscenename: HuntingResults
   scoretracker: {fileID: 11400000, guid: 988e67ceb904c76449e1d4c3b3840c1c, type: 2}
   mantisdead: 0
   plantdead: 0

@@ -44,6 +44,14 @@ public class HornetMovement : MonoBehaviour
 
     void Update()
     {
+        // dont move if player is dead
+        if (player == null)
+        {
+            rb.velocity = Vector3.zero;
+
+            return;
+        }
+
         // if player is within range left
         if (player.transform.position.x > transform.position.x - agrivationrange && !attackingstarted)
         {
@@ -51,14 +59,6 @@ public class HornetMovement : MonoBehaviour
 
             attackingstarted = true;
             StartCoroutine(CoolDown());
-        }
-
-        // dont move if player is dead
-        if (player == null)
-        {
-            rb.velocity = Vector3.zero;
-
-            return;
         }
 
         // dont move if enemy is dead

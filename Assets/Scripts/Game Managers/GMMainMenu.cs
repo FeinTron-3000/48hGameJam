@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GMMainMenu : MonoBehaviour
 {
+    [Header("Level Name")]
     public string nextlevename;
 
     [Header("Background Animation")]
@@ -15,8 +16,7 @@ public class GMMainMenu : MonoBehaviour
     public GameObject startbutton;
     public AudioSource buttonclick;
 
-    // code refrenced by start button in UI
-    public void OnMouseDown()
+    public void StartGame()
     {
         animator.SetBool("Transition", true);
 

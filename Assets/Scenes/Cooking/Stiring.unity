@@ -659,10 +659,10 @@ MonoBehaviour:
   skillcheck: 0
   scoretracker: {fileID: 0}
   levelnames:
-  - Cutting
-  - Stiring
   - Frying
-  - ResutsPage
+  - Stiring
+  - Cutting
+  - ResultsPage
   index: 2
 --- !u!4 &1198035550
 Transform:

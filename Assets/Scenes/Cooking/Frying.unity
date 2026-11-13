@@ -1629,10 +1629,10 @@ MonoBehaviour:
   skillcheck: 1
   scoretracker: {fileID: 11400000, guid: 988e67ceb904c76449e1d4c3b3840c1c, type: 2}
   levelnames:
-  - Cutting
-  - Stiring
   - Frying
-  - ResutsPage
+  - Stiring
+  - Cutting
+  - ResultsPage
   index: 3
 --- !u!4 &1519209803
 Transform:

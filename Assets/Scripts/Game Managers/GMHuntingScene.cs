@@ -76,11 +76,6 @@ public class GMHuntingScene : MonoBehaviour
         LevelEnd();
     }
 
-    public void GameOverAnimation()
-    {
-
-    }
-
     public void LevelEnd()
     {
         // tally score
