@@ -16,7 +16,7 @@ public class GMMainMenu : MonoBehaviour
     public GameObject startbutton;
     public AudioSource buttonclick;
 
-    public void StartGame()
+    public void OnMouseDown()
     {
         animator.SetBool("Transition", true);
 

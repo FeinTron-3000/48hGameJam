@@ -20,6 +20,9 @@ public class ObjectScaler : MonoBehaviour
     public Animator knifemantis;
     public Animator button;
 
+    [Header("Audio")]
+    public AudioSource chop;
+
     private void Start()
     {
         gm = gm.gameObject.GetComponent<GMCookingScene>();
@@ -37,9 +40,9 @@ public class ObjectScaler : MonoBehaviour
         }
     }
 
+    // Chop
     public void OnMouseDown()
     {
-        // increase score
         knifemantis.SetBool("Chop", true);
         button.SetBool("Mash", true);
 
@@ -56,14 +59,13 @@ public class ObjectScaler : MonoBehaviour
         knifemantis.SetBool("Chop", false);
         button.SetBool("Mash", false);
 
+        chop.Play();
     }
 
     IEnumerator Grow()
     {
         if (transform.localScale.x < maxScale)
         {
-            Debug.Log("Grow input delay?");
-
             isGrowing = true;
             transform.localScale += Vector3.one * growspeed;
 
