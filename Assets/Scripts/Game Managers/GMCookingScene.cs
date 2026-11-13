@@ -6,45 +6,67 @@ using UnityEngine.SceneManagement;
 
 public class GMCookingScene : MonoBehaviour
 {
-    [SerializeField] public int score;
-    [SerializeField] public TextMeshProUGUI scoreui;
+    [Header("Tracker")]
+    public ScoreTracker scoretracker;
 
-    [SerializeField] public CookingScoring cookingScoring;
+    public int score;
+    public TextMeshProUGUI scoreui;
 
-    [SerializeField] public bool choppingsection;
-    [SerializeField] public bool stirringsection;
-    [SerializeField] public bool skillcheck;
+    public bool fryingsection;
+    public bool stirringsection;
+    public bool choppingsection;
 
-    [SerializeField] public ScoreTracker scoretracker;
+    [Header("Level Names")]
     public string[] levelnames;
     public int index;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
-        // set text
+        // score ui
         scoreui.text = "Score: " + score;
     }
 
     public void GameOver()
     {
         // scriptable object equal level score
-        if (choppingsection)
+        if (fryingsection)
         {
-            cookingScoring.choppingscore = score;
+            scoretracker.fryingscore = score;
         }
         else if (stirringsection)
         {
-            cookingScoring.stirringscore = score;
+            scoretracker.stirringscore = score;
+
+            // next cooking level is not previous level
+            fryingsection = true;
         }
-        else if (skillcheck)
+        else if (choppingsection)
         {
-            cookingScoring.skillcheckscore = score;
+            scoretracker.choppingscore = score;
+
+            // next cooking level is not previous level
+            fryingsection = true;
+            stirringsection = true;
         }
+
+        // next cooking level
+        if (scoretracker.hornetscore > 0 && !fryingsection)
+        {
+            index = 0;
+        }
+        else if (scoretracker.plantscore > 0 && !stirringsection)
+        {
+            index = 1;
+        }
+        else if (scoretracker.mantiscore > 0 && !choppingsection)
+        {
+            index = 2;
+        }
+        else
+        {
+            index = 3;
+        }
+
         SceneManager.LoadScene(levelnames[index]);
     }
 }

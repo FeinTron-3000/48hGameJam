@@ -4,102 +4,71 @@ using UnityEngine;
 
 public class ObjectScaler : MonoBehaviour
 {
-    [SerializeField] private Animator knifeAnim;
-    [SerializeField] private Animator meatAnim;
-    // Scaling setting
-    public float shrinkSpeed;
-    public float growSpeed;
+    [Header("Variables")]
+    public float shrinkspeed;
+    public float growspeed;
+
     public float minScale;
     public float maxScale;
-    public float waitTime;
 
-    public GameObject triggerObject;
+    public bool isGrowing;
 
-    public bool isGrowing = false;
-    private Vector3 initialScale;
+    [Header("Scripts")]
+    public GMCookingScene gm;
 
-    public Rigidbody2D rb;
-    public GameObject knife;
-    public Vector3 startPos;
-    public Vector3 endPos;
-    public float chopSpeed;
+    [Header("Animators")]
+    public Animator knifemantis;
+    public Animator button;
 
-    private Vector3 targetPos;
-
-    public bool knifeanimation = false;
-    private bool playonce;
-    private void Awake()
+    private void Start()
     {
-        targetPos = startPos;
+        gm = gm.gameObject.GetComponent<GMCookingScene>();
     }
 
-    private void KnifeDown()
-    {
-        if (playonce)
-        {
-            knife.transform.position = startPos;
-            playonce = false;
-        }
-        
-        if (knife.transform.position.y > endPos.y)
-        {
-            knife.transform.position += new Vector3(0, chopSpeed * Time.deltaTime, 0);
-        }
-        else
-        {
-            knifeanimation = false;
-        }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        initialScale = transform.localScale;
-    }
-
-    // Update is called once per frame
     void Update()
     {
+        // shrink
         if (!isGrowing)
         {
             if (transform.localScale.x > minScale)
             {
-                transform.localScale -= Vector3.one * shrinkSpeed *Time.deltaTime;
+                transform.localScale -= Vector3.one * shrinkspeed * Time.deltaTime;
             }
         }
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
-            if (hit.collider != null && hit.collider.gameObject == triggerObject)
-            {
-                knifeAnim.SetBool("isChopping", true);
-                meatAnim.SetBool("meatChopped", true);
+    }
 
-                knifeanimation = true;
-                playonce = true;
-                StartCoroutine(Grow());
-            }
-        }
-        else
-        {
-            knifeAnim.SetBool("isChopping", false);
-            meatAnim.SetBool("meatChopped", false);
-        }
+    public void OnMouseDown()
+    {
+        // increase score
+        knifemantis.SetBool("Chop", true);
+        button.SetBool("Mash", true);
 
-        if (knifeanimation)
-        {
-            KnifeDown();
-        }
-    } 
+        gm.score++;
+
+        StartCoroutine(Grow());
+        StartCoroutine(AnimationPlay());
+    }
+
+    public IEnumerator AnimationPlay()
+    {
+        yield return new WaitForSeconds(0.01f);
+
+        knifemantis.SetBool("Chop", false);
+        button.SetBool("Mash", false);
+
+    }
 
     IEnumerator Grow()
     {
         if (transform.localScale.x < maxScale)
         {
+            Debug.Log("Grow input delay?");
+
             isGrowing = true;
-            transform.localScale += Vector3.one * growSpeed;
-            yield return new WaitForSeconds(waitTime);
+            transform.localScale += Vector3.one * growspeed;
+
+            yield return new WaitForSeconds(0.01f);
+
             isGrowing = false;
         }
     }

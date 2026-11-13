@@ -5,11 +5,12 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
     [Header("Camera Movement")]
-    [SerializeField] public GameObject player;
-    [SerializeField] public float distance;
+    public GameObject player;
+    public float distance;
 
+    public float minx;
     public float maxx;
-    public float maxy;
+    public float miny;
 
     public float x;
     public float y;
@@ -19,11 +20,14 @@ public class CameraScript : MonoBehaviour
         // check the player is alive
         if (player != null)
         {
-            if (player.transform.position.x > maxx)
+            if (player.transform.position.x > minx)
             {
-                 x = player.transform.position.x;
+                if (player.transform.position.x < maxx)
+                {
+                    x = player.transform.position.x;
+                }
             }
-            if (player.transform.position.y > maxy)
+            if (player.transform.position.y > miny)
             {
                 y = player.transform.position.y;
                 transform.position = new Vector3(x, y, distance);

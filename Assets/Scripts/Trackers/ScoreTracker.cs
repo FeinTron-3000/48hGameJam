@@ -5,7 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ScoreTracker", menuName = "ScoreTracker")]
 public class ScoreTracker : ScriptableObject
 {
-    public bool choppingsection;
-    public bool stirringsection;
-    public bool skillcheck;
+    // hunting scoring
+    public int mantiscore;
+    public int plantscore;
+    public int hornetscore;
+
+    // cooking scoring
+    public int choppingscore;
+    public int stirringscore;
+    public int fryingscore;
 }

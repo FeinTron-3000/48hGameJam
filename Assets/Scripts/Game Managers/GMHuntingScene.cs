@@ -8,19 +8,13 @@ public class GMHuntingScene : MonoBehaviour
 {
     public string nextscenename;
 
-    [Header("Trackers")]
+    [Header("Tracker")]
     public ScoreTracker scoretracker;
-    public HuntingScoring huntingscoring;
 
     [Header("Score Tracking")]
     public int mantisdead;
-    public TextMeshProUGUI mantistext;
-
     public int plantdead;
-    public TextMeshProUGUI planttext;
-
     public int hornetdead;
-    public TextMeshProUGUI hornettext;
 
     [Header("Player")]
     public PlayerHealth playerhealth;
@@ -35,9 +29,9 @@ public class GMHuntingScene : MonoBehaviour
         playerhealth = playerhealth.GetComponent<PlayerHealth>();
 
         // reset level score tracker
-        huntingscoring.mantiscore = 0;
-        huntingscoring.plantscore = 0;
-        huntingscoring.hornetscore = 0;
+        scoretracker.mantiscore = 0;
+        scoretracker.plantscore = 0;
+        scoretracker.hornetscore = 0;
 
         // start countdown
         StartCoroutine(CountDown());
@@ -45,11 +39,6 @@ public class GMHuntingScene : MonoBehaviour
 
     void Update()
     {
-        // score tracking
-        mantistext.text = "Mantis dead: " + mantisdead;
-        planttext.text = "Plant dead: " + plantdead;
-        hornettext.text = "Hornet dead: " + hornetdead;
-
         // health tracking
         if (playerhealth.health <= playerhealth.maxhealth - 1)
         {
@@ -87,17 +76,12 @@ public class GMHuntingScene : MonoBehaviour
         LevelEnd();
     }
 
-    public void GameOverAnimation()
-    {
-
-    }
-
     public void LevelEnd()
     {
         // tally score
-        huntingscoring.mantiscore = mantisdead;
-        huntingscoring.plantscore = plantdead;
-        huntingscoring.hornetscore = hornetdead;
+        scoretracker.mantiscore = mantisdead;
+        scoretracker.plantscore = plantdead;
+        scoretracker.hornetscore = hornetdead;
 
 
         // load the next scene

@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GMMainMenu : MonoBehaviour
 {
-    public string nextlevename;
+    [Header("Level Name")]
+    public string nextscenename;
 
     [Header("Background Animation")]
     public Animator animator;
@@ -15,8 +16,7 @@ public class GMMainMenu : MonoBehaviour
     public GameObject startbutton;
     public AudioSource buttonclick;
 
-    // code refrenced by start button in UI
-    public void OnMouseDown()
+    public void StartGame()
     {
         animator.SetBool("Transition", true);
 
@@ -32,6 +32,6 @@ public class GMMainMenu : MonoBehaviour
         yield return new WaitForSeconds(animationplaytime);
 
         // load the next scene
-        SceneManager.LoadScene(nextlevename);
+        SceneManager.LoadScene(nextscenename);
     }
 }
