@@ -1621,13 +1621,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c05d447d5225f4408888de0e2f58ba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoretracker: {fileID: 11400000, guid: 988e67ceb904c76449e1d4c3b3840c1c, type: 2}
   score: 0
   scoreui: {fileID: 900628167}
-  cookingScoring: {fileID: 11400000, guid: 4f084218082150246970c462afcb3b50, type: 2}
-  choppingsection: 0
+  fryingsection: 1
   stirringsection: 0
-  skillcheck: 1
-  scoretracker: {fileID: 11400000, guid: 988e67ceb904c76449e1d4c3b3840c1c, type: 2}
+  choppingsection: 0
   levelnames:
   - Frying
   - Stiring

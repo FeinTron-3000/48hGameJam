@@ -31,7 +31,7 @@ public class GMHuntingResults : MonoBehaviour
         planttext.text = "Plant dead: " + scoretracker.plantscore;
         hornettext.text = "Hornet dead: " + scoretracker.hornetscore;
 
-        // level tracking
+        // available cooking level
         if (scoretracker.hornetscore > 0)
         {
             index = 0;

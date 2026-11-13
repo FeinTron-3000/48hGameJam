@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GMMainMenu : MonoBehaviour
 {
     [Header("Level Name")]
-    public string nextlevename;
+    public string nextscenename;
 
     [Header("Background Animation")]
     public Animator animator;
@@ -32,6 +32,6 @@ public class GMMainMenu : MonoBehaviour
         yield return new WaitForSeconds(animationplaytime);
 
         // load the next scene
-        SceneManager.LoadScene(nextlevename);
+        SceneManager.LoadScene(nextscenename);
     }
 }

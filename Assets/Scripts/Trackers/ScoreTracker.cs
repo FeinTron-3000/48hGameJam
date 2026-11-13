@@ -13,5 +13,5 @@ public class ScoreTracker : ScriptableObject
     // cooking scoring
     public int choppingscore;
     public int stirringscore;
-    public int skillcheckscore;
+    public int fryingscore;
 }

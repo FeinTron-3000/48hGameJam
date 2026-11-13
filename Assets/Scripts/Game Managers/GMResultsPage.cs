@@ -1,33 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GMResultsPage : MonoBehaviour
 {
+    [Header("Level Name")]
     public string nextscenename;
 
     [Header("Tracker")]
     public ScoreTracker score;
 
+    [Header("Rank")]
     public int a;
     public int b;
     public int c;
     public int d;
+
     public GameObject[] scores;
-
-    public ScoreTracker foodtype;
-    public GameObject[] food;
-
-    public int foodindex;
     public int finalscore;
+
+    [Header("Food")]
+    public GameObject[] food;
+    public int foodindex;
 
     void Start()
     {
         // randomly select food
         foodindex = Random.Range(0, food.Length);
-        finalscore = score.choppingscore + score.skillcheckscore + score.stirringscore;
-
         food[foodindex].SetActive(true);
+
+        // calculate rank
+        finalscore = score.choppingscore + score.fryingscore + score.stirringscore;
 
         if (finalscore >= a)
         {
@@ -47,9 +51,8 @@ public class GMResultsPage : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartOver()
     {
-        
+        SceneManager.LoadScene(nextscenename);
     }
 }
