@@ -46,7 +46,7 @@ public class StirringTarget : MonoBehaviour
         gm.score++;
     }
 
-    private void OnEnable()
+    void OnEnable()
     {
         buttoncollision.enabled = true;
 
