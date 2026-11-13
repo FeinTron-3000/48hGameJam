@@ -37,7 +37,7 @@ public class ObjectScaler : MonoBehaviour
         }
     }
 
-    public void Chop()
+    public void OnMouseDown()
     {
         // increase score
         knifemantis.SetBool("Chop", true);
@@ -62,10 +62,12 @@ public class ObjectScaler : MonoBehaviour
     {
         if (transform.localScale.x < maxScale)
         {
+            Debug.Log("Grow input delay?");
+
             isGrowing = true;
             transform.localScale += Vector3.one * growspeed;
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.01f);
 
             isGrowing = false;
         }
