@@ -1115,10 +1115,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextscenename: Hunting
   score: {fileID: 11400000, guid: 988e67ceb904c76449e1d4c3b3840c1c, type: 2}
-  a: 160
-  b: 140
-  c: 110
-  d: 80
+  a: 100
+  b: 80
+  c: 60
+  d: 40
   scores:
   - {fileID: 598193371}
   - {fileID: 277293554}
