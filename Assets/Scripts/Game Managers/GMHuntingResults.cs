@@ -26,6 +26,11 @@ public class GMHuntingResults : MonoBehaviour
 
     void Start()
     {
+        // reset cooking score tracker
+        scoretracker.fryingscore = 0;
+        scoretracker.stirringscore = 0;
+        scoretracker.choppingscore = 0;
+
         // score tracking
         mantistext.text = "Mantis dead: " + scoretracker.mantiscore;
         planttext.text = "Plant dead: " + scoretracker.plantscore;
