@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GMResultsScreen : MonoBehaviour
 {
-    [SerializeField] public HuntingScoring huntingscoring;
-    [SerializeField] public ScoreTracker scoretracker;
+    [Header("Tracker")]
+    public ScoreTracker scoretracker;
 
     public string[] levelnames;
     public int index;

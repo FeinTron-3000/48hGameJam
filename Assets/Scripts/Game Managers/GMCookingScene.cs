@@ -6,16 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class GMCookingScene : MonoBehaviour
 {
-    [SerializeField] public int score;
-    [SerializeField] public TextMeshProUGUI scoreui;
+    public int score;
+    public TextMeshProUGUI scoreui;
 
-    [SerializeField] public CookingScoring cookingScoring;
+    [Header("Tracker")]
+    public ScoreTracker cookingScoring;
 
-    [SerializeField] public bool choppingsection;
-    [SerializeField] public bool stirringsection;
-    [SerializeField] public bool skillcheck;
+    public bool choppingsection;
+    public bool stirringsection;
+    public bool skillcheck;
 
-    [SerializeField] public ScoreTracker scoretracker;
+    public ScoreTracker scoretracker;
+
     public string[] levelnames;
     public int index;
 

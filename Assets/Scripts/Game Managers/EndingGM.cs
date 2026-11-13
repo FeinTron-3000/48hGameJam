@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class EndingGM : MonoBehaviour
 {
-    public CookingScoring score;
+    public string nextscenename;
+
+    [Header("Tracker")]
+    public ScoreTracker score;
+
     public int a;
     public int b;
     public int c;
@@ -13,9 +17,10 @@ public class EndingGM : MonoBehaviour
 
     public ScoreTracker foodtype;
     public GameObject[] food;
+
     public int foodindex;
     public int finalscore;
-    // Start is called before the first frame update
+
     void Start()
     {
         foodindex = Random.Range(0, food.Length);
