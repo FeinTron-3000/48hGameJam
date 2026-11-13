@@ -66,8 +66,6 @@ public class ObjectScaler : MonoBehaviour
     {
         if (transform.localScale.x < maxScale)
         {
-            Debug.Log("Grow input delay?");
-
             isGrowing = true;
             transform.localScale += Vector3.one * growspeed;
 

@@ -27,11 +27,12 @@ public class GMResultsPage : MonoBehaviour
     void Start()
     {
         // randomly select food
+        Debug.Log("Add food determine code");
         foodindex = Random.Range(0, food.Length);
         food[foodindex].SetActive(true);
 
         // calculate rank
-        finalscore = score.choppingscore + score.fryingscore + score.stirringscore;
+        finalscore = score.choppingscore / 2 + score.fryingscore + score.stirringscore;
 
         if (finalscore >= a)
         {
@@ -45,7 +46,7 @@ public class GMResultsPage : MonoBehaviour
         {
                 scores[2].SetActive(true);
         }
-        else if (finalscore >= d)
+        else
         {
                 scores[3].SetActive(true);
         }
