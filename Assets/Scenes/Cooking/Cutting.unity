@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 21705910}
   - component: {fileID: 21705909}
+  - component: {fileID: 21705911}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -152,13 +153,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c05d447d5225f4408888de0e2f58ba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoretracker: {fileID: 11400000, guid: 988e67ceb904c76449e1d4c3b3840c1c, type: 2}
   score: 0
   scoreui: {fileID: 398628590}
-  cookingScoring: {fileID: 11400000, guid: 4f084218082150246970c462afcb3b50, type: 2}
-  choppingsection: 1
+  fryingsection: 0
   stirringsection: 0
-  skillcheck: 0
-  scoretracker: {fileID: 11400000, guid: 988e67ceb904c76449e1d4c3b3840c1c, type: 2}
+  choppingsection: 1
   levelnames:
   - Frying
   - Stiring
@@ -179,6 +179,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &21705911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21705908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82071808f3ef853499190dd3a8ac44a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 1140521129}
+  timelimit: 20
+  gm: {fileID: 21705909}
 --- !u!1 &177465936
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +276,7 @@ Transform:
   m_LocalScale: {x: 9, y: 9, z: 9}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &177465939
 Animator:
@@ -432,7 +447,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1346357556}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -503,7 +518,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &630287820
 GameObject:
@@ -585,7 +600,7 @@ Transform:
   m_LocalScale: {x: 9.25, y: 9.25, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &806806542
 GameObject:
@@ -860,7 +875,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1140521127
 GameObject:
@@ -892,7 +907,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1346357556}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -996,52 +1011,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140521127}
   m_CullTransparentMesh: 1
---- !u!1 &1171567882
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1171567884}
-  - component: {fileID: 1171567885}
-  m_Layer: 0
-  m_Name: Countdown
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1171567884
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1171567882}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.110817, y: 1.7261702, z: -25.051014}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1171567885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1171567882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82071808f3ef853499190dd3a8ac44a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timerText: {fileID: 1140521129}
-  timelimit: 20
-  gm: {fileID: 21705909}
 --- !u!1 &1346357552
 GameObject:
   m_ObjectHideFlags: 0
@@ -1133,13 +1102,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1677880182}
   - {fileID: 1140521128}
   - {fileID: 398628592}
   - {fileID: 2052993079}
-  - {fileID: 1677880182}
   - {fileID: 806806543}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1240,9 +1209,7 @@ GameObject:
   - component: {fileID: 1677880182}
   - component: {fileID: 1677880186}
   - component: {fileID: 1677880185}
-  - component: {fileID: 1677880184}
   - component: {fileID: 1677880187}
-  - component: {fileID: 1677880183}
   - component: {fileID: 1677880188}
   m_Layer: 0
   m_Name: Cut Button
@@ -1263,39 +1230,8 @@ Transform:
   m_LocalScale: {x: 500, y: 500, z: 500}
   m_Children: []
   m_Father: {fileID: 1346357556}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1677880183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1677880181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: badcb64711a483744904e7d225d20957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gm: {fileID: 21705909}
-  animator: {fileID: 177465939}
-  button: {fileID: 1677880188}
---- !u!58 &1677880184
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1677880181}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.49999997
 --- !u!114 &1677880185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1313,8 +1249,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1677880183}
-          m_TargetAssemblyTypeName: Scoring, Assembly-CSharp
+        - m_Target: {fileID: 1677880187}
+          m_TargetAssemblyTypeName: ObjectScaler, Assembly-CSharp
           m_MethodName: OnMouseDown
           m_Mode: 1
           m_Arguments:
@@ -1388,21 +1324,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd159c5dcae17743a579537038d81b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knifeAnim: {fileID: 177465939}
-  meatAnim: {fileID: 0}
-  shrinkSpeed: 0
-  growSpeed: 0
+  shrinkspeed: 50
+  growspeed: 25
   minScale: 300
   maxScale: 400
-  waitTime: 0.1
-  triggerObject: {fileID: 1677880181}
   isGrowing: 0
-  rb: {fileID: 177465940}
-  knife: {fileID: 177465936}
-  startPos: {x: 1.8, y: 1.38, z: 0}
-  endPos: {x: 1.8, y: -0.7, z: 0}
-  chopSpeed: -20
-  knifeanimation: 0
+  gm: {fileID: 21705909}
+  knifemantis: {fileID: 177465939}
+  button: {fileID: 1677880188}
 --- !u!95 &1677880188
 Animator:
   serializedVersion: 5
@@ -1453,7 +1382,7 @@ Transform:
   m_LocalScale: {x: 384.59958, y: 652.9, z: 599.99994}
   m_Children: []
   m_Father: {fileID: 1346357556}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2052993080
 SpriteRenderer:
