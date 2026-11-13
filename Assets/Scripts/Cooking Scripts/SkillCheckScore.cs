@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class SkillCheckScore : MonoBehaviour
 {
-    [SerializeField] public GMCookingScene gm;
-    [SerializeField] public SkillCheck skillcheck;
-    [SerializeField] public Animator animator;
+    public GMCookingScene gm;
+
+    public SkillCheck skillcheck;
+
+    public Animator animator;
     private void Start()
     {
         gm = gm.gameObject.GetComponent<GMCookingScene>();

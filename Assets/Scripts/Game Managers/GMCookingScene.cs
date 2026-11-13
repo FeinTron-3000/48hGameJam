@@ -20,10 +20,34 @@ public class GMCookingScene : MonoBehaviour
     public string[] levelnames;
     public int index;
 
+    [Header("Timer")]
+    public TextMeshProUGUI timerText;
+    public int timelimit;
+
+    void Start()
+    {
+        StartCoroutine(CountDown());
+    }
+
     void Update()
     {
         // score ui
         scoreui.text = "Score: " + score;
+    }
+
+    IEnumerator CountDown()
+    {
+        for (int i = timelimit; i > 0; i--)
+        {
+            timelimit--;
+            int minutes = Mathf.FloorToInt(timelimit / 60);
+            int seconds = Mathf.FloorToInt(timelimit % 60);
+            timerText.text = string.Format("{00:00}:{1:00}", minutes, seconds);
+            yield return new WaitForSeconds(1);
+        }
+
+        timelimit = 0;
+        GameOver();
     }
 
     public void GameOver()

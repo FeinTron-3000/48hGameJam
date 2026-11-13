@@ -855,7 +855,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1295355825}
         m_TargetAssemblyTypeName: GMMainMenu, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: OnMouseDown
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -973,7 +973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4d8bc0a4557c10479cf18706d020ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextlevename: Hunting
+  nextscenename: 
   animator: {fileID: 1447809751}
   animationplaytime: 4
   startbutton: {fileID: 1055963115}
