@@ -75,6 +75,13 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
+        // slow down time
+        if (HitStop.instance)
+        {
+            Debug.Log("Slow Time");
+            HitStop.instance.Stop(0.5f, 0.1f);
+        }
+
         animator.SetBool("Die", true);
         deathsound.Play();
 

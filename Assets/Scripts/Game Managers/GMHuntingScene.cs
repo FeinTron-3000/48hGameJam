@@ -6,7 +6,7 @@ using TMPro;
 
 public class GMHuntingScene : MonoBehaviour
 {
-    public string nextscenename;
+    public int nextscenename;
 
     [Header("Tracker")]
     public ScoreTracker scoretracker;
@@ -85,6 +85,13 @@ public class GMHuntingScene : MonoBehaviour
 
 
         // load the next scene
-        SceneManager.LoadScene(nextscenename);
+        if (TransitionManager.instance)
+        {
+            TransitionManager.instance.QueueSceneChange(nextscenename);
+        }
+        else
+        {
+            SceneManager.LoadScene(nextscenename);
+        }
     }
 }
