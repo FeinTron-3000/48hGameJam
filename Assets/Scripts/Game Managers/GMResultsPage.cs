@@ -26,9 +26,36 @@ public class GMResultsPage : MonoBehaviour
 
     void Start()
     {
-        // randomly select food
-        Debug.Log("Add food determine code");
-        foodindex = Random.Range(0, food.Length);
+        // determine food
+        if (score.hornetscore >= 1)
+        {
+            foodindex = 0;
+            if (score.plantscore >= 1)
+            {
+                foodindex = 3;
+                if (score.mantiscore >= 1)
+                {
+                    foodindex = 6;
+                }
+            }
+            else if (score.mantiscore >= 1)
+            {
+                foodindex = 4;
+            }
+        }
+        else if (score.plantscore >= 1)
+        {
+            foodindex = 1;
+            if (score.mantiscore >= 1)
+            {
+                foodindex = 5;
+            }
+        }
+        else if (score.mantiscore >= 1)
+        {
+            foodindex = 2;
+        }
+
         food[foodindex].SetActive(true);
 
         // calculate rank

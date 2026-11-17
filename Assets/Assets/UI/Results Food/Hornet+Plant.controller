@@ -54,7 +54,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: dish 6
+  m_Name: Hornet+Plant
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:

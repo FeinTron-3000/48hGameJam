@@ -33,6 +33,7 @@ public class KnifeScript : MonoBehaviour
         mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
+        // track to mouse position if within range
         if (mousePosition.x > minx)
         {
             if (mousePosition.x < maxx)
