@@ -6,6 +6,7 @@ public class FryingScore : MonoBehaviour
 {
     [Header("Scripts")]
     public GMCookingScene gm;
+    public StoveKnob stoveknob;
 
     [Header("Variables")]
     public Collider2D buttoncollision;
@@ -22,6 +23,7 @@ public class FryingScore : MonoBehaviour
     private void Start()
     {
         gm = gm.gameObject.GetComponent<GMCookingScene>();
+        stoveknob = stoveknob.gameObject.GetComponent<StoveKnob>();
     }
     public void OnMouseDown()
     {
@@ -31,6 +33,9 @@ public class FryingScore : MonoBehaviour
             gm.score--;
             bad.Play();
 
+            animator.SetBool("Mash", true);
+            StartCoroutine(AnimationPlay());
+
             return;
         }
 
@@ -39,6 +44,16 @@ public class FryingScore : MonoBehaviour
         animator.SetBool("Mash", true);
 
         fry.Play();
+
+        // change stove knob direction
+        if (stoveknob.direction)
+        {
+            stoveknob.direction = false;
+        }
+        else
+        {
+            stoveknob.direction = true;
+        }
 
         // don't allow for multiple clicks
         buttoncollision.enabled = false;

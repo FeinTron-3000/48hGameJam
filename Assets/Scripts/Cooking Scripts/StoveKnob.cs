@@ -6,6 +6,9 @@ public class StoveKnob : MonoBehaviour
 {
     [Header("Variables")]
     public float speed;
+    public float reversespeed;
+
+    public bool direction;
 
     [Header("Buttons")]
     public GameObject goodbutton;
@@ -13,8 +16,17 @@ public class StoveKnob : MonoBehaviour
 
     void Update()
     {
-        // spin
-        transform.eulerAngles += Vector3.forward * speed * Time.deltaTime;
+        // change direction
+        if (direction)
+        {
+            // spin
+            transform.eulerAngles += Vector3.forward * speed * Time.deltaTime;
+        }
+        else
+        {
+            // spin
+            transform.eulerAngles += Vector3.forward * reversespeed * Time.deltaTime;
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

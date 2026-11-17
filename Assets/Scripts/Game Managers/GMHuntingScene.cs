@@ -7,6 +7,7 @@ using TMPro;
 public class GMHuntingScene : MonoBehaviour
 {
     public int nextscenename;
+    public TransitionManager transitionManager;
 
     [Header("Tracker")]
     public ScoreTracker scoretracker;
@@ -27,6 +28,7 @@ public class GMHuntingScene : MonoBehaviour
     void Start()
     {
         playerhealth = playerhealth.GetComponent<PlayerHealth>();
+        transitionManager = playerhealth.GetComponent<TransitionManager>();
 
         // reset level score tracker
         scoretracker.mantiscore = 0;
@@ -84,14 +86,14 @@ public class GMHuntingScene : MonoBehaviour
         scoretracker.hornetscore = hornetdead;
 
 
-        // load the next scene
-        if (TransitionManager.instance)
-        {
-            TransitionManager.instance.QueueSceneChange(nextscenename);
-        }
-        else
-        {
-            SceneManager.LoadScene(nextscenename);
-        }
+        transitionManager.QueueSceneChange();
+        StartCoroutine(Load());
+    }
+
+    public IEnumerator Load()
+    {
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene(nextscenename);
     }
 }

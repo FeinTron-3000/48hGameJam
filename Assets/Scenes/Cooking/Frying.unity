@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 1519209802}
+  stoveknob: {fileID: 894401974}
   buttoncollision: {fileID: 61648683}
   negativepoints: 0
   animator: {fileID: 61648687}
@@ -352,7 +353,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213930811}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1405, y: 0, z: 0}
+  m_LocalPosition: {x: 76, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 61648681}
@@ -1483,6 +1484,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 170
+  reversespeed: -170
+  direction: 0
   goodbutton: {fileID: 61648680}
   badbutton: {fileID: 2118260133}
 --- !u!61 &894401975
@@ -2434,6 +2437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 1519209802}
+  stoveknob: {fileID: 894401974}
   buttoncollision: {fileID: 2118260136}
   negativepoints: 1
   animator: {fileID: 2118260135}

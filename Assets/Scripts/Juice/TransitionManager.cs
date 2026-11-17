@@ -5,49 +5,50 @@ using UnityEngine.SceneManagement;
 
 public class TransitionManager : MonoBehaviour
 {
-    public Transform sprite;
-    public float transitionlength;
+    public GameObject sprite;
 
-    private TransitionType transType;
+    public bool transitionout;
+    public float speed;
 
-    public static TransitionManager instance;
+    public float maxsize;
+    public float minsize;
 
-    public enum TransitionType
-    {
-        T_In,
-        T_Out
-    }
-
-    private void Start()
+    void Start()
     {
         sprite.gameObject.SetActive(true);
-        Transition(TransitionType.T_In);
+
+        transitionout = false;
     }
 
-    private void OnEnable()
+    void Update()
     {
-        instance = this;
+        // don't change transformation if not active
+        if (!sprite.activeInHierarchy)
+        {
+            return;
+        }
+
+        if (!transitionout)
+        {
+            sprite.transform.localScale -= new Vector3(speed * Time.deltaTime, speed * Time.deltaTime, 0);
+        }
+        else
+        {
+            sprite.transform.localScale += new Vector3(speed * Time.deltaTime, speed * Time.deltaTime, 0);
+        }
+
+        if (sprite.transform.localScale.x <= minsize)
+        {
+            sprite.gameObject.SetActive(false);
+        }
+        if (sprite.transform.localScale.x >= maxsize)
+        {
+            sprite.gameObject.SetActive(false);
+        }
     }
 
-    private void Update()
+    public void QueueSceneChange()
     {
-        float targetScale = transType == TransitionType.T_In ? 0 : 10.0f;
-        sprite.localScale = Vector3.Lerp(sprite.localScale, new Vector3(targetScale, targetScale, 1), transitionlength / 100);
-    }
-
-
-    public void Transition(TransitionType type)
-    {
-        float targetScale = (type == TransitionType.T_In ? 10.0f : 0.0f);
-        sprite.localScale = new Vector3(targetScale, targetScale, 1);
-
-        transType = type;
-    }
-
-    public void QueueSceneChange(int sceneIndex)
-    {
-        Transition(TransitionType.T_Out);
-
-        this.Invoke("SceneManager.LoadScene(sceneIndex)", 0.7f);
+        sprite.gameObject.SetActive(true);
     }
 }
