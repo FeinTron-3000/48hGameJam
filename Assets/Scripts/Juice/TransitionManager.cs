@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class TransitionManager : MonoBehaviour
 {
+    [Header("Sprite")]
     public GameObject sprite;
 
+    [Header("Variabes")]
     public bool transitionout;
     public float speed;
 
@@ -40,10 +42,8 @@ public class TransitionManager : MonoBehaviour
         if (sprite.transform.localScale.x <= minsize)
         {
             sprite.gameObject.SetActive(false);
-        }
-        if (sprite.transform.localScale.x >= maxsize)
-        {
-            sprite.gameObject.SetActive(false);
+
+            transitionout = true;
         }
     }
 

@@ -9198,7 +9198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextscenename: 2
-  transitionManager: {fileID: 0}
+  transitionManager: {fileID: 1888399808}
   scoretracker: {fileID: 11400000, guid: 988e67ceb904c76449e1d4c3b3840c1c, type: 2}
   mantisdead: 0
   plantdead: 0
@@ -9235,9 +9235,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 775138604}
   transitionout: 0
-  speed: 0
-  maxsize: 0
-  minsize: 0
+  speed: 1
+  maxsize: 10
+  minsize: 0.1
 --- !u!114 &1888399809
 MonoBehaviour:
   m_ObjectHideFlags: 0
