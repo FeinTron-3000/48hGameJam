@@ -1586,7 +1586,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &386965099
 Transform:
   m_ObjectHideFlags: 0
@@ -1879,7 +1879,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.09}
   serializedVersion: 2
-  m_Radius: 0.16
+  m_Radius: 0.2
 --- !u!1 &447133979
 GameObject:
   m_ObjectHideFlags: 0
@@ -3206,7 +3206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &617271185
 Transform:
   m_ObjectHideFlags: 0
@@ -9997,7 +9997,7 @@ MonoBehaviour:
   hurtsound: {fileID: 1930879782}
   gamemanager: {fileID: 1888399806}
   animator: {fileID: 1509233120}
-  deathanimationtime: 4
+  deathanimationtime: 3
   sprite: {fileID: 1509233115}
 --- !u!1 &1935050025
 GameObject:
@@ -10438,7 +10438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2134706867
 Transform:
   m_ObjectHideFlags: 0
