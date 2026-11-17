@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 67089882}
   - component: {fileID: 67089881}
   m_Layer: 0
-  m_Name: dish 3
+  m_Name: Hornet+Mantis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,7 +181,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4798266087114943004, guid: a7cc46e7bc86fa948ad24c8a01782324, type: 3}
+  m_Sprite: {fileID: 5334482748471096099, guid: 00e49700d7a4b8a4aaa28d07c62da9ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -202,7 +202,7 @@ Animator:
   m_GameObject: {fileID: 67089880}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 55b87857f833c4c499584065542737b0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5d3e017eab0c86c4b9aea664020dffc2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -225,7 +225,7 @@ Transform:
   m_LocalScale: {x: 6.52, y: 6.52, z: 1}
   m_Children: []
   m_Father: {fileID: 80888503}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &80888502
 GameObject:
@@ -256,10 +256,10 @@ Transform:
   m_Children:
   - {fileID: 439348633}
   - {fileID: 2120137692}
-  - {fileID: 67089883}
   - {fileID: 206001506}
-  - {fileID: 844103250}
   - {fileID: 1525597333}
+  - {fileID: 67089883}
+  - {fileID: 844103250}
   - {fileID: 1919967707}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 206001505}
   - component: {fileID: 206001504}
   m_Layer: 0
-  m_Name: dish 4
+  m_Name: Plant_Dish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -322,7 +322,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2873781890278171251, guid: db714a8985f42384ba4e531d2d9c2ca1, type: 3}
+  m_Sprite: {fileID: 1097852833516635906, guid: bdb5a481557b6a741a25896fb23aa3c4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -343,7 +343,7 @@ Animator:
   m_GameObject: {fileID: 206001503}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e66d53582b705844a83e69ab9eacbb04, type: 2}
+  m_Controller: {fileID: 9100000, guid: a6132501930daec478eb697fe09c02b1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -366,7 +366,7 @@ Transform:
   m_LocalScale: {x: 6.52, y: 6.52, z: 1}
   m_Children: []
   m_Father: {fileID: 80888503}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &277293554
 GameObject:
@@ -462,7 +462,7 @@ GameObject:
   - component: {fileID: 439348632}
   - component: {fileID: 439348634}
   m_Layer: 0
-  m_Name: dish 1
+  m_Name: Hornet_Dish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1128,10 +1128,10 @@ MonoBehaviour:
   food:
   - {fileID: 439348631}
   - {fileID: 2120137689}
-  - {fileID: 67089880}
   - {fileID: 206001503}
-  - {fileID: 844103247}
   - {fileID: 1525597330}
+  - {fileID: 67089880}
+  - {fileID: 844103247}
   - {fileID: 1919967704}
   foodindex: 0
 --- !u!1 &809657138
@@ -1228,7 +1228,7 @@ GameObject:
   - component: {fileID: 844103249}
   - component: {fileID: 844103248}
   m_Layer: 0
-  m_Name: dish 5
+  m_Name: Plant+Mantis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1274,7 +1274,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1097852833516635906, guid: bdb5a481557b6a741a25896fb23aa3c4, type: 3}
+  m_Sprite: {fileID: 7147498715907211869, guid: 82f7ebd0ac704c04c8bfd30bb347b2c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1295,7 +1295,7 @@ Animator:
   m_GameObject: {fileID: 844103247}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a6132501930daec478eb697fe09c02b1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3d302cb045280c64f95f3928ab1edaf2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1318,7 +1318,7 @@ Transform:
   m_LocalScale: {x: 6.52, y: 6.52, z: 1}
   m_Children: []
   m_Father: {fileID: 80888503}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1171029578
 GameObject:
@@ -1661,7 +1661,7 @@ GameObject:
   - component: {fileID: 1525597332}
   - component: {fileID: 1525597331}
   m_Layer: 0
-  m_Name: dish 6
+  m_Name: Hornet+Plant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1751,7 +1751,7 @@ Transform:
   m_LocalScale: {x: 6.52, y: 6.52, z: 1}
   m_Children: []
   m_Father: {fileID: 80888503}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1582119311
 GameObject:
@@ -2035,7 +2035,7 @@ GameObject:
   - component: {fileID: 1919967706}
   - component: {fileID: 1919967705}
   m_Layer: 0
-  m_Name: dish 7
+  m_Name: Complete_Dish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2081,7 +2081,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7147498715907211869, guid: 82f7ebd0ac704c04c8bfd30bb347b2c2, type: 3}
+  m_Sprite: {fileID: -4798266087114943004, guid: a7cc46e7bc86fa948ad24c8a01782324, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2102,7 +2102,7 @@ Animator:
   m_GameObject: {fileID: 1919967704}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3d302cb045280c64f95f3928ab1edaf2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 55b87857f833c4c499584065542737b0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2171,7 +2171,7 @@ GameObject:
   - component: {fileID: 2120137691}
   - component: {fileID: 2120137690}
   m_Layer: 0
-  m_Name: dish 2
+  m_Name: Mantis_Dish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2217,7 +2217,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1152031259893654278, guid: 811685469846d294e9f2efccca5ffae7, type: 3}
+  m_Sprite: {fileID: 5334482748471096099, guid: 00e49700d7a4b8a4aaa28d07c62da9ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
