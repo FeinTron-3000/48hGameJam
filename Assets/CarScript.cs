@@ -19,6 +19,12 @@ public class CarScript : MonoBehaviour
         StartCoroutine(AnimationPlay());
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        animator.SetBool("Smash", true);
+        StartCoroutine(AnimationPlay());
+    }
+
     public IEnumerator AnimationPlay()
     {
         yield return new WaitForSeconds(0.2f);
