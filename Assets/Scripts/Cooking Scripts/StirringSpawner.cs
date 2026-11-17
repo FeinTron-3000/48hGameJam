@@ -8,12 +8,25 @@ public class StirringSpawner : MonoBehaviour
     [Header("Button")]
     public GameObject button;
 
+    public float respawntime;
+    bool respawning = false;
+
     void Update()
     {
         // if button is pressed, respawn it
-        if (button.activeInHierarchy == false)
+        if (button.activeInHierarchy == false && !respawning)
         {
-            button.SetActive(true);
+            respawning = true;
+
+            StartCoroutine(Respawn());
         }
+    }
+    public IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(respawntime);
+
+        respawning = false;
+
+        button.SetActive(true);
     }
 }

@@ -6,7 +6,8 @@ using TMPro;
 
 public class GMHuntingScene : MonoBehaviour
 {
-    public int nextscenename;
+    [Header("Scene Loading")]
+    public string nextscenename;
     public TransitionManager transitionManager;
 
     [Header("Tracker")]
@@ -28,7 +29,7 @@ public class GMHuntingScene : MonoBehaviour
     void Start()
     {
         playerhealth = playerhealth.GetComponent<PlayerHealth>();
-        transitionManager = playerhealth.GetComponent<TransitionManager>();
+        transitionManager = transitionManager.GetComponent<TransitionManager>();
 
         // reset level score tracker
         scoretracker.mantiscore = 0;

@@ -26,6 +26,20 @@ public class GMCookingScene : MonoBehaviour
 
     void Start()
     {
+        // increase timelimit
+        if (fryingsection)
+        {
+            timelimit += scoretracker.hornetscore * 5;
+        }
+        else if (stirringsection)
+        {
+            timelimit += scoretracker.plantscore * 5;
+        }
+        else if (choppingsection)
+        {
+            timelimit += scoretracker.mantiscore * 5;
+        }
+
         StartCoroutine(CountDown());
     }
 
