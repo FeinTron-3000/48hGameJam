@@ -21,6 +21,7 @@ public class StirringTarget : MonoBehaviour
 
     [Header("Animator")]
     public Animator animator;
+    public float animationtime;
 
     public Collider2D buttoncollision;
 
@@ -34,7 +35,7 @@ public class StirringTarget : MonoBehaviour
 
     public void OnMouseDown()
     {
-        animator.SetBool("Mash", true);
+        animator.SetBool("Break", true);
         buttonpress.Play();
 
         // don't allow for multiple clicks
@@ -62,9 +63,9 @@ public class StirringTarget : MonoBehaviour
 
     public IEnumerator Stop()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(animationtime);
 
-        animator.SetBool("Mash", false);
+        animator.SetBool("Break", false);
         gameObject.SetActive(false);
     }
 }
