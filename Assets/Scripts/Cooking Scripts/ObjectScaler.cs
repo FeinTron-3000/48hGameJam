@@ -44,6 +44,7 @@ public class ObjectScaler : MonoBehaviour
     public void OnMouseDown()
     {
         button.SetBool("Mash", true);
+        cick.Play();
 
         gm.score++;
 
@@ -56,8 +57,6 @@ public class ObjectScaler : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
 
         button.SetBool("Mash", false);
-
-        cick.Play();
     }
 
     IEnumerator Grow()
@@ -67,7 +66,8 @@ public class ObjectScaler : MonoBehaviour
             isGrowing = true;
             transform.localScale += Vector3.one * growspeed;
 
-            stoveknob.speed += growspeed;
+            // increase stove knob speed
+            stoveknob.speed += growspeed / 2;
 
             yield return new WaitForSeconds(0.01f);
 
