@@ -555,7 +555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1802413651}
-  respawntime: 1
+  respawntime: 0
 --- !u!4 &973345944
 Transform:
   m_ObjectHideFlags: 0
@@ -585,7 +585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1323258889}
-  respawntime: 1
+  respawntime: 0
 --- !u!1 &1131373278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1396,7 +1396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1802413652
 Animator:
   serializedVersion: 5

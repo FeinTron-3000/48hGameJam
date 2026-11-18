@@ -61,7 +61,7 @@ public class GMResultsPage : MonoBehaviour
         food[foodindex].SetActive(true);
 
         // calculate rank
-        finalscore = score.choppingscore + score.fryingscore + score.stirringscore;
+        finalscore = score.choppingscore + score.fryingscore / 2 + score.stirringscore * 2;
 
         if (finalscore >= a)
         {

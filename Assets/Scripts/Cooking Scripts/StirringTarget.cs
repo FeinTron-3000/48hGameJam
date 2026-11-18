@@ -44,7 +44,7 @@ public class StirringTarget : MonoBehaviour
         StartCoroutine(Stop());
 
         // increase score
-        gm.score += 2;
+        gm.score++;
     }
 
     void OnEnable()
