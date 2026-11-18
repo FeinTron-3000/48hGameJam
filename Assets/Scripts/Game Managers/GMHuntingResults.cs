@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Transactions;
 using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GMHuntingResults : MonoBehaviour
@@ -12,6 +13,8 @@ public class GMHuntingResults : MonoBehaviour
     [Header("Level Names")]
     public string[] levelnames;
     public int index;
+
+    public TransitionManager transitionManager;
 
     [Header("Animation")]
     public float animationtime;
@@ -65,7 +68,15 @@ public class GMHuntingResults : MonoBehaviour
 
         yield return new WaitForSeconds(animationtime);
 
-        // load next scene
+        StartCoroutine(Load());
+    }
+
+    public IEnumerator Load()
+    {
+        transitionManager.QueueSceneChange();
+
+        yield return new WaitForSeconds(1);
+
         SceneManager.LoadScene(levelnames[index]);
     }
 }

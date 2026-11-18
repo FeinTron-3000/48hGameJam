@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Transactions;
 using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GMCookingScene : MonoBehaviour
@@ -19,6 +20,8 @@ public class GMCookingScene : MonoBehaviour
     [Header("Level Names")]
     public string[] levelnames;
     public int index;
+
+    public TransitionManager transitionManager;
 
     [Header("Timer")]
     public TextMeshProUGUI timerText;
@@ -104,6 +107,15 @@ public class GMCookingScene : MonoBehaviour
         {
             index = 3;
         }
+
+        StartCoroutine(Load());
+    }
+
+    public IEnumerator Load()
+    {
+        transitionManager.QueueSceneChange();
+
+        yield return new WaitForSeconds(1);
 
         SceneManager.LoadScene(levelnames[index]);
     }

@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Transactions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GMMainMenu : MonoBehaviour
 {
-    [Header("Level Name")]
+    [Header("Scene Loading")]
     public string nextscenename;
+    public TransitionManager transitionManager;
 
     [Header("Background Animation")]
     public Animator animator;
@@ -31,7 +33,15 @@ public class GMMainMenu : MonoBehaviour
     {
         yield return new WaitForSeconds(animationplaytime);
 
-        // load the next scene
+        StartCoroutine(Load());
+    }
+
+    public IEnumerator Load()
+    {
+        transitionManager.QueueSceneChange();
+
+        yield return new WaitForSeconds(1);
+
         SceneManager.LoadScene(nextscenename);
     }
 }

@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Transactions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GMResultsPage : MonoBehaviour
 {
-    [Header("Level Name")]
+    [Header("Scene Loading")]
     public string nextscenename;
+    public TransitionManager transitionManager;
 
     [Header("Tracker")]
     public ScoreTracker score;
@@ -67,20 +69,29 @@ public class GMResultsPage : MonoBehaviour
         }
         else if (finalscore >= b)
         {
-                scores[1].SetActive(true);
+            scores[1].SetActive(true);
         }
         else if (finalscore >= c)
         {
-                scores[2].SetActive(true);
+            scores[2].SetActive(true);
         }
         else
         {
-                scores[3].SetActive(true);
+            scores[3].SetActive(true);
         }
     }
 
     public void StartOver()
     {
+        StartCoroutine(Load());
+    }
+
+    public IEnumerator Load()
+    {
+        transitionManager.QueueSceneChange();
+
+        yield return new WaitForSeconds(1);
+
         SceneManager.LoadScene(nextscenename);
     }
 }

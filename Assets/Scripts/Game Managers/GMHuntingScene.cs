@@ -86,7 +86,6 @@ public class GMHuntingScene : MonoBehaviour
         scoretracker.plantscore = plantdead;
         scoretracker.hornetscore = hornetdead;
 
-
         transitionManager.QueueSceneChange();
         StartCoroutine(Load());
     }
