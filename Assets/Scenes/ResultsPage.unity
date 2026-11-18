@@ -1199,10 +1199,10 @@ MonoBehaviour:
   nextscenename: Hunting
   transitionManager: {fileID: 802495780}
   score: {fileID: 11400000, guid: 988e67ceb904c76449e1d4c3b3840c1c, type: 2}
-  a: 100
-  b: 80
-  c: 60
-  d: 40
+  a: 400
+  b: 300
+  c: 250
+  d: 150
   scores:
   - {fileID: 598193371}
   - {fileID: 277293554}
