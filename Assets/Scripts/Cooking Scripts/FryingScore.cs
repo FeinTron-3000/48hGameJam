@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FryingScore : MonoBehaviour
@@ -15,6 +14,7 @@ public class FryingScore : MonoBehaviour
 
     [Header("Animator")]
     public Animator animator;
+    public Animator fryingpan;
 
     [Header("Audio")]
     public AudioSource fry;
@@ -41,8 +41,9 @@ public class FryingScore : MonoBehaviour
 
         // increase score
         gm.score++;
-        animator.SetBool("Mash", true);
 
+        animator.SetBool("Mash", true);
+        fryingpan.SetBool("Toss", true);
         fry.Play();
 
         // change stove knob direction
@@ -61,15 +62,26 @@ public class FryingScore : MonoBehaviour
         StartCoroutine(AnimationPlay());
     }
 
-    IEnumerator AnimationPlay()
+    public IEnumerator AnimationPlay()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
 
         animator.SetBool("Mash", false);
+        if (!negativepoints)
+        {
+            fryingpan.SetBool("Toss", false);
+        }
     }
 
     void OnEnable()
     {
+        animator.SetBool("Mash", false);
+
+        if (!negativepoints)
+        {
+            fryingpan.SetBool("Toss", false);
+        }
+
         buttoncollision.enabled = true;
     }
 }

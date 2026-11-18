@@ -176,6 +176,7 @@ MonoBehaviour:
   buttoncollision: {fileID: 61648683}
   negativepoints: 0
   animator: {fileID: 61648687}
+  fryingpan: {fileID: 892913390}
   fry: {fileID: 985970333}
   bad: {fileID: 497438002}
 --- !u!58 &61648683
@@ -2492,6 +2493,7 @@ MonoBehaviour:
   buttoncollision: {fileID: 2118260136}
   negativepoints: 1
   animator: {fileID: 2118260135}
+  fryingpan: {fileID: 2118260135}
   fry: {fileID: 985970333}
   bad: {fileID: 497438002}
 --- !u!114 &2118260138
