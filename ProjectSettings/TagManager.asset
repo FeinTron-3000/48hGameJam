@@ -8,6 +8,9 @@ TagManager:
   - Knockback
   - ChopTrigger
   - KnifeReset
+  - FryingCheckpoint1
+  - FryingCheckpoint2
+  - FryingCheckpoint3
   layers:
   - Default
   - TransparentFX

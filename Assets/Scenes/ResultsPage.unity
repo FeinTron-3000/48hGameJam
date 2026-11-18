@@ -255,8 +255,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 439348633}
-  - {fileID: 2120137692}
   - {fileID: 206001506}
+  - {fileID: 2120137692}
   - {fileID: 1525597333}
   - {fileID: 67089883}
   - {fileID: 844103250}
@@ -366,7 +366,7 @@ Transform:
   m_LocalScale: {x: 6.52, y: 6.52, z: 1}
   m_Children: []
   m_Father: {fileID: 80888503}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &277293554
 GameObject:
@@ -1211,8 +1211,8 @@ MonoBehaviour:
   finalscore: 0
   food:
   - {fileID: 439348631}
-  - {fileID: 2120137689}
   - {fileID: 206001503}
+  - {fileID: 2120137689}
   - {fileID: 1525597330}
   - {fileID: 67089880}
   - {fileID: 844103247}
@@ -2362,5 +2362,5 @@ Transform:
   m_LocalScale: {x: 6.52, y: 6.52, z: 1}
   m_Children: []
   m_Father: {fileID: 80888503}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
