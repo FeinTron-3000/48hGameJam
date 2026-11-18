@@ -555,7 +555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1802413651}
-  respawntime: 1
+  respawntime: 0
 --- !u!4 &973345944
 Transform:
   m_ObjectHideFlags: 0
@@ -585,7 +585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1323258889}
-  respawntime: 1
+  respawntime: 0
 --- !u!1 &1131373278
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,7 +955,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ad84a06abd723454bb687b27f38ed072, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6b24f59526523f146ac823788fdb0923, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1396,7 +1396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1802413652
 Animator:
   serializedVersion: 5
@@ -1561,7 +1561,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ad84a06abd723454bb687b27f38ed072, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6b24f59526523f146ac823788fdb0923, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

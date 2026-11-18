@@ -255,8 +255,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 439348633}
-  - {fileID: 2120137692}
   - {fileID: 206001506}
+  - {fileID: 2120137692}
   - {fileID: 1525597333}
   - {fileID: 67089883}
   - {fileID: 844103250}
@@ -366,7 +366,7 @@ Transform:
   m_LocalScale: {x: 6.52, y: 6.52, z: 1}
   m_Children: []
   m_Father: {fileID: 80888503}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &277293554
 GameObject:
@@ -1199,10 +1199,10 @@ MonoBehaviour:
   nextscenename: Hunting
   transitionManager: {fileID: 802495780}
   score: {fileID: 11400000, guid: 988e67ceb904c76449e1d4c3b3840c1c, type: 2}
-  a: 100
-  b: 80
-  c: 60
-  d: 40
+  a: 400
+  b: 300
+  c: 250
+  d: 150
   scores:
   - {fileID: 598193371}
   - {fileID: 277293554}
@@ -1211,8 +1211,8 @@ MonoBehaviour:
   finalscore: 0
   food:
   - {fileID: 439348631}
-  - {fileID: 2120137689}
   - {fileID: 206001503}
+  - {fileID: 2120137689}
   - {fileID: 1525597330}
   - {fileID: 67089880}
   - {fileID: 844103247}
@@ -2362,5 +2362,5 @@ Transform:
   m_LocalScale: {x: 6.52, y: 6.52, z: 1}
   m_Children: []
   m_Father: {fileID: 80888503}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -15,17 +15,18 @@ public class ObjectScaler : MonoBehaviour
 
     [Header("Scripts")]
     public GMCookingScene gm;
+    public StoveKnobSpin stoveknob;
 
     [Header("Animators")]
-    public Animator knifemantis;
     public Animator button;
 
     [Header("Audio")]
-    public AudioSource chop;
+    public AudioSource cick;
 
     private void Start()
     {
         gm = gm.gameObject.GetComponent<GMCookingScene>();
+        stoveknob = stoveknob.GetComponent<StoveKnobSpin>();
     }
 
     void Update()
@@ -40,11 +41,10 @@ public class ObjectScaler : MonoBehaviour
         }
     }
 
-    // Chop
     public void OnMouseDown()
     {
-        knifemantis.SetBool("Chop", true);
         button.SetBool("Mash", true);
+        cick.Play();
 
         gm.score++;
 
@@ -56,10 +56,7 @@ public class ObjectScaler : MonoBehaviour
     {
         yield return new WaitForSeconds(0.01f);
 
-        knifemantis.SetBool("Chop", false);
         button.SetBool("Mash", false);
-
-        chop.Play();
     }
 
     IEnumerator Grow()
@@ -68,6 +65,9 @@ public class ObjectScaler : MonoBehaviour
         {
             isGrowing = true;
             transform.localScale += Vector3.one * growspeed;
+
+            // increase stove knob speed
+            stoveknob.speed += growspeed / 2;
 
             yield return new WaitForSeconds(0.01f);
 

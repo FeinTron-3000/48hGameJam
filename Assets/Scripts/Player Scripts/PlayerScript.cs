@@ -22,7 +22,6 @@ public class PlayerScript : MonoBehaviour
     [Header("Dashing")]
     [SerializeField] private bool playerismoving;
     [SerializeField] private bool candash;
-    [SerializeField] private bool isdashing;
     public float dashingtime;
     public float dashcooldown;
 
@@ -177,7 +176,6 @@ public class PlayerScript : MonoBehaviour
     private IEnumerator Dash()
     {
         candash = false;
-        isdashing = true;
         float originalspeed = movespeed;
 
         // increase movement speed
@@ -187,7 +185,6 @@ public class PlayerScript : MonoBehaviour
         // reset movement speed
         yield return new WaitForSeconds(dashingtime);
         animator.SetBool("isDashing", false);
-        isdashing = false;
         movespeed = originalspeed;
 
         // reset dash
