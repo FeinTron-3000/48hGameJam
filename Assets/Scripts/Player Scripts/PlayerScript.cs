@@ -53,6 +53,11 @@ public class PlayerScript : MonoBehaviour
     {
         playerattack = playerattack.GetComponent<PlayerAttack>();
         playerhealth = playerhealth.GetComponent<PlayerHealth>();
+
+        // upgrades
+        dashingtime = stats.dashingtime;
+        movespeed = stats.movespeed;
+        damage = stats.damage;
     }
 
     // movement inputs

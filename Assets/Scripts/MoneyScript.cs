@@ -16,7 +16,7 @@ public class MoneyScript : MonoBehaviour
         {
             collect.Play();
 
-            tracker.money++;
+            tracker.money += 5;
 
             Destroy(gameObject);
         }

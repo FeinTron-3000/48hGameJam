@@ -12,3 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d9ee4a414fb18c49a191633bb30c9f0, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
+  movespeed: 10
+  jumppower: 10
+  dashpower: 20
+  damage: 1
+  dashingtime: 0.2
+  dashcooldown: 1
+  money: 0

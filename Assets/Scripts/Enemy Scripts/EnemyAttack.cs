@@ -85,7 +85,7 @@ public class EnemyAttack : MonoBehaviour
         // dont attack if player is dead
         if (player == null)
         {
-            animator.SetBool("Walk", false);
+            animator.SetBool("Attack", false);
             return;
         }
 

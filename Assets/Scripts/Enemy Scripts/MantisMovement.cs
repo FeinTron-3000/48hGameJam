@@ -52,31 +52,6 @@ public class MantisMovement : MonoBehaviour
             return;
         }
 
-        // if player is outside range left, dont move
-        if (player.transform.position.x < transform.position.x - 10)
-        {
-            health.agrivated = false;
-            attack.attackingstarted = false;
-
-            animator.SetBool("Walk", false);
-            mantiswalk.Stop();
-            rb.velocity = Vector3.zero;
-
-            return;
-        }
-        // if player is outside range right, dont move
-        if (player.transform.position.x > transform.position.x + 10)
-        {
-            health.agrivated = false;
-            attack.attackingstarted = false;
-
-            animator.SetBool("Walk", false);
-            mantiswalk.Stop();
-            rb.velocity = Vector3.zero;
-
-            return;
-        }
-
         if (health.agrivated && !attack.attacking)
         {
             animator.SetBool("Walk", true);

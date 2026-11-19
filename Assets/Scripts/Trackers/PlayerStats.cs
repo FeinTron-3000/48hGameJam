@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerStats", menuName = "PlayerStats")]
 public class PlayerStats : ScriptableObject
 {
+    [Header("Player Stats")]
     public float movespeed = 10;
     public float jumppower = 10;
     public float dashpower = 20;
