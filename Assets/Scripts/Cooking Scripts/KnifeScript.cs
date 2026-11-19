@@ -24,12 +24,19 @@ public class KnifeScript : MonoBehaviour
     [Header("Audio")]
     public AudioSource chop;
 
-    private void Start()
+    void Start()
     {
         gm = gm.GetComponent<GMCookingScene>();
     }
+
     void Update()
     {
+        // do not play 
+        if (!gm.gameisrunning)
+        {
+            return;
+        }
+
         mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 

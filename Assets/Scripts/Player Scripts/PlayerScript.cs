@@ -38,6 +38,9 @@ public class PlayerScript : MonoBehaviour
     [Header("Health")]
     public PlayerHealth playerhealth;
 
+    [Header("Stats")]
+    public ScoreTracker stats;
+
     [Header("Audio")]
     public AudioSource jumpsound;
     public AudioSource dashsound;
@@ -46,11 +49,15 @@ public class PlayerScript : MonoBehaviour
     [Header("Animator")]
     public Animator animator;
 
-
     private void Start()
     {
         playerattack = playerattack.GetComponent<PlayerAttack>();
         playerhealth = playerhealth.GetComponent<PlayerHealth>();
+
+        // upgrades
+        dashingtime = stats.dashingtime;
+        movespeed = stats.movespeed;
+        damage = stats.damage;
     }
 
     // movement inputs

@@ -14,6 +14,7 @@ public class GMResultsPage : MonoBehaviour
     public ScoreTracker score;
 
     [Header("Rank")]
+    public int s;
     public int a;
     public int b;
     public int c;
@@ -57,27 +58,35 @@ public class GMResultsPage : MonoBehaviour
         {
             foodindex = 2;
         }
+        else
+        {
+            foodindex = 7;
+        }
 
         food[foodindex].SetActive(true);
 
         // calculate rank
         finalscore = score.choppingscore + score.fryingscore / 2 + score.stirringscore * 2;
 
-        if (finalscore >= a)
+        if (finalscore >= s)
         {
             scores[0].SetActive(true);
         }
-        else if (finalscore >= b)
+        else if (finalscore >= a)
         {
             scores[1].SetActive(true);
         }
-        else if (finalscore >= c)
+        else if (finalscore >= b)
         {
             scores[2].SetActive(true);
         }
-        else
+        else if (finalscore >= c)
         {
             scores[3].SetActive(true);
+        }
+        else 
+        {
+            scores[4].SetActive(true);
         }
     }
 

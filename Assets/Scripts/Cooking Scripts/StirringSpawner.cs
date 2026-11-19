@@ -5,16 +5,32 @@ using UnityEngine.PlayerLoop;
 
 public class StirringSpawner : MonoBehaviour
 {
-    [Header("Button")]
-    public GameObject button;
+    [Header("Game Manager")]
+    public GMCookingScene gm;
+
+    [Header("Target")]
+    public GameObject target;
 
     public float respawntime;
     bool respawning = false;
 
+    void Start()
+    {
+        gm = gm.GetComponent<GMCookingScene>();
+    }
+
     void Update()
     {
+        // do not play 
+        if (!gm.gameisrunning)
+        {
+            target.SetActive(false);
+
+            return;
+        }
+
         // if button is pressed, respawn it
-        if (button.activeInHierarchy == false && !respawning)
+        if (target.activeInHierarchy == false && !respawning)
         {
             respawning = true;
 
@@ -27,6 +43,6 @@ public class StirringSpawner : MonoBehaviour
 
         respawning = false;
 
-        button.SetActive(true);
+        target.SetActive(true);
     }
 }

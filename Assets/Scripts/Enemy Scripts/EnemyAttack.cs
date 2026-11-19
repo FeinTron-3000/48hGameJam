@@ -13,7 +13,7 @@ public class EnemyAttack : MonoBehaviour
     public int damage;
 
     // only start attack script once
-    private bool attackingstarted;
+    public bool attackingstarted;
 
     public BoxCollider2D attackpoint;
 
@@ -73,6 +73,10 @@ public class EnemyAttack : MonoBehaviour
 
     public void Attack()
     {
+        if (!health.agrivated)
+        {
+            return;
+        }
         // dont attack if dead
         if (health.isdead)
         {
@@ -81,7 +85,7 @@ public class EnemyAttack : MonoBehaviour
         // dont attack if player is dead
         if (player == null)
         {
-            animator.SetBool("Walk", false);
+            animator.SetBool("Attack", false);
             return;
         }
 
