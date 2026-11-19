@@ -13,7 +13,7 @@ public class EnemyAttack : MonoBehaviour
     public int damage;
 
     // only start attack script once
-    private bool attackingstarted;
+    public bool attackingstarted;
 
     public BoxCollider2D attackpoint;
 
@@ -73,6 +73,10 @@ public class EnemyAttack : MonoBehaviour
 
     public void Attack()
     {
+        if (!health.agrivated)
+        {
+            return;
+        }
         // dont attack if dead
         if (health.isdead)
         {

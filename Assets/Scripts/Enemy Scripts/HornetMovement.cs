@@ -55,7 +55,7 @@ public class HornetMovement : MonoBehaviour
         // if player is within range left
         if (player.transform.position.x > transform.position.x - agrivationrange && !attackingstarted)
         {
-            attack.agrivated = true;
+            health.agrivated = true;
 
             attackingstarted = true;
             StartCoroutine(CoolDown());
@@ -69,7 +69,7 @@ public class HornetMovement : MonoBehaviour
             return;
         }
 
-        if (attack.agrivated == true)
+        if (health.agrivated == true)
         {
             // move right
             if (player.transform.position.x > transform.position.x)

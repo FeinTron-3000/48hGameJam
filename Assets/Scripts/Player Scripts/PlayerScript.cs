@@ -38,6 +38,9 @@ public class PlayerScript : MonoBehaviour
     [Header("Health")]
     public PlayerHealth playerhealth;
 
+    [Header("Stats")]
+    public PlayerStats stats;
+
     [Header("Audio")]
     public AudioSource jumpsound;
     public AudioSource dashsound;
@@ -45,7 +48,6 @@ public class PlayerScript : MonoBehaviour
 
     [Header("Animator")]
     public Animator animator;
-
 
     private void Start()
     {

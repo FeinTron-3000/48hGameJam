@@ -20,7 +20,6 @@ public class HornetAttack : MonoBehaviour
     public float attackspeed;
 
     public int damage;
-    public bool agrivated;
 
     void Start()
     {
