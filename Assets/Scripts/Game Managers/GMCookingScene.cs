@@ -24,8 +24,11 @@ public class GMCookingScene : MonoBehaviour
     public TransitionManager transitionManager;
 
     [Header("Timer")]
-    public TextMeshProUGUI timerText;
+    public TextMeshProUGUI timertext;
     public int timelimit;
+
+    public bool gameisrunning = false;
+    public TextMeshProUGUI countdowntext;
 
     void Start()
     {
@@ -43,13 +46,36 @@ public class GMCookingScene : MonoBehaviour
             timelimit += scoretracker.mantiscore * 5;
         }
 
-        StartCoroutine(CountDown());
+        StartCoroutine(GameStart());
     }
 
     void Update()
     {
         // score ui
         scoreui.text = "Score: " + score;
+    }
+
+    IEnumerator GameStart()
+    {
+        // countdown
+        countdowntext.text = "3";
+        countdowntext.color = Color.green;
+        yield return new WaitForSeconds(1);
+        countdowntext.text = "2";
+        countdowntext.color = Color.yellow;
+        yield return new WaitForSeconds(1);
+        countdowntext.text = "1";
+        countdowntext.color = Color.red;
+        yield return new WaitForSeconds(1);
+        countdowntext.text = "0";
+
+        gameisrunning = true;
+
+        StartCoroutine(CountDown());
+
+        yield return new WaitForSeconds(2);
+
+        countdowntext.enabled = false;
     }
 
     IEnumerator CountDown()
@@ -59,7 +85,7 @@ public class GMCookingScene : MonoBehaviour
             timelimit--;
             int minutes = Mathf.FloorToInt(timelimit / 60);
             int seconds = Mathf.FloorToInt(timelimit % 60);
-            timerText.text = string.Format("{00:00}:{1:00}", minutes, seconds);
+            timertext.text = string.Format("{00:00}:{1:00}", minutes, seconds);
             yield return new WaitForSeconds(1);
         }
 
@@ -113,6 +139,8 @@ public class GMCookingScene : MonoBehaviour
 
     public IEnumerator Load()
     {
+        gameisrunning = false;
+
         transitionManager.QueueSceneChange();
 
         yield return new WaitForSeconds(1);

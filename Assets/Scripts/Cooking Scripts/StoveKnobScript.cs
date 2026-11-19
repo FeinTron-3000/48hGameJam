@@ -1,57 +1,70 @@
 using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class StoveKnobScript : MonoBehaviour
 {
     [Header("Variables")]
+    public float speed;
+
+    public float speeddec;
+    public float speedinc;
+
+    public float maxspeed;
+    public float minspeed;
+
+    [Header("Scripts")]
     public GMCookingScene gm;
 
-    public int index = 0;
+    [Header("Audio")]
+    public AudioSource cick;
 
-    public AudioSource click;
-
-    void Start()
+    private void Start()
     {
-        gm = gm.GetComponent<GMCookingScene>();
+        gm = gm.gameObject.GetComponent<GMCookingScene>();
     }
 
     void Update()
     {
-        // face towards mouse
-        Vector3 mouseScreen = Input.mousePosition;
-        Vector3 mouse = Camera.main.ScreenToWorldPoint(mouseScreen);
+        // spin
+        transform.eulerAngles += Vector3.forward * -speed * Time.deltaTime;
 
-        transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(mouse.y - transform.position.y, mouse.x - transform.position.x) * Mathf.Rad2Deg - 90);
+        // do not play 
+        if (!gm.gameisrunning)
+        {
+            return;
+        }
+
+        if (speed <= minspeed)
+        {
+            speed = minspeed;
+        }
+        else
+        {
+            speed -= speeddec * Time.deltaTime;
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnMouseDown()
     {
-        if (collision.CompareTag("FryingCheckpoint1"))
+        // do not play 
+        if (!gm.gameisrunning)
         {
-            if (index == 0)
-            {
-                index = 1;
-            }
-        }
-        if (collision.CompareTag("FryingCheckpoint2"))
-        {
-            if (index == 1)
-            {
-                index = 2;
-            }
+            return;
         }
 
-        if (collision.CompareTag("FryingCheckpoint3"))
+        cick.Play();
+
+        gm.score++;
+
+        SpeedUp();
+    }
+
+    public void SpeedUp()
+    {
+        if (speed < maxspeed)
         {
-            if (index == 2)
-            {
-                gm.score++;
-
-                index = 0;
-
-                click.Play();
-            }
+            speed += speedinc;
         }
     }
 }
