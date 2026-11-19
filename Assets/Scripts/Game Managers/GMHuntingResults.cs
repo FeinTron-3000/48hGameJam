@@ -27,6 +27,9 @@ public class GMHuntingResults : MonoBehaviour
     public TextMeshProUGUI planttext;
     public TextMeshProUGUI hornettext;
 
+    [Header("Audio")]
+    public AudioSource button;
+
     void Start()
     {
         // reset cooking score tracker
@@ -73,6 +76,7 @@ public class GMHuntingResults : MonoBehaviour
 
     public IEnumerator Load()
     {
+        button.Play();
         transitionManager.QueueSceneChange();
 
         yield return new WaitForSeconds(1);
