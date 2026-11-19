@@ -23,6 +23,9 @@ public class GMCookingScene : MonoBehaviour
 
     public TransitionManager transitionManager;
 
+    [Header("Music")]
+    public AudioSource music;
+
     [Header("Timer")]
     public TextMeshProUGUI timertext;
     public int timelimit;
@@ -60,7 +63,7 @@ public class GMCookingScene : MonoBehaviour
         // countdown
         countdowntext.text = "3";
         countdowntext.color = Color.green;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
         countdowntext.text = "2";
         countdowntext.color = Color.yellow;
         yield return new WaitForSeconds(1);
@@ -71,6 +74,7 @@ public class GMCookingScene : MonoBehaviour
 
         gameisrunning = true;
 
+        music.Play();
         StartCoroutine(CountDown());
 
         yield return new WaitForSeconds(2);
