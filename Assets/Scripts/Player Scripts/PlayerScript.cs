@@ -39,7 +39,7 @@ public class PlayerScript : MonoBehaviour
     public PlayerHealth playerhealth;
 
     [Header("Stats")]
-    public PlayerStats stats;
+    public ScoreTracker stats;
 
     [Header("Audio")]
     public AudioSource jumpsound;

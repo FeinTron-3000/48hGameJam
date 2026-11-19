@@ -12,6 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf651d393ffa6a4e84a872e5fb45449, type: 3}
   m_Name: ScoreTracker
   m_EditorClassIdentifier: 
-  choppingsection: 0
-  stirringsection: 0
-  skillcheck: 0
+  mantiscore: 0
+  plantscore: 0
+  hornetscore: 0
+  choppingscore: 0
+  stirringscore: 0
+  fryingscore: 0
+  movespeed: 10
+  upgrade1bought: 0
+  damage: 1
+  upgrade2bought: 0
+  dashingtime: 0.2
+  upgrade3bought: 0
+  money: 0

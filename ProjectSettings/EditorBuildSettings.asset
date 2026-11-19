@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ResultsPage.unity
     guid: 1678add94c4c6f04aa4ba00398688829
+  - enabled: 1
+    path: Assets/Scenes/UpgradePage.unity
+    guid: cf471055d291e1a4e857641b754f7488
   m_configObjects: {}

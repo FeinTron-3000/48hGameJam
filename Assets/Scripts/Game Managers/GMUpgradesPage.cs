@@ -6,7 +6,7 @@ using TMPro;
 public class GMUpgradesPage : MonoBehaviour
 {
     [Header("Tracker")]
-    public PlayerStats tracker;
+    public ScoreTracker tracker;
 
     [Header("Audio")]
     public AudioSource click;
@@ -21,6 +21,29 @@ public class GMUpgradesPage : MonoBehaviour
     void Start()
     {
         moneycounter.text = "Money: " + tracker.money;
+
+        // don't allow upgrade to be bought twice
+        if (upgradeindex == 1)
+        {
+            if (tracker.upgrade1bought)
+            {
+                button.SetActive(false);
+            }
+        }
+        if (upgradeindex == 2)
+        {
+            if (tracker.upgrade2bought)
+            {
+                button.SetActive(false);
+            }
+        }
+        if (upgradeindex == 3)
+        {
+            if (tracker.upgrade3bought)
+            {
+                button.SetActive(false);
+            }
+        }
     }
 
     public void OnMouseDown()
@@ -34,14 +57,17 @@ public class GMUpgradesPage : MonoBehaviour
             if (upgradeindex == 1)
             {
                 tracker.movespeed += 5;
+                tracker.upgrade1bought = true;
             }
             if (upgradeindex == 2)
             {
                 tracker.damage += 1;
+                tracker.upgrade2bought = true;
             }
             if (upgradeindex == 3)
             {
                 tracker.dashingtime += 0.5f;
+                tracker.upgrade3bought = true;
             }
 
             moneycounter.text = "Money: " + tracker.money;

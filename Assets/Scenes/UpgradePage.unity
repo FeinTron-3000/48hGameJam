@@ -723,7 +723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3b707f81b83874bbd08f233100b6f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tracker: {fileID: 11400000, guid: 5755a95caac5ef449808966ce1cf5bb7, type: 2}
+  tracker: {fileID: 11400000, guid: 988e67ceb904c76449e1d4c3b3840c1c, type: 2}
   click: {fileID: 359019002}
   cost: 10
   upgradeindex: 1
@@ -1375,7 +1375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3b707f81b83874bbd08f233100b6f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tracker: {fileID: 11400000, guid: 5755a95caac5ef449808966ce1cf5bb7, type: 2}
+  tracker: {fileID: 11400000, guid: 988e67ceb904c76449e1d4c3b3840c1c, type: 2}
   click: {fileID: 802234957}
   cost: 10
   upgradeindex: 3
@@ -2285,7 +2285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3b707f81b83874bbd08f233100b6f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tracker: {fileID: 11400000, guid: 5755a95caac5ef449808966ce1cf5bb7, type: 2}
+  tracker: {fileID: 11400000, guid: 988e67ceb904c76449e1d4c3b3840c1c, type: 2}
   click: {fileID: 1566303387}
   cost: 10
   upgradeindex: 2
