@@ -253,7 +253,7 @@ MonoBehaviour:
   transitionManager: {fileID: 21705911}
   music: {fileID: 21705912}
   timertext: {fileID: 969878199}
-  timelimit: 20
+  timelimit: 15
   finalseconds: {fileID: 21705913}
   gameisrunning: 0
   countdowntext: {fileID: 1105383761}
@@ -2067,7 +2067,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bd69bcee6478ec44ab5006959e1268ac, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

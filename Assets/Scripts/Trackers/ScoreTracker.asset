@@ -15,6 +15,7 @@ MonoBehaviour:
   mantiscore: 0
   plantscore: 0
   hornetscore: 0
+  huntingplayedonce: 0
   choppingscore: 0
   stirringscore: 0
   fryingscore: 0
