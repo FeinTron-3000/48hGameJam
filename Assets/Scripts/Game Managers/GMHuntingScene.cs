@@ -46,6 +46,11 @@ public class GMHuntingScene : MonoBehaviour
         scoretracker.mantiscore = 0;
         scoretracker.plantscore = 0;
         scoretracker.hornetscore = 0;
+
+        if (scoretracker.huntingplayedonce)
+        {
+            OnMouseDown();
+        }
     }
 
     public void OnMouseDown()
@@ -61,6 +66,8 @@ public class GMHuntingScene : MonoBehaviour
         timertext.text = "Time remaining: " + string.Format("{00:00}:{1:00}", minutes, seconds);
 
         click.Play();
+
+        scoretracker.huntingplayedonce = true;
     }
 
     IEnumerator GameStart()

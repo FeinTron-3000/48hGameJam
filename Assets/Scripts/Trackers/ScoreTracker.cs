@@ -10,6 +10,8 @@ public class ScoreTracker : ScriptableObject
     public int plantscore;
     public int hornetscore;
 
+    public bool huntingplayedonce;
+
     [Header("Cooking")]
     public int choppingscore;
     public int stirringscore;
