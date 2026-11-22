@@ -33,6 +33,9 @@ public class GMResultsPage : MonoBehaviour
     [Header("Food discovered")]
     public GameObject[] unlockeddishes;
 
+    [Header("Audio")]
+    public AudioSource click;
+
     void Awake()
     {
         // determine food
@@ -174,6 +177,8 @@ public class GMResultsPage : MonoBehaviour
 
     public void StartOver()
     {
+        click.Play();
+
         StartCoroutine(Load());
     }
 
