@@ -2761,7 +2761,6 @@ GameObject:
   - component: {fileID: 802495778}
   - component: {fileID: 802495779}
   - component: {fileID: 802495780}
-  - component: {fileID: 802495781}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -2798,9 +2797,9 @@ MonoBehaviour:
   nextscenename: UpgradePage
   transitionManager: {fileID: 802495780}
   score: {fileID: 11400000, guid: 988e67ceb904c76449e1d4c3b3840c1c, type: 2}
-  s: 300
-  a: 200
-  b: 150
+  s: 350
+  a: 250
+  b: 175
   c: 100
   d: 50
   scores:
@@ -2846,18 +2845,6 @@ MonoBehaviour:
   speed: 35
   maxsize: 20
   minsize: 0.1
---- !u!114 &802495781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802495777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce922fee2c9883d41a799f0615ffed64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &809657138
 GameObject:
   m_ObjectHideFlags: 0
@@ -5822,7 +5809,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5334482748471096099, guid: 00e49700d7a4b8a4aaa28d07c62da9ef, type: 3}
+  m_Sprite: {fileID: -2873781890278171251, guid: db714a8985f42384ba4e531d2d9c2ca1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5843,7 +5830,7 @@ Animator:
   m_GameObject: {fileID: 2120137689}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5d3e017eab0c86c4b9aea664020dffc2, type: 2}
+  m_Controller: {fileID: 9100000, guid: e66d53582b705844a83e69ab9eacbb04, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -117,15 +117,19 @@ public class EnemyAttack : MonoBehaviour
     {
         yield return new WaitForSeconds(attackdelaytime);
 
-        // stupid plant code
-        if (health.plant)
+        // dont attack if dead
+        if (!health.isdead)
         {
-            transform.position = transform.position + new Vector3(0.01f, 0, 0);
+            // stupid plant code
+            if (health.plant)
+            {
+                transform.position = transform.position + new Vector3(0.01f, 0, 0);
+            }
+
+            // attack
+            attackpoint.enabled = true;
+
+            StartCoroutine(WeaponReturn());
         }
-
-        // attack
-        attackpoint.enabled = true;
-
-        StartCoroutine(WeaponReturn());
     }
 }

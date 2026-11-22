@@ -112,6 +112,7 @@ public class GMCookingScene : MonoBehaviour
         }
 
         timelimit = 0;
+        gameisrunning = false;
         GameOver();
     }
 

@@ -65,7 +65,10 @@ public class GMHuntingScene : MonoBehaviour
         int seconds = Mathf.FloorToInt(timelimit % 60);
         timertext.text = "Time remaining: " + string.Format("{00:00}:{1:00}", minutes, seconds);
 
-        click.Play();
+        if (!scoretracker.huntingplayedonce)
+        {
+            click.Play();
+        }
 
         scoretracker.huntingplayedonce = true;
     }
@@ -101,6 +104,10 @@ public class GMHuntingScene : MonoBehaviour
         }
 
         // health tracking
+        if (playerhealth.health == playerhealth.maxhealth)
+        {
+            healthbar.SetBool("3/3 Health", true);
+        }
         if (playerhealth.health <= 4)
         {
             healthbar.SetBool("2/3 Health", true);
@@ -115,7 +122,7 @@ public class GMHuntingScene : MonoBehaviour
         }
         else
         {
-            healthbar.SetBool("3/3 Health", true);
+            healthbar.SetBool("0/3 Health", true);
         }
 
         if (Input.GetKeyDown(KeyCode.Return))
@@ -153,6 +160,8 @@ public class GMHuntingScene : MonoBehaviour
         scoretracker.mantiscore = mantisdead;
         scoretracker.plantscore = plantdead;
         scoretracker.hornetscore = hornetdead;
+
+        gameisrunning = false;
 
         transitionManager.QueueSceneChange();
         StartCoroutine(Load());

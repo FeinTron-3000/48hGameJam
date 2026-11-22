@@ -20,7 +20,7 @@ public class GMUpgradesPage : MonoBehaviour
 
     void Start()
     {
-        moneycounter.text = "Money: " + tracker.money;
+        moneycounter.text = "Money: $" + tracker.money;
 
         // don't allow upgrade to be bought twice
         if (upgradeindex == 1)
@@ -70,7 +70,7 @@ public class GMUpgradesPage : MonoBehaviour
                 tracker.upgrade3bought = true;
             }
 
-            moneycounter.text = "Money: " + tracker.money;
+            moneycounter.text = "Money: $" + tracker.money;
             button.SetActive(false);
         }
     }
