@@ -38,9 +38,9 @@ public class GMHuntingResults : MonoBehaviour
         scoretracker.choppingscore = 0;
 
         // score tracking
-        mantistext.text = "Mantis dead: " + scoretracker.mantiscore;
-        planttext.text = "Plant dead: " + scoretracker.plantscore;
-        hornettext.text = "Hornet dead: " + scoretracker.hornetscore;
+        mantistext.text = "Mantis killed: " + scoretracker.mantiscore;
+        planttext.text = "Plant killed: " + scoretracker.plantscore;
+        hornettext.text = "Hornet killled: " + scoretracker.hornetscore;
 
         // available cooking level
         if (scoretracker.hornetscore > 0)
