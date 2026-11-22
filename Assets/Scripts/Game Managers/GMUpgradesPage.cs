@@ -56,7 +56,7 @@ public class GMUpgradesPage : MonoBehaviour
 
             if (upgradeindex == 1)
             {
-                tracker.movespeed += 5;
+                tracker.jumppower += 2;
                 tracker.upgrade1bought = true;
             }
             if (upgradeindex == 2)
@@ -66,7 +66,7 @@ public class GMUpgradesPage : MonoBehaviour
             }
             if (upgradeindex == 3)
             {
-                tracker.dashingtime += 0.5f;
+                tracker.maxhealth += 3;
                 tracker.upgrade3bought = true;
             }
 

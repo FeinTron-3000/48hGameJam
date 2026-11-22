@@ -58,14 +58,14 @@ public class MantisMovement : MonoBehaviour
             if (player.transform.position.x > transform.position.x)
             {
                 // flip direction facing
-                transform.localScale = new Vector3(-8, 8, 1);
+                transform.localScale = new Vector3(-10, 10, 1);
 
                 rb.AddForce(Vector2.right * movespeed * Time.deltaTime, ForceMode2D.Force);
             }
             else
             {
                 // flip direction facing
-                transform.localScale = new Vector3(8, 8, 1);
+                transform.localScale = new Vector3(10, 10, 1);
 
                 rb.AddForce(Vector2.left * movespeed * Time.deltaTime, ForceMode2D.Force);
             }

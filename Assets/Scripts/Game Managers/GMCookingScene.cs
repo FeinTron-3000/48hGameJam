@@ -52,7 +52,7 @@ public class GMCookingScene : MonoBehaviour
         // set time limit
         int minutes = Mathf.FloorToInt(timelimit / 60);
         int seconds = Mathf.FloorToInt(timelimit % 60);
-        timertext.text = "Time remaining: " + string.Format("{00:00}:{1:00}", minutes, seconds);
+        timertext.text = string.Format("{00:00}:{1:00}", minutes, seconds);
 
         StartCoroutine(GameStart());
     }

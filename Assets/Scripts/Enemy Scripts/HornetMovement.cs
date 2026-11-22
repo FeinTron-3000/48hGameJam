@@ -75,7 +75,7 @@ public class HornetMovement : MonoBehaviour
             if (player.transform.position.x > transform.position.x)
             {
                 // flip direction facing
-                transform.localScale = new Vector3(-4, 4, 1);
+                transform.localScale = new Vector3(-5, 5, 1);
 
                 transform.Translate(Vector2.right * movespeed * Time.deltaTime);
             }
@@ -83,7 +83,7 @@ public class HornetMovement : MonoBehaviour
             else
             {
                 // flip direction facing
-                transform.localScale = new Vector3(4, 4, 1);
+                transform.localScale = new Vector3(5, 5, 1);
 
                 transform.Translate(Vector2.left * movespeed * Time.deltaTime);
             }
