@@ -63,6 +63,11 @@ public class GMCookingScene : MonoBehaviour
     {
         // score ui
         scoreui.text = "Score: " + score;
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            GameOver();
+        }
     }
 
     IEnumerator GameStart()

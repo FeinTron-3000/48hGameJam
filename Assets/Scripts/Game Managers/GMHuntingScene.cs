@@ -117,6 +117,11 @@ public class GMHuntingScene : MonoBehaviour
         {
             healthbar.SetBool("3/3 Health", true);
         }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            LevelEnd();
+        }
     }
 
     IEnumerator CountDown()

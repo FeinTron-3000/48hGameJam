@@ -78,35 +78,35 @@ public class GMResultsPage : MonoBehaviour
         {
             scores[0].SetActive(true);
 
-            score.money += 20;
+            score.money += 2000;
             moneycounter.text = "Money: " + score.money;
         }
         else if (finalscore >= a)
         {
             scores[1].SetActive(true);
 
-            score.money += 12;
+            score.money += 1200;
             moneycounter.text = "Money: " + score.money;
         }
         else if (finalscore >= b)
         {
             scores[2].SetActive(true);
 
-            score.money += 8;
+            score.money += 800;
             moneycounter.text = "Money: " + score.money;
         }
         else if (finalscore >= c)
         {
             scores[3].SetActive(true);
 
-            score.money += 5;
+            score.money += 500;
             moneycounter.text = "Money: " + score.money;
         }
         else 
         {
             scores[4].SetActive(true);
 
-            score.money += 3;
+            score.money += 300;
             moneycounter.text = "Money: " + score.money;
         }
     }

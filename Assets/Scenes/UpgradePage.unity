@@ -314,7 +314,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Increase Health ($10)
+  m_text: Increase Health ($1000)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 48f453a72e9bbd94590733928c460286, type: 2}
   m_sharedMaterial: {fileID: 4309538741217102573, guid: 48f453a72e9bbd94590733928c460286, type: 2}
@@ -1021,7 +1021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tracker: {fileID: 11400000, guid: 988e67ceb904c76449e1d4c3b3840c1c, type: 2}
   click: {fileID: 359019002}
-  cost: 5
+  cost: 500
   upgradeindex: 1
   button: {fileID: 998870449}
   moneycounter: {fileID: 2099908437}
@@ -1508,7 +1508,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Increase Damage ($15)
+  m_text: Increase Damage ($1500)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 48f453a72e9bbd94590733928c460286, type: 2}
   m_sharedMaterial: {fileID: 4309538741217102573, guid: 48f453a72e9bbd94590733928c460286, type: 2}
@@ -1958,7 +1958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tracker: {fileID: 11400000, guid: 988e67ceb904c76449e1d4c3b3840c1c, type: 2}
   click: {fileID: 1139721330}
-  cost: 10
+  cost: 1000
   upgradeindex: 3
   button: {fileID: 307475964}
   moneycounter: {fileID: 2099908437}
@@ -2693,7 +2693,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Increase Jump Power ($5)
+  m_text: Increase Jump Power ($500)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 48f453a72e9bbd94590733928c460286, type: 2}
   m_sharedMaterial: {fileID: 4309538741217102573, guid: 48f453a72e9bbd94590733928c460286, type: 2}
@@ -2864,6 +2864,7 @@ GameObject:
   - component: {fileID: 1919710956}
   - component: {fileID: 1919710958}
   - component: {fileID: 1919710957}
+  - component: {fileID: 1919710960}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -3016,6 +3017,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1919710960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919710955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce922fee2c9883d41a799f0615ffed64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1969932799
 GameObject:
   m_ObjectHideFlags: 0
@@ -3063,7 +3076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tracker: {fileID: 11400000, guid: 988e67ceb904c76449e1d4c3b3840c1c, type: 2}
   click: {fileID: 1969932802}
-  cost: 15
+  cost: 1500
   upgradeindex: 2
   button: {fileID: 1511359112}
   moneycounter: {fileID: 2099908437}
