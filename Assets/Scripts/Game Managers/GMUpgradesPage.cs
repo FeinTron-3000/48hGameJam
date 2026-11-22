@@ -66,7 +66,7 @@ public class GMUpgradesPage : MonoBehaviour
             }
             if (upgradeindex == 3)
             {
-                tracker.maxhealth += 3;
+                tracker.maxhealth += 2;
                 tracker.upgrade3bought = true;
             }
 

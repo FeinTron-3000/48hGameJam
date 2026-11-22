@@ -69,6 +69,8 @@ public class GMHuntingResults : MonoBehaviour
         animator.SetBool("Transition", true);
         UI.SetActive(false);
 
+        button.Play();
+
         yield return new WaitForSeconds(animationtime);
 
         StartCoroutine(Load());
@@ -76,7 +78,6 @@ public class GMHuntingResults : MonoBehaviour
 
     public IEnumerator Load()
     {
-        button.Play();
         transitionManager.QueueSceneChange();
 
         yield return new WaitForSeconds(1);

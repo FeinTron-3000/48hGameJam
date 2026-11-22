@@ -30,6 +30,8 @@ public class GMCookingScene : MonoBehaviour
     public TextMeshProUGUI timertext;
     public int timelimit;
 
+    public AudioSource finalseconds;
+
     public bool gameisrunning = false;
     public TextMeshProUGUI countdowntext;
 
@@ -95,6 +97,12 @@ public class GMCookingScene : MonoBehaviour
             int minutes = Mathf.FloorToInt(timelimit / 60);
             int seconds = Mathf.FloorToInt(timelimit % 60);
             timertext.text = string.Format("{00:00}:{1:00}", minutes, seconds);
+
+            if (timelimit == 4)
+            {
+                finalseconds.Play();
+            }
+
             yield return new WaitForSeconds(1);
         }
 

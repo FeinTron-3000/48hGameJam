@@ -39,40 +39,30 @@ public class GMResultsPage : MonoBehaviour
         if (score.hornetscore >= 1)
         {
             foodindex = 0;
-            score.dish1unlocked = true;
-
             if (score.plantscore >= 1)
             {
                 foodindex = 3;
-                score.dish4unlocked = true;
-
                 if (score.mantiscore >= 1)
                 {
                     foodindex = 6;
-                    score.dish7unlocked = true;
                 }
             }
             else if (score.mantiscore >= 1)
             {
                 foodindex = 4;
-                score.dish5unlocked = true;
             }
         }
         else if (score.plantscore >= 1)
         {
             foodindex = 1;
-            score.dish2unlocked = true;
-
             if (score.mantiscore >= 1)
             {
                 foodindex = 5;
-                score.dish6unlocked = true;
             }
         }
         else if (score.mantiscore >= 1)
         {
             foodindex = 2;
-            score.dish3unlocked = true;
         }
         else
         {
@@ -123,6 +113,35 @@ public class GMResultsPage : MonoBehaviour
 
     void Start()
     {
+        if (foodindex == 0)
+        {
+            score.dish1unlocked = true;
+        }
+        else if (foodindex == 1)
+        {
+            score.dish2unlocked = true;
+        }
+        else if (foodindex == 2)
+        {
+            score.dish3unlocked = true;
+        }
+        else if (foodindex == 3)
+        {
+            score.dish4unlocked = true;
+        }
+        else if (foodindex == 4)
+        {
+            score.dish5unlocked = true;
+        }
+        else if (foodindex == 5)
+        {
+            score.dish6unlocked = true;
+        }
+        else if (foodindex == 6)
+        {
+            score.dish7unlocked = true;
+        }
+
         if (score.dish1unlocked)
         {
             unlockeddishes[0].SetActive(false);
