@@ -635,7 +635,7 @@ MonoBehaviour:
   transitionManager: {fileID: 1198035551}
   music: {fileID: 1198035552}
   timertext: {fileID: 959942289}
-  timelimit: 30
+  timelimit: 25
   gameisrunning: 0
   countdowntext: {fileID: 1426452494}
 --- !u!4 &1198035550

@@ -35,6 +35,8 @@ public class GMHuntingScene : MonoBehaviour
     public TextMeshProUGUI timertext;
     public int timelimit;
 
+    public AudioSource finalseconds;
+
     void Start()
     {
         playerhealth = playerhealth.GetComponent<PlayerHealth>();
@@ -92,7 +94,7 @@ public class GMHuntingScene : MonoBehaviour
         }
 
         // health tracking
-        if (playerhealth.health <= playerhealth.maxhealth - 1)
+        if (playerhealth.health <= 4)
         {
             healthbar.SetBool("2/3 Health", true);
         }
@@ -121,6 +123,11 @@ public class GMHuntingScene : MonoBehaviour
             int minutes = Mathf.FloorToInt(timelimit / 60);
             int seconds = Mathf.FloorToInt(timelimit % 60);
             timertext.text = "Time remaining: " + string.Format("{00:00}:{1:00}", minutes, seconds);
+
+            if (timelimit == 4)
+            {
+                finalseconds.Play();
+            }
 
             yield return new WaitForSeconds(1);
         }
