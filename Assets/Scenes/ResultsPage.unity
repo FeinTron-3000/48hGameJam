@@ -2798,9 +2798,9 @@ MonoBehaviour:
   nextscenename: UpgradePage
   transitionManager: {fileID: 802495780}
   score: {fileID: 11400000, guid: 988e67ceb904c76449e1d4c3b3840c1c, type: 2}
-  s: 300
-  a: 200
-  b: 150
+  s: 350
+  a: 250
+  b: 175
   c: 100
   d: 50
   scores:
