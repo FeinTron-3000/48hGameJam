@@ -3280,7 +3280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 7
+  maxHealth: 8
   isdead: 0
   deathcollider: {fileID: 1480344766}
   knockback: {fileID: 1101494603}
@@ -4275,7 +4275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 7
+  maxHealth: 8
   isdead: 0
   deathcollider: {fileID: 105810868}
   knockback: {fileID: 1320218310}
@@ -10216,7 +10216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 7
+  maxHealth: 8
   isdead: 0
   deathcollider: {fileID: 88373020}
   knockback: {fileID: 1625686237}

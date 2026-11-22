@@ -67,6 +67,8 @@ public class PlayerScript : MonoBehaviour
     {
         if (!gm.gameisrunning)
         {
+            walksound.Stop();
+            animator.SetBool("isWalking", false);
             return;
         }
 
@@ -74,6 +76,7 @@ public class PlayerScript : MonoBehaviour
         {
             // if dead stop moving
             walksound.Stop();
+            animator.SetBool("isWalking", false);
             return;
         }
 
