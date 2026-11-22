@@ -58,9 +58,8 @@ public class PlayerScript : MonoBehaviour
         playerhealth = playerhealth.GetComponent<PlayerHealth>();
 
         // upgrades
-        dashingtime = stats.dashingtime;
-        movespeed = stats.movespeed;
         damage = stats.damage;
+        jumppower = stats.jumppower;
     }
 
     // movement inputs
@@ -182,7 +181,7 @@ public class PlayerScript : MonoBehaviour
                 doublejump = false;
 
                 // smaller jump
-                rb.AddForce(Vector2.up * jumppower * 0.5f, ForceMode2D.Impulse);
+                rb.AddForce(Vector2.up * 0.5f * jumppower, ForceMode2D.Impulse);
             }
         }
     }

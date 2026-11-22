@@ -23,6 +23,9 @@ public class PlayerHealth : MonoBehaviour
     [Header("Game Manager")]
     public GMHuntingScene gamemanager;
 
+    [Header("Stats")]
+    public ScoreTracker stats;
+
     [Header("Animator")]
     public Animator animator;
     public float deathanimationtime;
@@ -30,9 +33,10 @@ public class PlayerHealth : MonoBehaviour
     public SpriteRenderer sprite;
 
 
-    void Awake()
+    void Start()
     {
         // set health
+        maxhealth = stats.maxhealth;
         health = maxhealth;
 
         gamemanager = gamemanager.GetComponent<GMHuntingScene>();

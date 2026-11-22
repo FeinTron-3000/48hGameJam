@@ -15,14 +15,23 @@ public class ScoreTracker : ScriptableObject
     public int stirringscore;
     public int fryingscore;
 
+    [Header("Food Discovered")]
+    public bool dish1unlocked;
+    public bool dish2unlocked;
+    public bool dish3unlocked;
+    public bool dish4unlocked;
+    public bool dish5unlocked;
+    public bool dish6unlocked;
+    public bool dish7unlocked;
+
     [Header("Player Stats")]
-    public float movespeed = 10;
+    public float jumppower = 8;
     public bool upgrade1bought;
 
     public int damage = 1;
     public bool upgrade2bought;
 
-    public float dashingtime = 0.2f;
+    public int maxhealth = 5;
     public bool upgrade3bought;
 
     [Header("Money")]

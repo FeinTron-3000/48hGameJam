@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf651d393ffa6a4e84a872e5fb45449, type: 3}
   m_Name: ScoreTracker
   m_EditorClassIdentifier: 
-  mantiscore: 0
-  plantscore: 0
-  hornetscore: 0
+  mantiscore: 1
+  plantscore: 1
+  hornetscore: 1
   choppingscore: 0
   stirringscore: 0
-  fryingscore: 0
+  fryingscore: 109
+  dish1: 0
   movespeed: 10
   upgrade1bought: 0
   damage: 1
