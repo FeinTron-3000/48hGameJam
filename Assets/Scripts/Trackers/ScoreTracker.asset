@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mantiscore: 0
   plantscore: 0
-  hornetscore: 0
-  huntingplayedonce: 0
+  hornetscore: 1
+  huntingplayedonce: 1
   choppingscore: 0
   stirringscore: 0
   fryingscore: 0
@@ -25,11 +25,11 @@ MonoBehaviour:
   dish4unlocked: 0
   dish5unlocked: 0
   dish6unlocked: 0
-  dish7unlocked: 0
-  jumppower: 8
-  upgrade1bought: 0
+  dish7unlocked: 1
+  jumppower: 10
+  upgrade1bought: 1
   damage: 1
   upgrade2bought: 0
-  maxhealth: 5
-  upgrade3bought: 0
-  money: 0
+  maxhealth: 7
+  upgrade3bought: 1
+  money: 500
