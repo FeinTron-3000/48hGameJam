@@ -10,6 +10,15 @@ public class GMHuntingScene : MonoBehaviour
     public string nextscenename;
     public TransitionManager transitionManager;
 
+    [Header("Game Start")]
+    public bool gameisrunning = false;
+    public TextMeshProUGUI countdowntext;
+
+    public GameObject instructions;
+    public GameObject gameui;
+
+    public AudioSource click;
+
     [Header("Tracker")]
     public ScoreTracker scoretracker;
 
@@ -35,13 +44,53 @@ public class GMHuntingScene : MonoBehaviour
         scoretracker.mantiscore = 0;
         scoretracker.plantscore = 0;
         scoretracker.hornetscore = 0;
+    }
 
-        // start countdown
+    public void OnMouseDown()
+    {
+        instructions.SetActive(false);
+        gameui.SetActive(true);
+
+        StartCoroutine(GameStart());
+
+        // set time limit
+        int minutes = Mathf.FloorToInt(timelimit / 60);
+        int seconds = Mathf.FloorToInt(timelimit % 60);
+        timertext.text = "Time remaining: " + string.Format("{00:00}:{1:00}", minutes, seconds);
+
+        click.Play();
+    }
+
+    IEnumerator GameStart()
+    {
+        // countdown
+        countdowntext.text = "3";
+        countdowntext.color = Color.green;
+        yield return new WaitForSeconds(1.5f);
+        countdowntext.text = "2";
+        countdowntext.color = Color.yellow;
+        yield return new WaitForSeconds(1);
+        countdowntext.text = "1";
+        countdowntext.color = Color.red;
+        yield return new WaitForSeconds(1);
+        countdowntext.text = "0";
+
+        gameisrunning = true;
+
         StartCoroutine(CountDown());
+
+        yield return new WaitForSeconds(2);
+
+        countdowntext.enabled = false;
     }
 
     void Update()
     {
+        if (!gameisrunning)
+        {
+            return;
+        }
+
         // health tracking
         if (playerhealth.health <= playerhealth.maxhealth - 1)
         {

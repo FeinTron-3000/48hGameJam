@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 
 public class PlayerScript : MonoBehaviour
 {
+    public GMHuntingScene gm;
     public Rigidbody2D rb;
 
     [Header("Player Movement")]
@@ -51,6 +52,8 @@ public class PlayerScript : MonoBehaviour
 
     private void Start()
     {
+        gm = gm.GetComponent<GMHuntingScene>();
+
         playerattack = playerattack.GetComponent<PlayerAttack>();
         playerhealth = playerhealth.GetComponent<PlayerHealth>();
 
@@ -63,13 +66,17 @@ public class PlayerScript : MonoBehaviour
     // movement inputs
     void Update()
     {
+        if (!gm.gameisrunning)
+        {
+            return;
+        }
+
         if (playerhealth.isdead)
         {
             // if dead stop moving
             walksound.Stop();
             return;
         }
-
 
         // left/ right movement
         if (Input.GetKey(moveright))
