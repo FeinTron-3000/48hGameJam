@@ -1509,7 +1509,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Increase Damage ($1500)
+  m_text: Increase Damage ($2000)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 48f453a72e9bbd94590733928c460286, type: 2}
   m_sharedMaterial: {fileID: 4309538741217102573, guid: 48f453a72e9bbd94590733928c460286, type: 2}
@@ -3198,7 +3198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tracker: {fileID: 11400000, guid: 988e67ceb904c76449e1d4c3b3840c1c, type: 2}
   click: {fileID: 1969932802}
-  cost: 1500
+  cost: 2000
   upgradeindex: 2
   button: {fileID: 1511359112}
   moneycounter: {fileID: 2099908437}

@@ -116,7 +116,7 @@ public class GMHuntingScene : MonoBehaviour
         {
             healthbar.SetBool("1/3 Health", true);
         }
-        else if (playerhealth.health <= 0)
+        if (playerhealth.health <= 0)
         {
             healthbar.SetBool("0/3 Health", true);
         }
